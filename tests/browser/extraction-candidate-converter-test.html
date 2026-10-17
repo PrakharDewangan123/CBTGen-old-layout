@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CBTGen Extraction Converter Test</title>
+  <style>
+    body { font: 14px/1.6 monospace; padding: 24px; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+    .hint { font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <h1>CBTGen Extraction Converter Test</h1>
+  <p class="hint">Tests generated XML using the actual CBTGen semantic validator.</p>
+  <pre id="results">Running tests…</pre>
+
+  <script type="module">
+    import {
+      convertReviewedCandidatesToCbtgenXml,
+    } from '/src/lib/cbtgen/extractionCandidateConverter.js'
+
+    import {
+      validateCbtgenXml,
+    } from '/src/lib/cbtgen/semanticValidator.js'
+
+    const output = document.querySelector('#results')
+    const lines = []
+
+    function assert(condition, message) {
+      if (!condition) throw new Error(message)
+      lines.push(`PASS: ${message}`)
+    }
+
+    function validateGeneratedXml(xmlText) {
+      const documentXml = new DOMParser().parseFromString(
+        xmlText,
+        'application/xml'
+      )
+
+      assert(
+        documentXml.querySelector('parsererror') === null,
+        'Generated XML is well-formed'
+      )
+
+      return validateCbtgenXml(documentXml)
+    }
+
+    try {
+      const reviewedQuestions = [
+        {
+          printedNumber: '1',
+          type: 'MCQ',
+          reviewed: true,
+          textCandidate: 'Which symbol represents A & B?',
+          options: [
+            { printedLabel: 'A', textCandidate: '<alpha>', reviewed: true },
+            { printedLabel: 'B', textCandidate: 'Beta "value"', reviewed: true },
+          ],
+        },
+        {
+          printedNumber: '2',
+          type: 'MSQ',
+          reviewed: true,
+          textCandidate: 'Select all applicable statements.',
+          options: [
+            { printedLabel: 'A', textCandidate: 'First', reviewed: true },
+            { printedLabel: 'B', textCandidate: 'Second', reviewed: true },
+          ],
+        },
+      ]
+
+      const xmlText = convertReviewedCandidatesToCbtgenXml({
+        reviewedQuestions,
+        reviewStatus: 'human-reviewed',
+        examName: 'Semantic Integration Test',
+      })
+
+      const result = validateGeneratedXml(xmlText)
+
+      assert(
+        result.errors.length === 0,
+        `Generated XML has no semantic errors; found: ${
+          result.errors.map((error) => error.code).join(', ') || 'none'
+        }`
+      )
+
+      assert(
+        result.valid === true,
+        `Validator accepts generated XML; status: ${result.status}`
+      )
+
+      assert(
+        result.summary?.scoringReady === false,
+        'Missing answer keys keep the generated paper out of scoring-ready state'
+      )
+
+      assert(
+        result.warnings.some((warning) =>
+          ['ANSWER_KEY_MISSING', 'ANSWER_MISSING'].includes(warning.code)
+        ),
+        'Missing answer keys are explicitly reported'
+      )
+
+      lines.push('', 'ALL SEMANTIC INTEGRATION ASSERTIONS PASSED')
+      output.textContent = lines.join('\n')
+      document.title = 'PASS — CBTGen Extraction Converter Test'
+    } catch (error) {
+      lines.push('', `FAIL: ${error.message || error}`)
+      if (error.stack) lines.push(error.stack)
+      output.textContent = lines.join('\n')
+      document.title = 'FAIL — CBTGen Extraction Converter Test'
+      console.error(error)
+    }
+  </script>
+</body>
+</html>

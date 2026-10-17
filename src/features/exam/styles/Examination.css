@@ -1,0 +1,2789 @@
+.cbt-exam-root{margin:0;width:100%;height:100%;overflow:hidden;font-family:Arial,Verdana,sans-serif;color:#222;background:#f4f7fa}
+.cbt-exam-root *{box-sizing:border-box}
+
+
+.cbt-exam-root button{font-family:inherit;cursor:pointer}
+
+.cbt-exam-root.screen{width:100%;height:100vh;display:flex;justify-content:center;align-items:stretch;padding:0;overflow:hidden}
+.cbt-exam-root .frame{width:100%;height:100%;min-width:0;min-height:0;position:relative;display:flex;flex-direction:column;overflow:hidden;background:#fff;border:1px solid #c3c3c1;font-size:14px;flex:1 1 auto}
+
+.cbt-exam-root .header{height:45px;background:#3b5998;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 45px;position:relative}
+.cbt-exam-root .header span{font-size:26px;font-weight:700}
+.cbt-exam-root .header .exam-brand-title{display:inline-flex;align-items:center;gap:8px}
+.cbt-exam-root .header .exam-brand-mark{width:30px;height:30px;object-fit:contain}
+.cbt-exam-root .header-pause{position:absolute;left:8px;top:50%;transform:translateY(-50%);height:30px;padding:0 13px;border:1px solid #b86f00;border-radius:3px;background:#d98b00;color:#fff;font:700 13px/28px Arial,Verdana,sans-serif;white-space:nowrap;cursor:pointer;z-index:2}
+.cbt-exam-root .header-pause:hover{background:#b86f00;border-color:#9f6000;transform:translateY(-50%)}
+.cbt-exam-root .header-pause:focus-visible{outline:2px solid #fff;outline-offset:2px;transform:translateY(-50%)}
+
+.cbt-exam-root .exam-strip{height:20px;background:#363636;color:#f2c400;display:flex;align-items:center;padding-left:14px;font-size:12px;flex:0 0 20px}
+.cbt-exam-root .exam-tools{margin-left:auto;height:100%;display:flex;align-items:center}
+.cbt-exam-root .info-action{position:relative;height:100%;background:none;border:0;color:#eee;padding:0 12px;font-size:12px;white-space:nowrap;text-decoration:none;text-underline-offset:3px;text-decoration-thickness:1px;transition:color .12s ease,text-decoration-color .12s ease}
+.cbt-exam-root .info-action>span:first-child{color:#ddd;margin-right:3px;transition:color .12s ease}
+.cbt-exam-root .info-action .info-action-mobile-icon{display:none}
+.cbt-exam-root .info-action:hover,.cbt-exam-root .info-action:focus-visible{color:#08a5c8;text-decoration:underline;text-decoration-color:#08a5c8}
+.cbt-exam-root .info-action:last-child:hover,.cbt-exam-root .info-action:last-child:focus-visible{color:#baff4f;text-decoration-color:#baff4f}
+.cbt-exam-root .info-action:hover>span:first-child,.cbt-exam-root .info-action:focus-visible>span:first-child{color:inherit}
+
+/* Fixed desktop band: subject + Sections/time + section tabs on the left; candidate on the right. */
+.cbt-exam-root .pre-question{height:125px;flex:0 0 125px;display:flex;min-width:0;background:#fff}
+.cbt-exam-root .pre-left{flex:1 1 auto;min-width:0;display:flex;flex-direction:column}
+.cbt-exam-root .subject-row{height:53px;background:#e5f6fc;display:flex;align-items:flex-start;padding:8px 10px 0;flex:0 0 53px}
+.cbt-exam-root .subject-button{position:relative;height:30px;line-height:30px;padding:0 31px 0 13px;background:#4e85c5;color:#fff;font-weight:bold;border:0;border-radius:3px;font-family:inherit;font-size:14px;white-space:nowrap}
+.cbt-exam-root .subject-button:after{content:"";position:absolute;left:46%;bottom:-7px;border-left:7px solid transparent;border-right:7px solid transparent;border-top:7px solid #4e85c5}
+.cbt-exam-root .calculator{margin-left:auto;width:30px;height:30px;border:0;background:transparent;padding:0;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.cbt-exam-root .calculator-icon{width:25px;height:30px;border-radius:6px;background:#ffb84f;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:5px 4px 4px;box-shadow:inset 0 0 0 1px rgba(235,146,27,.35)}
+.cbt-exam-root .calc-display{width:17px;height:7px;border-radius:2px;background:#fff;display:block;margin-bottom:4px}
+.cbt-exam-root .calc-keys{width:17px;display:grid;grid-template-columns:repeat(4,3px);grid-auto-rows:3px;gap:2px;justify-content:center}
+.cbt-exam-root .calc-keys i{display:block;width:3px;height:3px;background:#fff;border-radius:.4px}
+
+.cbt-exam-root .section-strip{height:32px;flex:0 0 32px;background:#f5f5f5;border-bottom:1px solid #c3c3c1;display:flex;align-items:center;padding:0 10px;font-size:12px}
+.cbt-exam-root .section-strip .timer{margin-left:auto;font-size:14px}
+
+.cbt-exam-root .candidate-panel{flex:0 0 250px;width:250px;height:125px;background:#f5f8fc;border-left:1px solid #c3c3c1;border-bottom:1px solid #c3c3c1;display:flex;align-items:flex-start;padding:2px 5px;gap:7px;overflow:hidden}
+.cbt-exam-root .avatar{width:102px;height:125px;flex:0 0 102px;display:block;border:1px solid #c3c3c1;background:#eef2f4;overflow:hidden}
+.cbt-exam-root .candidate-panel strong{padding-top:6px;font-size:18px;text-transform:none}
+
+.cbt-exam-root .tabs{height:40px;padding-left:7px;display:flex;gap:5px;align-items:center;flex:0 0 40px;background:#fff}
+.cbt-exam-root .section-tab{height:27px;border:1px solid #c3c3c1;background:#fff;color:#147eb3;font-weight:bold;border-radius:3px;padding:0 7px;min-width:0;position:relative;white-space:nowrap}
+.cbt-exam-root .section-tab.selected{background:#147eb3;color:#fff;border-color:#147eb3}
+.cbt-exam-root .section-tab.selected:after{content:"";position:absolute;left:45%;bottom:-7px;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid #147eb3}
+
+.cbt-exam-root .info-icon{display:inline-flex;position:relative;vertical-align:middle;align-items:center;justify-content:center;width:17px;height:17px;margin-left:4px;border-radius:50%;background:#159ac1;color:#fff;font-size:12px;font-weight:700;line-height:17px;cursor:pointer;z-index:200}
+.cbt-exam-root .info-icon:hover .info-popup,.cbt-exam-root .info-icon:focus .info-popup{display:block}
+
+.cbt-exam-root .body{position:relative;flex:1 1 auto;min-height:0;display:flex;overflow:hidden}
+.cbt-exam-root .main{position:relative;display:flex;flex-direction:column;flex:1 1 auto;min-width:0;min-height:0;overflow:hidden;background:#fff;padding-bottom:45px}
+.cbt-exam-root .type-row{height:29px;line-height:28px;border-bottom:1px solid #c3c3c1;padding:0 12px;border-top:1px solid #c3c3c1;}
+.cbt-exam-root .type-row span{float:right;font-size:11px}.cbt-exam-root .type-row em{font-style:normal;font-weight:500}.cbt-exam-root .positive{color:#168a3b}.cbt-exam-root .negative{color:#c90000}.cbt-exam-root .partial{color:#147eb3}
+.cbt-exam-root .qno{height:29px;line-height:28px;border-bottom:1px solid #c3c3c1;padding:0 12px;font-weight:bold}
+.cbt-exam-root .question{flex:1 1 0%;height:0;min-height:0;padding:9px 12px;overflow-y:scroll;overflow-x:hidden;overscroll-behavior:contain;scrollbar-gutter:stable}
+.cbt-exam-root .question p{font-size:17px;line-height:1.3;margin:0 0 13px;max-width:1100px}
+.cbt-exam-root .option{display:flex;align-items:center;width:250px;min-height:40px;border:1px solid #aaa;margin:9px 0;padding:7px 10px;cursor:pointer;color:#253f87}
+.cbt-exam-root .option.checked{background:#f3f9fd}.cbt-exam-root .option input{margin:0 7px 0 0}
+
+.cbt-exam-root .actions{position:absolute;left:0;right:0;bottom:0;height:45px;border-top:1px solid #c3c3c1;display:flex;align-items:center;padding:5px 8px;background:#fff}
+.cbt-exam-root .actions>button{height:35px;background:#fff;border:1px solid #aaa;padding:0 16px;white-space:nowrap;font-size:14px}
+.cbt-exam-root .actions>button+button{margin-left:8px}.cbt-exam-root .push{margin-left:auto;display:flex;gap:8px}
+.cbt-exam-root .push button{height:36px;border:1px solid #1682bb;border-radius:3px;padding:0 24px;font-size:14px}
+.cbt-exam-root .save{background:#2eafe6;color:#fff}
+
+/* Only the lower question-navigation area collapses. */
+.cbt-exam-root .right-nav{position:relative;right:auto;top:auto;bottom:auto;flex:0 0 250px;width:250px;min-width:250px;background:#c8eafa;border-left:1px solid #b7c6cc;display:flex;flex-direction:column;min-height:0;padding-bottom:45px}
+.cbt-exam-root .legend{height:115px;flex:0 0 115px;background:#fff;border-bottom:1px solid #c3c3c1;display:grid;grid-template-columns:1fr 1fr;padding:6px 5px}
+.cbt-exam-root .legend>div{display:flex;align-items:center;gap:6px}.cbt-exam-root .legend .wide{grid-column:1/-1}.cbt-exam-root .legend small{font-size:10px;line-height:12px}
+
+.cbt-exam-root .badge{display:inline-flex;align-items:center;justify-content:center;flex:0 0 42px;width:42px;height:36px;position:relative;color:#fff;font-size:13px;isolation:isolate}
+.cbt-exam-root .badge:before{content:"";position:absolute;inset:2px 3px;background:#4da15e;z-index:0}
+.cbt-exam-root .badge-value{position:relative;z-index:2}.cbt-exam-root .badge.a:before{background:#4da15e;clip-path:polygon(20% 0,80% 0,100% 100%,0 100%)}
+.cbt-exam-root .badge.na:before{background:#c74343;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)}
+.cbt-exam-root .badge.nv:before{background:#fff;border:1px solid #8a8a8a;clip-path:none}.cbt-exam-root .badge.r:before{background:#8d59ad;border-radius:50%;clip-path:none}.cbt-exam-root .badge.ar:before{background:#8d59ad;border-radius:50%;clip-path:none}
+.cbt-exam-root .badge.ar:after{content:"";position:absolute;right:4px;bottom:4px;width:9px;height:9px;background:#4da15e;border-radius:50%;z-index:3;border:1px solid #fff}.cbt-exam-root .badge.nv{color:#474747}
+
+.cbt-exam-root .palette{background:#c8eafa;flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-gutter:stable}.cbt-exam-root .phead{height:31px;line-height:31px;background:#147eb3;color:#fff;font-weight:bold;padding-left:9px;font-size:16px}.cbt-exam-root .psub{height:27px;line-height:27px;background:#fff;padding-left:9px;font-weight:bold}
+.cbt-exam-root .grid{display:grid;grid-template-columns:repeat(4,50px);gap:0 4px;padding:7px 9px}
+.cbt-exam-root .p{width:50px;height:43px;margin-bottom:10px;border:0;cursor:pointer;position:relative;background:transparent;font-size:13px;color:#474747;isolation:isolate;z-index:0}
+.cbt-exam-root .p:before{content:"";position:absolute;inset:1px 4px;background:#fff;border:1px solid #888;z-index:-1}.cbt-exam-root .question-number{position:relative;z-index:2;display:block;line-height:43px}
+.cbt-exam-root .p.a:before{background:#4da15e;border:0;clip-path:polygon(20% 0,80% 0,100% 100%,0 100%)}.cbt-exam-root .p.na:before{background:#c74343;border:0;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)}
+.cbt-exam-root .p.nv:before{background:#fff;border:1px solid #888;clip-path:none}.cbt-exam-root .p.r:before{background:#8d59ad;border:0;border-radius:50%;clip-path:none}.cbt-exam-root .p.ar:before{background:#8d59ad;border:0;border-radius:50%;clip-path:none}
+.cbt-exam-root .p.ar:after{content:"";position:absolute;right:6px;bottom:8px;width:8px;height:8px;background:#4da15e;border:1px solid #fff;border-radius:50%;z-index:3}
+.cbt-exam-root .p.a,.cbt-exam-root .p.na,.cbt-exam-root .p.r,.cbt-exam-root .p.ar{color:#fff}.cbt-exam-root .p.current{outline:2px solid #147eb3;outline-offset:1px}
+
+/* Submit is permanently visible, even while question navigation is collapsed. */
+.cbt-exam-root .right-submit-strip{position:absolute;right:0;bottom:0;width:250px;height:45px;background:#54d7e0;display:flex;justify-content:center;align-items:center;border-left:1px solid #b7c6cc;z-index:35}
+.cbt-exam-root .right-submit-strip button{height:36px;border:1px solid #1682bb;border-radius:3px;padding:0 24px;font-size:14px;background:#1682bb;color:#fff}
+
+/* Collapse control: only the glyph is centered; the button itself stays on the boundary. */
+.cbt-exam-root .collapse{display:flex;align-items:center;justify-content:center;position:absolute;right:250px;top:50%;transform:translateY(-50%);width:24px;height:52px;background:#000;color:#fff;border:0;border-radius:5px 0 0 5px;z-index:40;font-size:23px;line-height:1;padding:0}
+.cbt-exam-root .collapse span{display:block;line-height:1;transform:translateY(-1px)}
+.cbt-exam-root .collapse.is-collapsed{right:0;border-radius:5px 0 0 5px}
+
+.cbt-exam-root footer{position:relative;height:14px;min-height:14px;flex:0 0 14px;background:#0759b4;color:#fff;text-align:center;font-size:12px;line-height:14px;font-weight:bold}
+
+.cbt-exam-root .info-popup{display:none;position:absolute;z-index:1000;width:330px;padding:10px 12px;background:#fff;color:#222;border:1px solid #777;border-radius:4px;box-shadow:0 5px 18px rgba(0,0,0,.28);text-align:left;font-style:normal;font-size:11px;line-height:1.3;white-space:normal}
+.cbt-exam-root .info-popup:before{content:"";position:absolute;top:-6px;left:18px;width:10px;height:10px;background:#fff;border-left:1px solid #777;border-top:1px solid #777;transform:rotate(45deg)}
+.cbt-exam-root .info-popup>strong{display:block;font-size:12px;margin-bottom:7px;border-bottom:1px solid #ddd;padding-bottom:5px}.cbt-exam-root .info-popup>span{display:flex;align-items:center;gap:5px;margin:4px 0}
+.cbt-exam-root .info-popup .badge{transform:scale(.68);transform-origin:left center;margin-right:-10px;flex-basis:29px;width:29px;height:25px}
+.cbt-exam-root .subject-button>.info-icon .info-popup{left:-3px;top:23px}.cbt-exam-root .section-tab>.info-icon .info-popup{left:-3px;top:23px}
+
+.cbt-exam-root .modal-bg{position:absolute;inset:0;background:rgba(0,0,0,.45);display:grid;place-items:center;z-index:99}.cbt-exam-root .modal{width:420px;background:#fff;border-radius:4px;padding:22px;box-shadow:0 8px 30px #0005}.cbt-exam-root .modal h3{margin:0 0 10px}.cbt-exam-root .modal p{line-height:1.5}.cbt-exam-root .modal>div{text-align:right}.cbt-exam-root .modal button{padding:8px 16px;margin-left:8px;border:1px solid #aaa;background:#fff;border-radius:3px}.cbt-exam-root .modal .primary{background:#147eb3;color:#fff;border-color:#147eb3}
+
+@media (min-width:1024px){
+  .cbt-exam-root.screen{height:100vh;min-height:100vh;align-items:stretch;padding:0}.cbt-exam-root .frame{width:100%;height:100%;max-width:none;transform:none}
+}
+
+/* Mobile remains a separate layout until its final UI rules are supplied. */
+@media (max-width:1023px){
+  .cbt-exam-root.screen{padding:0;background:#eef3f7;align-items:flex-start}.cbt-exam-root .frame{width:100%;height:auto;min-height:100vh;border:0;overflow:hidden}
+  .cbt-exam-root .header{height:clamp(40px,6vw,45px);flex-basis:clamp(40px,6vw,45px)}.cbt-exam-root .header span{font-size:clamp(20px,4vw,26px)} .cbt-exam-root .header-pause{height:29px;line-height:27px;padding:0 10px;font-size:12px;left:7px}
+  .cbt-exam-root .exam-strip{height:clamp(22px,4.5vw,30px);flex-basis:clamp(22px,4.5vw,30px);padding-left:clamp(8px,2vw,14px);font-size:clamp(9px,1.7vw,12px)}.cbt-exam-root .exam-tools{display:none}
+  .cbt-exam-root .pre-question{height:auto;min-height:125px;flex-basis:auto;display:block}.cbt-exam-root .pre-left{width:100%}.cbt-exam-root .subject-row{height:53px;flex-basis:53px}.cbt-exam-root .section-strip{height:32px;flex-basis:32px}.cbt-exam-root .tabs{height:40px;flex-basis:40px}.cbt-exam-root .candidate-panel{height:78px;width:100%;border-left:0;flex-basis:auto;display:none}.cbt-exam-root .avatar{width:75px;height:68px;flex-basis:75px}.cbt-exam-root .candidate-panel strong{font-size:15px}
+  .cbt-exam-root .body{height:auto;min-height:calc(100vh - 210px);display:flex;position:relative;overflow:hidden}.cbt-exam-root .main{width:100%;min-height:calc(100vh - 210px);padding-bottom:48px}
+  .cbt-exam-root .type-row{height:auto;min-height:29px;line-height:18px;padding:5px 9px;display:flex;flex-wrap:wrap;gap:4px}.cbt-exam-root .type-row span{float:none;margin-left:auto;font-size:clamp(9px,1.5vw,11px)}
+  .cbt-exam-root .qno{padding:0 9px}.cbt-exam-root .question{padding:10px 9px}.cbt-exam-root .question p{font-size:clamp(13px,2.4vw,17px);max-width:none}.cbt-exam-root .option{width:min(100%,390px);min-height:38px;margin:8px 0;font-size:clamp(12px,2vw,15px)}
+  .cbt-exam-root .actions{position:fixed;left:0;right:0;bottom:0;height:auto;min-height:48px;padding:6px 7px;z-index:20;flex-wrap:wrap;gap:5px}.cbt-exam-root .actions>button{height:32px;padding:0 7px;font-size:clamp(9px,1.8vw,13px)}.cbt-exam-root .actions>button+button{margin-left:0}.cbt-exam-root .push{margin-left:auto;gap:5px}.cbt-exam-root .push button{height:32px;padding:0 10px;font-size:clamp(9px,1.8vw,13px)}
+  .cbt-exam-root .right-nav{position:fixed;right:0;top:0;bottom:0;width:min(86vw,330px);z-index:30;box-shadow:-8px 0 24px rgba(0,0,0,.18);padding-bottom:45px}.cbt-exam-root .right-submit-strip{position:fixed;right:0;bottom:0;width:min(86vw,330px);height:45px;z-index:35}.cbt-exam-root .collapse{position:fixed;right:min(86vw,330px);top:50%;transform:translateY(-50%);width:22px;height:48px;font-size:20px}.cbt-exam-root .collapse.is-collapsed{right:0}
+  .cbt-exam-root footer{display:none}.cbt-exam-root .info-popup{max-width:min(330px,calc(100vw - 20px))}
+}
+@media (max-width:767px){
+  .cbt-exam-root .header{justify-content:center;padding-left:0}.cbt-exam-root .header-pause{left:6px;padding:0 8px;font-size:11px}.cbt-exam-root .exam-strip>span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.cbt-exam-root .subject-button{padding-left:8px}.cbt-exam-root .tabs{height:34px;flex-basis:34px}.cbt-exam-root .section-tab{height:27px}.cbt-exam-root .type-row span{margin-left:0;width:100%}.cbt-exam-root .actions{justify-content:center}.cbt-exam-root .push{margin-left:0}.cbt-exam-root .question p{line-height:1.4}.cbt-exam-root .option{max-width:100%}
+}
+@media (max-width:380px){.cbt-exam-root .actions{display:grid;grid-template-columns:1fr 1fr}.cbt-exam-root .actions>button,.cbt-exam-root .push button{width:100%;font-size:10px}.cbt-exam-root .push{grid-column:1/-1;width:100%;display:grid;grid-template-columns:1fr 1fr}.cbt-exam-root .question{padding-left:8px;padding-right:8px}.cbt-exam-root .right-nav,.cbt-exam-root .right-submit-strip{width:92vw}.cbt-exam-root .collapse{right:92vw}.cbt-exam-root .collapse.is-collapsed{right:0}}
+
+/* v5 refinements */
+
+.cbt-exam-root .subject-button:hover{background:#3f74b2}
+.cbt-exam-root .subject-button:hover:after{border-top-color:#3f74b2}
+.cbt-exam-root .section-tab{transition:background-color .12s ease,border-color .12s ease,color .12s ease}
+.cbt-exam-root .section-tab:not(.selected):hover{background:#eef5f9;border-color:#9fb8c7}
+.cbt-exam-root .section-tab.selected:hover{background:#106f9f;border-color:#106f9f}
+.cbt-exam-root .section-tab.selected:hover:after{border-top-color:#106f9f}
+
+.cbt-exam-root .actions>button,.cbt-exam-root .push button,.cbt-exam-root .right-submit-strip button{transition:background-color .12s ease,border-color .12s ease,color .12s ease}
+.cbt-exam-root .actions>button:hover{background:#ededed;border-color:#8c8c8c}
+.cbt-exam-root .push .save:hover{background:#2499ce;border-color:#1377ad}
+.cbt-exam-root .right-submit-strip button:hover{background:#126f9f;border-color:#0e608a}
+
+.cbt-exam-root .body.nav-is-collapsed .actions .push{margin-right:250px}
+
+/* Keep the right navigation geometry stable while its contents change by section. */
+.cbt-exam-root .phead{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* The reference uses a hand cursor for every actionable control. */
+.cbt-exam-root button,.cbt-exam-root .option{cursor:pointer}
+.cbt-exam-root .info-icon{cursor:help}
+
+/* v9 — responsive subject/section button sizing and wrapping */
+.cbt-exam-root .subject-row{
+  min-width:0;
+  padding-right:8px;
+}
+.cbt-exam-root .subject-buttons{
+  flex:1 1 auto;
+  min-width:0;
+  max-width:calc(100% - 40px);
+  display:flex;
+  flex-wrap:wrap;
+  align-content:flex-start;
+  align-items:flex-start;
+  gap:4px 5px;
+  overflow:visible;
+}
+.cbt-exam-root .subject-button{
+  flex:0 1 auto;
+  width:max-content;
+  min-width:0;
+  max-width:100%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:4px;
+  padding:0 7px 0 13px;
+}
+.cbt-exam-root .subject-button>span:first-child{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.cbt-exam-root .subject-button .info-icon{flex:0 0 17px;margin-left:0}
+.cbt-exam-root .subject-button:after{left:50%;}
+.cbt-exam-root .calculator{flex:0 0 30px;margin-left:auto;}
+
+/* A section tab is content-sized, but never allowed to exceed its stripe. */
+.cbt-exam-root .tabs{
+  min-width:0;
+  flex-wrap:wrap;
+  align-content:center;
+  overflow:visible;
+  padding-right:7px;
+}
+.cbt-exam-root .section-tab{
+  flex:0 1 auto;
+  width:max-content;
+  min-width:78px;
+  max-width:100%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  padding:0 7px;
+}
+.cbt-exam-root .section-tab .info-icon{flex:0 0 17px;margin-left:0}
+.cbt-exam-root .section-tab.selected:after{left:50%;}
+
+/* The blue/white stripes remain the same; only their buttons wrap when there is no room. */
+@media (min-width:1024px){
+  .cbt-exam-root .subject-row{height:auto;min-height:53px;}
+  .cbt-exam-root .subject-buttons{padding-bottom:7px;}
+  .cbt-exam-root .tabs{height:auto;min-height:40px;padding-top:5px;padding-bottom:5px;}
+}
+
+/* v9 desktop geometry: allow the upper navigation bands to grow only when
+   their buttons genuinely wrap; the candidate panel follows that full band. */
+@media (min-width:1024px){
+  .cbt-exam-root .pre-question{height:auto;min-height:125px;flex:0 0 auto;align-items:stretch}
+  .cbt-exam-root .pre-left{height:auto;min-height:125px}
+  .cbt-exam-root .subject-row{min-height:53px;height:auto;align-items:flex-start}
+  .cbt-exam-root .section-strip{flex:0 0 32px}
+  .cbt-exam-root .tabs{flex:0 0 auto;min-height:40px}
+  .cbt-exam-root .candidate-panel{height:auto;min-height:125px;align-self:stretch}
+}
+
+/* General Aptitude is the minimum readable button width for both blue and white
+   section controls. Longer labels simply grow naturally until the stripe wraps. */
+.cbt-exam-root .section-tab,.cbt-exam-root .subject-button{min-width:118px}
+
+
+/* v10 — wrapped-row navigation: the row containing the active item is always
+   the final row, so its funnel points directly into the strip below. */
+.cbt-exam-root .subject-buttons,.cbt-exam-root .section-buttons{min-width:0;display:flex;flex-direction:column;gap:5px;align-items:flex-start;overflow:visible}
+.cbt-exam-root .button-row{display:flex;flex-wrap:nowrap;align-items:flex-start;gap:5px;width:max-content;max-width:100%}
+.cbt-exam-root .subject-buttons .button-row,.cbt-exam-root .section-buttons .button-row{min-width:0}
+.cbt-exam-root .subject-row{align-items:flex-start}
+.cbt-exam-root .subject-buttons{flex:1 1 auto;max-width:calc(100% - 40px)}
+.cbt-exam-root .section-buttons{width:100%;flex:1 1 auto}
+.cbt-exam-root .tabs{align-items:flex-start;height:auto;min-height:40px;padding-top:5px;padding-bottom:5px;overflow:visible}
+.cbt-exam-root .subject-button,.cbt-exam-root .section-tab{flex:0 0 auto}
+@media (min-width:1024px){
+  .cbt-exam-root .subject-row{min-height:53px;height:auto}
+  .cbt-exam-root .tabs{min-height:40px;height:auto}
+}
+
+/* v11 — hard-sync the candidate header and the marking/legend band.
+   Both desktop regions now use the exact same upper-band boundary: the
+   candidate panel is the right cell of the pre-question grid, while the
+   marking scheme starts immediately when that grid ends. */
+@media (min-width:1024px){
+  .cbt-exam-root .pre-question{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 250px;
+    grid-auto-rows:auto;
+    align-items:stretch;
+    height:auto;
+    min-height:125px;
+    flex:0 0 auto;
+  }
+  .cbt-exam-root .pre-left{
+    grid-column:1;
+    grid-row:1;
+    min-width:0;
+    min-height:125px;
+    height:auto;
+  }
+  .cbt-exam-root .candidate-panel{
+    grid-column:2;
+    grid-row:1;
+    width:100%;
+    min-width:0;
+    height:100%;
+    min-height:125px;
+    align-self:stretch;
+    margin:0;
+  }
+  .cbt-exam-root .body{
+    /* body starts exactly at the bottom edge of the candidate panel */
+    margin-top:0;
+  }
+  .cbt-exam-root .right-nav{
+    margin-top:0;
+  }
+}
+
+
+/* v12 — single shared desktop edge between Candidate and Marking Scheme.
+   The upper navigation and the right candidate header are one grid row.
+   The body begins immediately after that row, so the legend's top edge is
+   physically the same edge as the candidate panel's bottom edge. */
+@media (min-width:1024px){
+  .cbt-exam-root .frame{
+    --sidebar-width:250px;
+  }
+
+  .cbt-exam-root .pre-question{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) var(--sidebar-width);
+    grid-template-rows:auto;
+    align-items:stretch;
+    flex:0 0 auto;
+    height:auto;
+    min-height:125px;
+    margin:0;
+    padding:0;
+    border:0;
+  }
+
+  .cbt-exam-root .pre-left{
+    grid-column:1;
+    grid-row:1;
+    width:100%;
+    min-width:0;
+    min-height:125px;
+    height:auto;
+    margin:0;
+    padding:0;
+  }
+
+  .cbt-exam-root .candidate-panel{
+    grid-column:2;
+    grid-row:1;
+    width:100%;
+    min-width:0;
+    height:100%;
+    min-height:125px;
+    align-self:stretch;
+    margin:0;
+    padding:2px 5px;
+    border-top:0;
+    border-bottom:1px solid #c3c3c1;
+  }
+
+  /* The body is the next sibling of the exact same grid row. */
+  .cbt-exam-root .body{
+    flex:1 1 auto;
+    min-height:0;
+    height:auto;
+    margin:0;
+    padding:0;
+    border:0;
+  }
+
+  .cbt-exam-root .right-nav{
+    flex:0 0 var(--sidebar-width);
+    width:var(--sidebar-width);
+    min-width:var(--sidebar-width);
+    margin:0;
+    padding-bottom:45px;
+    border-top:0;
+  }
+
+  /* Legend begins exactly at body top — the same y-coordinate as the
+     candidate panel's bottom border. */
+  .cbt-exam-root .legend{
+    margin:0;
+    border-top:0;
+  }
+
+  .cbt-exam-root .right-submit-strip{
+    width:var(--sidebar-width);
+  }
+
+  .cbt-exam-root .collapse{
+    right:var(--sidebar-width);
+  }
+}
+
+
+/* v13 — slightly reduced coded avatar to align Candidate/Marking Scheme edge. */
+@media (min-width:1024px){
+  .cbt-exam-root .candidate-panel .avatar{
+    width:98px;
+    height:120px;
+    flex:0 0 98px;
+  }
+}
+
+/* v15 — fluid portrait/mobile layout based on the supplied small-mobile reference.
+   The reference dimensions are not used as fixed canvas sizes: the frame follows
+   the live viewport in both axes, while the question/navigation regions absorb
+   the available space. */
+@media (max-width:1023px){
+
+  .cbt-exam-root.screen{width:100%;height:100dvh;min-height:100dvh;display:flex;align-items:stretch;justify-content:center;padding:0;overflow:hidden}
+  .cbt-exam-root .frame{width:100%;height:100dvh;min-height:0;border:0;display:flex;flex-direction:column;overflow:hidden}
+
+  .cbt-exam-root .header{height:clamp(30px,7.2vw,45px);flex:0 0 clamp(30px,7.2vw,45px);justify-content:center;padding:0}
+  .cbt-exam-root .header span{font-size:clamp(17px,5vw,26px)}
+
+  .cbt-exam-root .exam-strip{height:clamp(16px,4.8vw,24px);flex:0 0 clamp(16px,4.8vw,24px);padding:0 7px;font-size:clamp(8px,2.1vw,12px);justify-content:center;white-space:nowrap;overflow:hidden}
+  .cbt-exam-root .exam-strip>span{min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+  .cbt-exam-root .exam-tools{display:none}
+
+  .cbt-exam-root .pre-question{height:auto;min-height:0;flex:0 0 auto;display:block;overflow:visible}
+  .cbt-exam-root .pre-left{width:100%;min-height:0}
+
+  .cbt-exam-root .subject-row{height:clamp(36px,9.8vw,44px);min-height:36px;flex:0 0 auto;padding:4px 5px 0;align-items:flex-start;background:#e5f6fc}
+  .cbt-exam-root .subject-buttons{width:calc(100% - 34px);max-width:calc(100% - 34px);gap:3px}
+  .cbt-exam-root .subject-buttons .button-row{gap:3px;width:100%;max-width:100%}
+  .cbt-exam-root .subject-button{height:clamp(24px,7.5vw,30px);line-height:1;padding:0 5px 0 7px;min-width:0;max-width:100%;font-size:clamp(8px,2.1vw,14px);overflow:hidden}
+  .cbt-exam-root .subject-button>span:first-child{max-width:calc(100% - 16px)}
+  .cbt-exam-root .subject-button .info-icon{width:13px;height:13px;flex-basis:13px;font-size:9px;line-height:13px;margin-left:2px}
+  .cbt-exam-root .subject-button:after{bottom:-5px;border-left-width:5px;border-right-width:5px;border-top-width:5px}
+  .cbt-exam-root .calculator{width:29px;height:clamp(24px,7.5vw,30px);flex:0 0 29px}
+  .cbt-exam-root .calculator-icon{width:22px;height:26px;border-radius:4px;padding:4px 3px 3px}
+  .cbt-exam-root .calc-display{width:15px;height:5px;margin-bottom:3px}.cbt-exam-root .calc-keys{width:15px;grid-template-columns:repeat(4,2.5px);grid-auto-rows:2.5px;gap:1.5px}.cbt-exam-root .calc-keys i{width:2.5px;height:2.5px}
+
+  .cbt-exam-root .section-strip{height:clamp(20px,6vw,32px);flex:0 0 auto;padding:0 6px;font-size:clamp(8px,2vw,12px)}
+  .cbt-exam-root .section-strip .timer{font-size:clamp(9px,2.2vw,14px)}
+
+  .cbt-exam-root .tabs{height:clamp(27px,8.5vw,36px);min-height:27px;flex:0 0 auto;padding:3px 4px 2px;gap:3px;overflow:hidden;align-items:flex-start}
+  .cbt-exam-root .section-buttons{width:100%;gap:3px;overflow:hidden}
+  .cbt-exam-root .section-buttons .button-row{gap:3px;width:100%;max-width:100%;overflow:hidden}
+  .cbt-exam-root .section-tab{height:clamp(21px,6.5vw,27px);min-width:0;width:auto;max-width:100%;padding:0 5px;font-size:clamp(7px,1.9vw,12px);overflow:hidden;text-overflow:ellipsis}
+  .cbt-exam-root .section-tab.selected:after{bottom:-5px;border-left-width:5px;border-right-width:5px;border-top-width:5px}
+  .cbt-exam-root .section-tab .info-icon{width:12px;height:12px;flex-basis:12px;font-size:8px;line-height:12px;margin-left:2px}
+
+  .cbt-exam-root .body{position:relative;flex:1 1 auto;min-height:0;height:auto;width:100%;display:flex;overflow:hidden}
+  .cbt-exam-root .main{width:100%;min-width:0;min-height:0;flex:1 1 auto;padding-bottom:94px;overflow:hidden}
+  .cbt-exam-root .type-row{height:auto;min-height:20px;padding:2px 7px;line-height:16px;font-size:clamp(8px,2vw,12px);display:flex;align-items:center;gap:2px;white-space:nowrap;overflow:hidden}
+  .cbt-exam-root .type-row strong{flex:0 0 auto}.cbt-exam-root .type-row span{float:none;margin-left:auto;min-width:0;font-size:clamp(7px,1.8vw,11px);overflow:hidden;text-overflow:ellipsis}
+  .cbt-exam-root .qno{height:20px;line-height:19px;padding:0 7px;font-size:clamp(8px,2vw,12px);white-space:nowrap;overflow:hidden}
+  .cbt-exam-root .question{flex:1 1 0%;height:0;padding:7px 7px 100px;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain}
+  .cbt-exam-root .question p{font-size:clamp(15px,4.5vw,22px);line-height:1.4;margin:0 0 13px;max-width:none;overflow-wrap:anywhere}
+  .cbt-exam-root .option{width:min(100%,390px);min-height:clamp(34px,10vw,46px);margin:8px 0;padding:6px 7px;font-size:clamp(12px,3.5vw,17px)}
+
+  /* Mobile footer controls follow the reference: two equal columns, two rows. */
+  .cbt-exam-root .actions{position:absolute;left:0;right:0;bottom:0;height:90px;min-height:90px;padding:4px 6px;border-top:1px solid #c3c3c1;display:block;background:#fff;z-index:20}
+  .cbt-exam-root .actions>button{position:absolute;height:39px;margin:0!important;padding:0 6px;font-size:clamp(10px,2.8vw,14px);white-space:nowrap}
+  .cbt-exam-root .actions>button:nth-child(1){left:6px;bottom:5px;width:calc(50% - 9px)}
+  .cbt-exam-root .actions>button:nth-child(2){left:6px;top:4px;width:calc(50% - 9px)}
+  .cbt-exam-root .push{position:absolute;right:6px;top:4px;width:calc(50% - 9px);height:39px;margin:0!important;display:block}
+  .cbt-exam-root .push button{width:100%;height:39px;padding:0 6px;font-size:clamp(10px,2.8vw,14px)}
+
+  /* The palette overlays the question body, exactly as on the small-mobile
+     reference. It is positioned relative to .body, so the upper CBT bands
+     remain visible. */
+  .cbt-exam-root .right-nav{position:absolute;right:0;top:0;bottom:0;width:min(250px,78vw);min-width:min(250px,78vw);padding-bottom:45px;z-index:30;box-shadow:-7px 0 18px rgba(0,0,0,.18);overflow:hidden}
+  .cbt-exam-root .legend{height:115px;flex:0 0 115px;padding:6px 5px}
+  .cbt-exam-root .legend small{font-size:10px;line-height:12px}
+  .cbt-exam-root .palette{min-height:0;overflow:hidden}
+  .cbt-exam-root .phead{height:31px;line-height:31px;font-size:clamp(14px,4.2vw,18px);padding-left:7px}
+  .cbt-exam-root .psub{height:27px;line-height:27px;font-size:12px;padding-left:7px}
+  .cbt-exam-root .grid{grid-template-columns:repeat(4,50px);gap:0 4px;padding:7px 9px}
+
+  .cbt-exam-root .right-submit-strip{position:absolute;right:0;bottom:0;width:min(250px,78vw);height:45px;z-index:35}
+  .cbt-exam-root .right-submit-strip button{height:36px;padding:0 24px;font-size:14px}
+
+  .cbt-exam-root .collapse{position:absolute;right:min(250px,78vw);top:50%;transform:translateY(-50%);width:18px;height:48px;border-radius:5px 0 0 5px;z-index:40;font-size:18px}
+  .cbt-exam-root .collapse.is-collapsed{right:0}
+
+  .cbt-exam-root footer{display:none}
+}
+
+@media (max-width:380px){
+  .cbt-exam-root .main{padding-bottom:94px}
+  .cbt-exam-root .question p{font-size:clamp(15px,4.8vw,18px)}
+  .cbt-exam-root .option{min-height:38px}
+  .cbt-exam-root .right-nav{width:250px;min-width:250px}
+  .cbt-exam-root .right-submit-strip{width:250px}
+  .cbt-exam-root .collapse{right:250px}
+  .cbt-exam-root .collapse.is-collapsed{right:0}
+}
+
+@media (min-width:381px) and (max-width:767px){
+  .cbt-exam-root .header span{font-size:clamp(20px,5vw,25px)}
+  .cbt-exam-root .question p{font-size:clamp(16px,4vw,20px)}
+  .cbt-exam-root .option{min-height:40px}
+}
+
+@media (min-width:768px) and (max-width:1023px){
+  /* Tablet portrait: keep the full-width CBT, but give the question body more
+     breathing room and use a wider navigation overlay. */
+  .cbt-exam-root .header{height:48px;flex-basis:48px}.cbt-exam-root .header span{font-size:26px}
+  .cbt-exam-root .exam-strip{height:24px;flex-basis:24px;font-size:12px}
+  .cbt-exam-root .subject-row{height:44px;min-height:44px}.cbt-exam-root .section-strip{height:32px}.cbt-exam-root .tabs{height:36px;min-height:36px}
+  .cbt-exam-root .pre-question{min-height:112px}
+  .cbt-exam-root .body{min-height:0}
+
+  /* Tablet portrait follows the mobile marking layout: keep the question type
+     on its own line and place the complete marking information immediately
+     below it. This prevents the marking span from being clipped when the
+     right navigation drawer overlays the question workspace. */
+  .cbt-exam-root .type-row{
+    height:auto;
+    min-height:36px;
+    line-height:16px;
+    padding:2px 7px;
+    display:flex;
+    flex-wrap:wrap;
+    align-content:center;
+    gap:0;
+    white-space:normal;
+    overflow:visible;
+  }
+  .cbt-exam-root .type-row strong{
+    flex:0 0 100%;
+    min-width:0;
+  }
+  .cbt-exam-root .type-row span{
+    flex:0 0 100%;
+    width:100%;
+    margin-left:0;
+    min-width:0;
+    font-size:clamp(9px,1.5vw,11px);
+    overflow:visible;
+    white-space:nowrap;
+  }
+  .cbt-exam-root .main{padding-bottom:96px}
+  .cbt-exam-root .question{padding:12px 14px 105px}.cbt-exam-root .question p{font-size:clamp(18px,2.7vw,22px)}
+  .cbt-exam-root .option{width:min(520px,100%);min-height:44px;font-size:16px}
+  .cbt-exam-root .actions{height:92px;min-height:92px}
+  .cbt-exam-root .right-nav{width:min(300px,72vw);min-width:min(300px,72vw)}
+  .cbt-exam-root .right-submit-strip{width:min(300px,72vw)}
+  .cbt-exam-root .collapse{right:min(300px,72vw)}
+  .cbt-exam-root .collapse.is-collapsed{right:0}
+}
+
+/* Use dynamic viewport units when supported, while retaining the 100vh fallback. */
+@supports (height: 100dvh){
+  .cbt-exam-root.screen,.cbt-exam-root .frame{height:100dvh}
+}
+
+/* v16 — mobile reference corrections */
+@media (max-width:1023px){
+  /* The reference keeps the CBTGen footer visible under the bottom controls. */
+  .cbt-exam-root footer{
+    display:block;
+    height:10px;
+    min-height:10px;
+    flex:0 0 10px;
+    line-height:10px;
+    font-size:7px;
+  }
+
+  /* The main action bar belongs to the question area, while Submit is the
+     separate right-hand action on the closed mobile layout. */
+  .cbt-exam-root .actions{bottom:0;}
+
+  .cbt-exam-root .body.nav-is-collapsed .actions .push{margin-right:0;}
+
+  .cbt-exam-root .body.nav-is-collapsed .right-submit-strip{
+    position:absolute;
+    right:0;
+    bottom:0;
+    width:38%;
+    height:45px;
+    background:#fff;
+    border-left:0;
+    display:flex;
+    justify-content:stretch;
+    align-items:center;
+    z-index:21;
+    padding:4px 6px 5px 0;
+  }
+
+  .cbt-exam-root .body.nav-is-collapsed .right-submit-strip button{
+    width:100%;
+    height:39px;
+    padding:0 8px;
+    font-size:clamp(10px,2.8vw,14px);
+  }
+
+  /* Closed mobile reference: row 1 = Clear + Save, row 2 = Mark + Submit. */
+  .cbt-exam-root .body.nav-is-collapsed .actions>button:nth-child(1){
+    left:6px;
+    bottom:5px;
+    width:62%;
+  }
+  .cbt-exam-root .body.nav-is-collapsed .actions>button:nth-child(2){
+    left:6px;
+    top:4px;
+    width:calc(50% - 9px);
+  }
+  .cbt-exam-root .body.nav-is-collapsed .push{
+    right:6px;
+    top:4px;
+    width:calc(50% - 9px);
+  }
+
+  /* When the palette is open its own cyan submit strip returns, matching the
+     supplied reference overlay. */
+  .cbt-exam-root .body:not(.nav-is-collapsed) .right-submit-strip{
+    position:absolute;
+    right:0;
+    bottom:0;
+    width:min(250px,78vw);
+    height:45px;
+    background:#54d7e0;
+    border-left:1px solid #b7c6cc;
+    display:flex;
+  }
+
+  .cbt-exam-root .body:not(.nav-is-collapsed) .actions{z-index:20;}
+}
+
+@media (max-width:380px){
+  .cbt-exam-root .body.nav-is-collapsed .right-submit-strip{width:38%;}
+  .cbt-exam-root .body.nav-is-collapsed .actions>button:nth-child(1){width:62%;}
+}
+
+/* v17 — mobile reference alignment */
+.cbt-exam-root .mobile-candidate{display:none}
+
+@media (max-width:1023px){
+  /* Mobile/tablet reference does not show the small informational "i" badges
+     inside the subject/section controls. */
+  .cbt-exam-root .subject-button .info-icon,.cbt-exam-root .section-tab .info-icon{display:none}
+
+  /* Submit belongs to the viewport edge in both palette states. */
+  .cbt-exam-root .right-submit-strip{position:absolute!important;bottom:0;z-index:90}
+
+  /* The mobile question drawer includes the candidate header above the
+     status legend, matching the compact CBT navigation reference. */
+  .cbt-exam-root .mobile-candidate{
+    display:flex;
+    flex:0 0 64px;
+    height:64px;
+    align-items:center;
+    gap:7px;
+    padding:2px 5px;
+    background:#fff;
+    border-bottom:1px solid #c3c3c1;
+    overflow:hidden;
+  }
+  /* Keep the portrait avatar at the same SVG aspect ratio as desktop so the
+     shaded/3D artwork is rendered proportionally rather than looking like a
+     compressed outline. */
+  .cbt-exam-root .mobile-candidate .avatar{
+    width:52px;
+    height:60px;
+    flex:0 0 52px;
+    background:#eef2f4;
+  }
+  .cbt-exam-root .mobile-candidate strong{
+    font-size:17px;
+    padding:0;
+  }
+
+  /* Keep the drawer itself flush to the viewport and reserve its fixed
+     submit strip without allowing the candidate/legend area to scroll. */
+  .cbt-exam-root .right-nav{
+    padding-bottom:45px;
+    overflow:hidden;
+  }
+
+  .cbt-exam-root .modal-bg{position:fixed;inset:0}
+  .cbt-exam-root .modal{width:min(420px,calc(100vw - 20px));max-width:calc(100vw - 20px);padding:18px}
+  .cbt-exam-root .modal p{overflow-wrap:anywhere}
+}
+
+/* v18 — portrait bottom-action correction only.
+   Keep the existing desktop/landscape UI untouched. On portrait, the four
+   actions form one fixed 2×2 control area: Clear + Save on row 1,
+   Mark + Submit on row 2. The navigation drawer stops above that area. */
+@media (max-width:1023px){
+  .cbt-exam-root .actions{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:90px;
+    min-height:90px;
+    padding:4px 6px;
+    border-top:1px solid #c3c3c1;
+    display:block;
+    background:#fff;
+    z-index:80;
+  }
+
+  /* Clean divider between the two button rows. */
+  .cbt-exam-root .actions::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    top:45px;
+    border-top:1px solid #c3c3c1;
+    pointer-events:none;
+  }
+
+  /* Row 1 — Clear Response + Save & Next */
+  .cbt-exam-root .actions>button:nth-child(2){
+    left:6px;
+    top:4px;
+    bottom:auto;
+    width:calc(50% - 9px);
+    height:39px;
+  }
+
+  .cbt-exam-root .actions .push{
+    position:absolute;
+    right:6px;
+    left:auto;
+    top:4px;
+    width:calc(50% - 9px);
+    height:39px;
+    margin:0!important;
+    display:block;
+    z-index:2;
+  }
+
+  .cbt-exam-root .actions .push button{
+    width:100%;
+    height:39px;
+  }
+
+  /* Row 2 — Mark for Review + the single existing Submit button */
+  .cbt-exam-root .actions>button:nth-child(1){
+    left:6px;
+    top:auto;
+    bottom:5px;
+    width:calc(50% - 9px);
+    height:39px;
+  }
+
+  /* The existing Submit control is moved into row 2; no duplicate is created. */
+  .cbt-exam-root .right-submit-strip{
+    position:absolute!important;
+    right:6px;
+    left:auto;
+    bottom:5px!important;
+    top:auto;
+    width:calc(50% - 9px)!important;
+    height:39px;
+    padding:0;
+    margin:0;
+    background:transparent;
+    border:0;
+    display:flex;
+    align-items:stretch;
+    justify-content:stretch;
+    z-index:82;
+  }
+
+  .cbt-exam-root .right-submit-strip button{
+    width:100%;
+    height:39px;
+    padding:0 8px;
+  }
+
+  /* Open drawer ends exactly where the lower action row begins. */
+  .cbt-exam-root .right-nav{
+    top:0;
+    bottom:90px;
+    padding-bottom:0;
+  }
+
+  /* Do not let the open drawer cover the fixed four-button area. */
+  .cbt-exam-root .body:not(.nav-is-collapsed) .right-submit-strip{
+    right:6px;
+    bottom:5px!important;
+    width:calc(50% - 9px)!important;
+    height:39px;
+    background:transparent;
+    border:0;
+  }
+
+  /* Keep the collapse handle attached to the drawer boundary. */
+  .cbt-exam-root .collapse{
+    z-index:85;
+  }
+}
+
+@media (max-width:380px){
+  .cbt-exam-root .right-nav{bottom:90px}
+  .cbt-exam-root .right-submit-strip,.cbt-exam-root .body:not(.nav-is-collapsed) .right-submit-strip{
+    width:calc(50% - 9px)!important;
+  }
+}
+
+@media (min-width:768px) and (max-width:1023px){
+  .cbt-exam-root .actions{height:92px;min-height:92px}
+  .cbt-exam-root .actions::after{top:46px}
+  .cbt-exam-root .right-nav{bottom:92px}
+  .cbt-exam-root .actions>button:nth-child(1){bottom:5px}
+  .cbt-exam-root .right-submit-strip{bottom:5px!important}
+  .cbt-exam-root .body:not(.nav-is-collapsed) .right-submit-strip{bottom:5px!important}
+}
+
+/* v19 — portrait action/drawer fixes only.
+   Keep the existing desktop/landscape layout unchanged. */
+.cbt-exam-root .mobile-submit{display:none}
+
+@media (max-width:1023px){
+  /* One fixed 2x2 action grid owns all four mobile controls.  The separate
+     desktop submit strip is hidden so the drawer can never cover/reveal it. */
+  .cbt-exam-root .right-submit-strip{display:none!important}
+
+  .cbt-exam-root .actions{
+    height:90px;
+    min-height:90px;
+    padding:4px 6px;
+    overflow:hidden;
+  }
+
+  /* Row 1 keeps the same 4px top breathing room as before. */
+  .cbt-exam-root .actions>button.clear-action{
+    left:6px;
+    top:4px;
+    bottom:auto;
+    width:calc(50% - 9px);
+    height:39px;
+  }
+
+  .cbt-exam-root .actions .push{
+    right:6px;
+    top:4px;
+    bottom:auto;
+    width:calc(50% - 9px);
+    height:39px;
+  }
+
+  /* Row 2 gets the same 4px gap below the row divider. */
+  .cbt-exam-root .actions>button.mark-action{
+    left:6px;
+    top:49px;
+    bottom:auto;
+    width:calc(50% - 9px);
+    height:36px;
+  }
+
+  .cbt-exam-root .actions>.mobile-submit{
+    display:block;
+    position:absolute;
+    right:6px;
+    top:49px;
+    width:calc(50% - 9px);
+    height:36px;
+    margin:0;
+    padding:0 8px;
+    border:1px solid #1682bb;
+    border-radius:3px;
+    background:#1682bb;
+    color:#fff;
+    font-size:clamp(10px,2.8vw,14px);
+    z-index:3;
+  }
+
+  /* The divider remains between the two rows, never through a button. */
+  .cbt-exam-root .actions::after{
+    top:45px;
+    left:0;
+    right:0;
+  }
+
+  /* Open navigation drawer stops before the complete fixed action area. */
+  .cbt-exam-root .right-nav{
+    top:0;
+    bottom:90px;
+    padding-bottom:0;
+    overflow:hidden;
+  }
+
+  /* Question numbers scroll vertically when there are more than the available
+     portrait drawer height. Header/legend remain fixed. */
+  .cbt-exam-root .right-nav .palette{
+    min-height:0;
+    flex:1 1 auto;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  }
+  .cbt-exam-root .right-nav .phead,.cbt-exam-root .right-nav .psub{
+    flex:0 0 auto;
+  }
+  .cbt-exam-root .right-nav .grid{
+    flex:1 1 auto;
+    min-height:0;
+    overflow-y:auto;
+    overflow-x:hidden;
+    align-content:flex-start;
+    scrollbar-width:thin;
+  }
+}
+
+/* v24 — portrait collapse behavior.
+   The collapse handle was correctly positioned, but the portrait drawer had no
+   collapsed-state rule, so clicking the handle changed the state without
+   removing the palette. Desktop/laptop/tablet-landscape behavior is untouched. */
+@media (max-width:1023px){
+  .cbt-exam-root .body.nav-is-collapsed .right-nav{
+    display:none !important;
+  }
+}
+
+/* Desktop/tablet landscape: keep the existing submit strip and layout. */
+@media (min-width:1024px){
+  .cbt-exam-root .mobile-submit{display:none!important}
+}
+
+/* Subject and section strips: horizontal scrolling only when their content
+   exceeds the available strip width. */
+@media (max-width:1023px){
+  .cbt-exam-root .subject-buttons,.cbt-exam-root .section-buttons{
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    white-space:nowrap;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+  }
+  .cbt-exam-root .subject-buttons::-webkit-scrollbar,.cbt-exam-root .section-buttons::-webkit-scrollbar{display:none}
+
+  .cbt-exam-root .subject-buttons .button-row,.cbt-exam-root .section-buttons .button-row{
+    width:max-content!important;
+    max-width:none!important;
+    flex-wrap:nowrap!important;
+  }
+
+  .cbt-exam-root .subject-buttons .subject-button,.cbt-exam-root .section-buttons .section-tab{
+    flex:0 0 auto;
+  }
+
+  /* Reserve the calculator width on the left/right edge of the subject strip
+     so subject tabs never slide underneath it. */
+  .cbt-exam-root .subject-buttons{
+    width:calc(100% - 34px)!important;
+    max-width:calc(100% - 34px)!important;
+    min-width:0;
+  }
+}
+
+/* v20 — horizontal upper-strip overflow + question palette scrolling. */
+.cbt-exam-root .subject-buttons,.cbt-exam-root .section-buttons{
+  min-width:0;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+.cbt-exam-root .subject-buttons::-webkit-scrollbar,.cbt-exam-root .section-buttons::-webkit-scrollbar{display:none}
+
+.cbt-exam-root .subject-buttons .button-row,.cbt-exam-root .section-buttons .button-row{
+  width:max-content;
+  max-width:none;
+  flex-wrap:nowrap;
+  display:flex;
+  gap:5px;
+}
+.cbt-exam-root .subject-buttons .subject-button,.cbt-exam-root .section-buttons .section-tab{flex:0 0 auto}
+
+/* The calculator owns the last fixed 34px of the subject row. */
+.cbt-exam-root .subject-buttons{flex:1 1 auto;width:auto;max-width:none}
+
+@media (max-width:1023px){
+  .cbt-exam-root .subject-row{display:flex;min-width:0}
+  .cbt-exam-root .subject-buttons{width:auto!important;max-width:none!important;flex:1 1 auto;min-width:0}
+  .cbt-exam-root .calculator{margin-left:4px}
+  .cbt-exam-root .tabs{min-width:0}
+  .cbt-exam-root .section-buttons{flex:1 1 auto;width:100%;min-width:0}
+}
+
+/* Question-number area is always a real scroll container. If all questions
+   fit, no scrollbar is needed; if more are present, only the number area
+   scrolls and the drawer heading stays fixed. */
+.cbt-exam-root .palette .grid{
+  min-height:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  align-content:flex-start;
+  scrollbar-width:thin;
+}
+
+@media (max-width:1023px){
+  .cbt-exam-root .right-nav .palette .grid{flex:1 1 auto;min-height:0}
+}
+
+/* v21 — make the question grid consume the remaining palette height on every form factor. */
+.cbt-exam-root .palette{display:flex;flex-direction:column;min-height:0}
+.cbt-exam-root .palette .phead,.cbt-exam-root .palette .psub{flex:0 0 auto}
+.cbt-exam-root .palette .grid{flex:1 1 auto;min-height:0}
+
+@media (min-width:768px) and (max-width:1023px){
+  .cbt-exam-root .right-nav{bottom:92px}
+}
+
+/* v20 — upper-strip scrolling controls + portrait action proportions. */
+.cbt-exam-root .subject-row,.cbt-exam-root .tabs{position:relative;min-width:0}
+
+.cbt-exam-root .strip-arrow{
+  flex:0 0 18px;
+  width:18px;
+  height:100%;
+  min-height:22px;
+  border:0;
+  padding:0;
+  margin:0;
+  background:transparent;
+  color:#333;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:5;
+  font-size:9px;
+  line-height:1;
+}
+.cbt-exam-root .strip-arrow span{display:block;line-height:1}
+.cbt-exam-root .strip-arrow:hover{color:#147eb3}
+.cbt-exam-root .subject-row .subject-arrow-left{display:none}
+.cbt-exam-root .subject-row .subject-arrow-right{display:flex}
+.cbt-exam-root .subject-row .subject-buttons{
+  flex:1 1 auto;
+  min-width:0;
+  max-width:none;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scrollbar-width:none;
+}
+.cbt-exam-root .subject-row .subject-buttons::-webkit-scrollbar,.cbt-exam-root .tabs .section-buttons::-webkit-scrollbar{display:none}
+.cbt-exam-root .subject-row .subject-buttons .button-row{
+  width:max-content;
+  min-width:100%;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  align-items:flex-start;
+}
+.cbt-exam-root .subject-row .calculator{flex:0 0 30px;margin-left:0}
+
+.cbt-exam-root .tabs .section-arrow-left,.cbt-exam-root .tabs .section-arrow-right{display:flex}
+.cbt-exam-root .tabs .section-buttons{
+  flex:1 1 auto;
+  min-width:0;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scrollbar-width:none;
+}
+.cbt-exam-root .tabs .section-buttons .button-row{
+  width:max-content;
+  min-width:100%;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  align-items:center;
+}
+
+@media (max-width:1023px){
+  /* Row 1 is intentionally 50/50; row 2 is intentionally 65/35 so Submit
+     cannot be mistaken for Save & Next. This remains true while the drawer is open. */
+  .cbt-exam-root .actions>button.clear-action,.cbt-exam-root .actions .push{
+    width:calc(50% - 9px)!important;
+  }
+  .cbt-exam-root .actions>button.mark-action{
+    width:calc(65% - 9px)!important;
+  }
+  .cbt-exam-root .actions>.mobile-submit{
+    right:6px!important;
+    left:auto!important;
+    width:calc(35% - 9px)!important;
+  }
+
+  /* Keep the subject's right arrow immediately before the calculator. */
+  .cbt-exam-root .subject-row{padding-left:3px;padding-right:3px}
+  .cbt-exam-root .subject-row .subject-arrow-left{display:flex}
+  .cbt-exam-root .subject-row .subject-buttons{padding:0 2px}
+  .cbt-exam-root .subject-row .subject-arrow-right{display:flex}
+  .cbt-exam-root .subject-row .calculator{margin-left:0}
+
+  .cbt-exam-root .tabs{padding-left:2px;padding-right:2px}
+  .cbt-exam-root .tabs .section-arrow-left,.cbt-exam-root .tabs .section-arrow-right{display:flex}
+  .cbt-exam-root .tabs .section-buttons{padding:0 2px}
+}
+
+/* v22 — desktop navigation funnel + fixed action geometry.
+   Desktop: no strip arrows; controls first shrink to fit a row, then wrap.
+   The row containing the active subject/section is always the bottom row.
+   Portrait/mobile keeps the existing horizontal finger/arrow scrolling. */
+@media (min-width:1024px){
+  .cbt-exam-root .strip-arrow{display:none!important}
+
+  .cbt-exam-root .subject-row{
+    height:auto;
+    min-height:53px;
+    padding:8px 10px 8px;
+    align-items:flex-start;
+  }
+
+  .cbt-exam-root .subject-buttons,.cbt-exam-root .section-buttons{
+    overflow:visible;
+  }
+
+  .cbt-exam-root .funnel-rows{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+  }
+
+  .cbt-exam-root .subject-buttons .button-row,.cbt-exam-root .section-buttons .button-row{
+    width:100%;
+    max-width:none;
+    display:flex;
+    flex:0 0 auto;
+    flex-wrap:nowrap;
+    gap:5px;
+  }
+
+  .cbt-exam-root .subject-buttons .subject-button,.cbt-exam-root .section-buttons .section-tab{
+    flex:1 1 0;
+    width:auto;
+    max-width:none;
+    min-width:0;
+  }
+
+  /* Each row consumes the full available strip width. When there are more
+     items than the minimum readable width, useFunnelRows creates another row;
+     otherwise the buttons simply shrink/expand together within the row. */
+  .cbt-exam-root .subject-buttons .subject-button{
+    min-width:118px;
+  }
+  .cbt-exam-root .section-buttons .section-tab{
+    min-width:118px;
+  }
+
+  /* Keep the calculator outside the subject-button row. */
+  .cbt-exam-root .subject-row .subject-buttons{
+    flex:1 1 auto;
+    min-width:0;
+    max-width:none;
+    padding-bottom:0;
+  }
+
+  .cbt-exam-root .tabs{
+    height:auto;
+    min-height:40px;
+    padding:5px 7px;
+    align-items:flex-start;
+  }
+  .cbt-exam-root .tabs .section-buttons{
+    flex:1 1 auto;
+    min-width:0;
+  }
+
+  /* Mark-for-review keeps one geometry whether the right navigation is open
+     or collapsed; the main column changing width must not resize this button. */
+  .cbt-exam-root .actions .mark-action{
+    flex:0 0 200px;
+    width:200px;
+    min-width:200px;
+  }
+}
+
+@media (max-width:1023px){
+  /* Portrait/mobile: arrows are intentional controls at both ends. */
+  .cbt-exam-root .subject-row .subject-arrow-left,.cbt-exam-root .subject-row .subject-arrow-right,.cbt-exam-root .tabs .section-arrow-left,.cbt-exam-root .tabs .section-arrow-right{
+    display:flex!important;
+  }
+
+  /* Mobile strips stay single-line and finger-scrollable. */
+  .cbt-exam-root .funnel-rows{
+    display:flex;
+    flex-direction:row;
+    width:max-content;
+    min-width:100%;
+    gap:5px;
+  }
+  .cbt-exam-root .subject-buttons .button-row,.cbt-exam-root .section-buttons .button-row{
+    width:max-content;
+    max-width:none;
+    flex:0 0 auto;
+    display:flex;
+    flex-wrap:nowrap;
+    gap:5px;
+  }
+  .cbt-exam-root .subject-buttons .subject-button,.cbt-exam-root .section-buttons .section-tab{
+    flex:0 0 auto;
+    min-width:118px;
+    width:max-content;
+    max-width:none;
+  }
+}
+
+/* v23 — restore the desktop funnel while keeping the mobile arrow system.
+   Desktop uses content-sized single-item rows and equal flexible buttons for
+   multi-item rows; mobile remains horizontally scrollable with arrows. */
+@media (min-width:1024px){
+  .cbt-exam-root .subject-row .subject-arrow-left,.cbt-exam-root .subject-row .subject-arrow-right,.cbt-exam-root .tabs .section-arrow-left,.cbt-exam-root .tabs .section-arrow-right{
+    display:none!important;
+  }
+
+  .cbt-exam-root .subject-row .subject-buttons,.cbt-exam-root .tabs .section-buttons{
+    overflow:visible!important;
+    width:100%;
+    max-width:none;
+  }
+
+  .cbt-exam-root .subject-row .funnel-rows,.cbt-exam-root .tabs .funnel-rows{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+  }
+
+  .cbt-exam-root .subject-row .button-row,.cbt-exam-root .tabs .button-row{
+    width:100%;
+    max-width:none;
+    display:flex;
+    flex-wrap:nowrap;
+    gap:5px;
+  }
+
+  /* Several items share the row. They shrink together, but never below the
+     readable minimum. useFunnelRows creates the next row once that minimum
+     cannot fit. */
+  .cbt-exam-root .subject-row .button-row > .subject-button,.cbt-exam-root .tabs .button-row > .section-tab{
+    flex:1 1 0;
+    width:auto;
+    min-width:118px;
+    max-width:none;
+  }
+
+  /* A single item should never stretch across the entire strip. This is what
+     restores the reference funnel shape for a single current subject. */
+  .cbt-exam-root .subject-row .button-row > .subject-button:only-child{
+    flex:0 1 auto;
+    width:max-content;
+    max-width:100%;
+  }
+
+  /* Keep the selected/current item visibly funnel-shaped. */
+  .cbt-exam-root .subject-row .subject-button:after,.cbt-exam-root .tabs .section-tab.selected:after{
+    display:block;
+    z-index:3;
+  }
+}
+
+@media (max-width:1023px){
+  /* Portrait/mobile keeps BOTH arrows for BOTH upper strips. */
+  .cbt-exam-root .subject-row .subject-arrow-left,.cbt-exam-root .subject-row .subject-arrow-right,.cbt-exam-root .tabs .section-arrow-left,.cbt-exam-root .tabs .section-arrow-right{
+    display:flex!important;
+    flex:0 0 18px;
+    width:18px;
+  }
+
+  /* The section strip must reserve space for its arrows instead of letting
+     the scroll container consume the entire row. */
+  .cbt-exam-root .tabs .section-buttons{
+    flex:1 1 auto!important;
+    min-width:0!important;
+    width:auto!important;
+    max-width:none!important;
+  }
+
+  .cbt-exam-root .tabs .funnel-rows,.cbt-exam-root .tabs .button-row{
+    width:max-content!important;
+    min-width:100%;
+  }
+}
+
+/* v24 — final upper-strip sizing correction.
+   Single desktop section/subject controls stay content-sized; multi-item rows
+   still use the funnel's flexible columns. Portrait/mobile always reserves
+   both arrow controls, even at very narrow widths. */
+@media (min-width:1024px){
+  /* A single control must never stretch across the complete stripe. */
+  .cbt-exam-root .tabs .button-row > .section-tab:only-child{
+    flex:0 1 auto!important;
+    width:max-content!important;
+    max-width:100%!important;
+  }
+
+  .cbt-exam-root .subject-row .button-row > .subject-button:only-child{
+    flex:0 1 auto!important;
+    width:max-content!important;
+    max-width:100%!important;
+  }
+
+  /* Long labels become ellipsized before the button is allowed to exceed the
+     usable stripe. */
+  .cbt-exam-root .tabs .button-row > .section-tab:only-child,.cbt-exam-root .subject-row .button-row > .subject-button:only-child{
+    overflow:hidden;
+  }
+  .cbt-exam-root .tabs .section-tab > span:first-child,.cbt-exam-root .subject-row .subject-button > span:first-child{
+    min-width:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+}
+
+@media (max-width:1023px){
+  /* Never let the scrollable middle consume the arrow's space. This keeps
+     both section arrows visible at 320px and below as well as on wider phones. */
+  .cbt-exam-root .subject-row .subject-arrow-left,.cbt-exam-root .subject-row .subject-arrow-right,.cbt-exam-root .tabs .section-arrow-left,.cbt-exam-root .tabs .section-arrow-right{
+    flex:0 0 18px!important;
+    width:18px!important;
+    min-width:18px!important;
+    max-width:18px!important;
+  }
+
+  .cbt-exam-root .subject-row .subject-buttons,.cbt-exam-root .tabs .section-buttons{
+    flex:1 1 0!important;
+    width:0!important;
+    min-width:0!important;
+    max-width:none!important;
+  }
+
+  .cbt-exam-root .tabs{
+    flex-wrap:nowrap!important;
+    overflow:visible!important;
+    gap:0!important;
+  }
+
+  .cbt-exam-root .tabs .section-buttons{
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+  }
+
+  /* Mobile controls may shrink to a compact ellipsis form before the strip
+     needs to expose more content through horizontal scrolling. */
+  .cbt-exam-root .subject-row .subject-button,.cbt-exam-root .tabs .section-tab{
+    min-width:78px!important;
+    max-width:100%;
+  }
+
+  .cbt-exam-root .subject-row .subject-button > span:first-child,.cbt-exam-root .tabs .section-tab > span:first-child{
+    min-width:0;
+    max-width:calc(100% - 18px);
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+}
+
+@media (max-width:380px){
+  .cbt-exam-root .subject-row .subject-arrow-left,.cbt-exam-root .subject-row .subject-arrow-right,.cbt-exam-root .tabs .section-arrow-left,.cbt-exam-root .tabs .section-arrow-right{
+    flex-basis:17px!important;
+    width:17px!important;
+    min-width:17px!important;
+    max-width:17px!important;
+  }
+
+  .cbt-exam-root .subject-row .subject-button,.cbt-exam-root .tabs .section-tab{
+    min-width:72px!important;
+  }
+}
+
+/* v25 — desktop reference correction: upper buttons stay content-sized.
+   They do not stretch to fill the entire strip. The active/current control
+   keeps its downward funnel on both Subject and Section strips. */
+@media (min-width:1024px){
+  /* Paint the subject strip above the following section strip so the
+     selected subject funnel is not covered by the next band. */
+  .cbt-exam-root .subject-row{
+    position:relative;
+    z-index:20;
+  }
+  .cbt-exam-root .subject-row,.cbt-exam-root .tabs{
+    overflow:visible;
+  }
+
+  /* The subject/section wrappers must not clip the selected funnel.
+     Horizontal overflow is handled by the desktop row layout itself; the
+     downward funnel belongs outside the button box. */
+  .cbt-exam-root .subject-row .subject-buttons,.cbt-exam-root .tabs .section-buttons{
+    overflow:visible;
+  }
+
+  .cbt-exam-root .subject-row .funnel-rows,.cbt-exam-root .tabs .funnel-rows{
+    width:max-content;
+    max-width:100%;
+    overflow:visible;
+  }
+
+  .cbt-exam-root .subject-row .button-row,.cbt-exam-root .tabs .button-row{
+    width:max-content;
+    max-width:100%;
+    flex:0 0 auto;
+    overflow:visible;
+  }
+
+  .cbt-exam-root .subject-row .button-row > .subject-button,.cbt-exam-root .tabs .button-row > .section-tab{
+    flex:0 0 auto;
+    width:max-content;
+    min-width:85px;
+    max-width:100%;
+  }
+
+  /* The single active/current control is never stretched and its funnel is
+     explicitly kept visible below the button. */
+  .cbt-exam-root .subject-row .subject-button,.cbt-exam-root .tabs .section-tab.selected{
+    position:relative;
+    overflow:visible;
+    z-index:2;
+  }
+
+  .cbt-exam-root .subject-row .subject-button.selected::after,.cbt-exam-root .tabs .section-tab.selected::after{
+    display:block !important;
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-7px;
+    transform:translateX(-50%);
+    border-left:7px solid transparent;
+    border-right:7px solid transparent;
+    border-top:7px solid #4e85c5;
+    z-index:4;
+    pointer-events:none;
+  }
+
+  .cbt-exam-root .tabs .section-tab.selected::after{
+    border-left-width:6px;
+    border-right-width:6px;
+    border-top-width:6px;
+    bottom:-6px;
+    border-top-color:#147eb3;
+  }
+
+  .cbt-exam-root .subject-row .subject-button.selected:hover::after{
+    border-top-color:#3f74b2;
+  }
+
+  .cbt-exam-root .tabs .section-tab.selected:hover::after{
+    border-top-color:#106f9f;
+  }
+}
+
+/* v29 — subject funnel visibility fix only.
+   Render the subject funnel as a real child of the selected button so it
+   cannot disappear behind the following Sections band. */
+@media (min-width:1024px){
+  .cbt-exam-root .subject-row .subject-button.selected::after{
+    display:none !important;
+  }
+  .cbt-exam-root .subject-row .subject-button.selected .subject-funnel{
+    display:block;
+    position:absolute;
+    left:50%;
+    bottom:-7px;
+    width:14px;
+    height:7px;
+    transform:translateX(-50%);
+    background:#4e85c5;
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    z-index:100;
+    pointer-events:none;
+  }
+}
+
+/* v30 — allow only the selected subject funnel to escape the button box.
+   The earlier desktop ellipsis rule applies overflow:hidden to a single
+   subject button, which clips the 7px funnel below it. Keep the text clipped,
+   but let the button itself remain visually overflow-visible. */
+@media (min-width:1024px){
+  .cbt-exam-root .subject-row .button-row > .subject-button:only-child,.cbt-exam-root .subject-row .subject-button.selected{
+    overflow:visible !important;
+  }
+
+  .cbt-exam-root .subject-row .subject-button.selected .subject-funnel{
+    display:block !important;
+    position:absolute !important;
+    left:50% !important;
+    bottom:-7px !important;
+    width:14px !important;
+    height:7px !important;
+    transform:translateX(-50%) !important;
+    background:#4e85c5 !important;
+    clip-path:polygon(0 0,100% 0,50% 100%) !important;
+    z-index:100 !important;
+    pointer-events:none !important;
+  }
+}
+
+/* CBTGen integration layer: new data/interaction content only. The visual
+   reference above remains the primary layout. */
+.cbt-exam-root .assertion-reason-content,.cbt-exam-root .assertion-reason-statement{margin:10px 0;padding:9px 11px;border:1px solid #d6e0e6;background:#fbfdfe;border-radius:3px}
+.cbt-exam-root .assertion-reason-content strong,.cbt-exam-root .assertion-reason-statement strong{display:block;color:#147eb3;margin-bottom:5px}
+.cbt-exam-root .assertion-reason-content p,.cbt-exam-root .assertion-reason-statement p{margin:0;font-size:15px;line-height:1.4}
+.cbt-exam-root .response-not-available{margin-top:10px;padding:9px 11px;border:1px solid #d6e0e6;background:#f7f9fa;color:#5d6970}
+.cbt-exam-root .response-block{margin-top:14px;min-height:0}
+.cbt-exam-root .response-block>strong{display:block;margin-bottom:9px;font-size:13px}
+.cbt-exam-root .text-response{display:block;width:min(100%,520px);min-height:38px;border:1px solid #aebcc5;border-radius:3px;background:#fff;padding:7px 9px;font:inherit;color:#222}
+.cbt-exam-root textarea.text-response{resize:vertical;line-height:1.45}
+.cbt-exam-root .response-block select.text-response{cursor:pointer}
+.cbt-exam-root .match-reference-panel{margin:10px 0 14px;padding:10px 12px;border:1px solid #d6e0e6;border-radius:4px;background:#f8fbfd}.cbt-exam-root .match-reference-title{font-weight:700;font-size:13px;color:#334155;margin-bottom:8px}.cbt-exam-root .match-reference-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}.cbt-exam-root .match-reference-item{display:flex;gap:8px;align-items:flex-start;min-width:0;padding:8px;border:1px solid #e0e7eb;border-radius:4px;background:#fff}.cbt-exam-root .match-reference-id{font-weight:700;flex:0 0 auto}.cbt-exam-root .match-reference-content{min-width:0;flex:1}.cbt-exam-root .match-reference-content .content-image{margin:0}.cbt-exam-root .match-reference-content .content-image img{max-height:240px}.cbt-exam-root .match-left-content{display:flex;gap:8px;align-items:flex-start;min-width:0}.cbt-exam-root .match-item-id{font-weight:700;flex:0 0 auto}.cbt-exam-root .match-item-body{min-width:0;flex:1}.cbt-exam-root .match-item-body .content-image{margin:0}.cbt-exam-root .match-item-body .content-image img{max-height:240px}
+.cbt-exam-root .match-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(160px,320px);gap:10px;align-items:center;margin:8px 0;padding:7px 8px;border:1px solid #d6e0e6;border-radius:3px;background:#fbfdfe}
+.cbt-exam-root .match-row>span{min-width:0;overflow-wrap:anywhere}
+.cbt-exam-root .content-math{margin:10px 0;padding:8px 10px;border-left:3px solid #1682bb;background:#f5f9fb;overflow-x:auto;overflow-y:hidden;line-height:1.6;text-align:left}.cbt-exam-root .question-math{font-size:1.08em;line-height:1.45;vertical-align:middle}.cbt-exam-root .question-math-block{display:block;min-width:max-content}.cbt-exam-root .question-math-inline{display:inline;min-width:0;white-space:normal}.cbt-exam-root .question-math-source{display:inline}.cbt-exam-root .question-math-block .question-math-source{display:block}.cbt-exam-root .question-math-fallback{display:none}.cbt-exam-root .question-math-mathml{display:block;overflow-x:auto}.cbt-exam-root .question-math mtable{margin:0.25em auto}.cbt-exam-root .question-math mtd{padding:0 .35em}.cbt-exam-root .question-math mi,.cbt-exam-root .question-math mn,.cbt-exam-root .question-math mo{font-family:STIX Two Math, Cambria Math, Latin Modern Math, "Times New Roman", serif}.cbt-exam-root .question-math-unicode{font-family:STIX Two Math, Cambria Math, "Times New Roman", serif;white-space:pre-wrap;overflow-wrap:anywhere}
+.cbt-exam-root .content-code{margin:10px 0;padding:10px;background:#f4f4f4;border:1px solid #d4d4d4;border-radius:3px;overflow:auto;font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace}
+.cbt-exam-root .content-image{margin:10px 0;text-align:left}.cbt-exam-root .content-image img{max-width:100%;height:auto;max-height:360px;object-fit:contain}
+.cbt-exam-root .content-table{border-collapse:collapse;margin:12px 0;max-width:100%;font-size:13px}.cbt-exam-root .content-table th,.cbt-exam-root .content-table td{border:1px solid #bfcbd2;padding:6px 8px}.cbt-exam-root .content-table th{background:#eef4f7}
+.cbt-exam-root .candidate-panel small,.cbt-exam-root .mobile-candidate small{display:block;margin-top:4px;color:#65737c;font-size:11px}
+.cbt-exam-root .candidate-photo{object-fit:cover;border:1px solid #b7c5ce;border-radius:3px;background:#eef3f6}
+.cbt-exam-root.exam-state-screen{width:100%;height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#f4f7fa;color:#24313a;text-align:center;padding:24px}
+.cbt-exam-root .exam-state-screen strong{font-size:22px}.cbt-exam-root .exam-state-screen span{max-width:600px;color:#5f6e77}.cbt-exam-root .exam-state-screen button{margin-top:8px;border:1px solid #1682bb;background:#1682bb;color:#fff;border-radius:3px;padding:9px 16px}
+.cbt-exam-root .calculator-modal{width:min(430px,calc(100vw - 24px))}.cbt-exam-root .calc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:12px 0}.cbt-exam-root .calc-grid button{height:38px;border:1px solid #b7c4cc;background:#f7fafb;border-radius:3px}.cbt-exam-root .calc-grid button:hover{background:#e9f2f7}
+.cbt-exam-root .modal code{word-break:break-all;font-size:11px}
+.cbt-exam-root button:disabled{opacity:.55;cursor:not-allowed!important}
+@media(max-width:767px){.cbt-exam-root .match-reference-list{grid-template-columns:1fr}.cbt-exam-root .match-row{grid-template-columns:1fr}.cbt-exam-root .text-response{max-width:100%}.cbt-exam-root .content-image img{max-height:260px}}
+
+
+/* Phase 20 NAT response keypad — available on desktop and portrait layouts.
+   NAT is the candidate-entry numeric question type, so it receives the same
+   on-screen number board style used by CBT references. Other subjective/text
+   question types remain unchanged. */
+.cbt-exam-root .numeric-response-with-keypad{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.cbt-exam-root .numeric-response-display{cursor:default}
+.cbt-exam-root .numeric-keypad{width:150px;display:grid;grid-template-columns:repeat(3,42px);grid-auto-rows:34px;gap:4px;padding:5px;background:#f2f2f2;border:1px solid #d1d1d1}
+.cbt-exam-root .numeric-keypad button{height:34px;border:1px solid #a9a9a9;border-radius:3px;background:#e9e9e9;color:#222;font:600 14px/1 Arial,Verdana,sans-serif;box-shadow:inset 0 1px 0 rgba(255,255,255,.65);transition:background-color .12s ease,border-color .12s ease,color .12s ease,box-shadow .12s ease}
+.cbt-exam-root .numeric-keypad button:hover,.cbt-exam-root .numeric-keypad button:focus-visible{background:#d9edf7;border-color:#1682bb;color:#126f9f;outline:none}
+.cbt-exam-root .numeric-keypad button:active{background:#c5e4f1;border-color:#126f9f;box-shadow:inset 0 1px 2px rgba(0,0,0,.14)}
+.cbt-exam-root .numeric-keypad .numeric-keypad-wide{grid-column:1/-1;width:100%}
+@media (max-width:1023px){
+  .cbt-exam-root .numeric-keypad{width:150px;grid-template-columns:repeat(3,42px)}
+}
+
+/* v22 — final navigation/subject-info corrections */
+.cbt-exam-root .subject-button:not(.selected){
+  background:#fff;
+  color:#147eb3;
+  border:1px solid #c3c3c1;
+}
+.cbt-exam-root .subject-button:not(.selected):after{display:none}
+.cbt-exam-root .subject-button.selected{background:#4e85c5;color:#fff;border-color:#4e85c5}
+.cbt-exam-root .subject-button.selected:after{display:block;border-top-color:#4e85c5}
+
+/* The info popup is portaled to document.body so the horizontal subject/section
+   scrollers can never clip it. */
+.info-popup-portal{
+  position:fixed!important;
+  display:block!important;
+  z-index:10000!important;
+  margin:0!important;
+  pointer-events:auto;
+}
+
+/* Desktop collapse: remove only the question palette, leaving the question
+   workspace at full width and the Submit strip at the right edge. */
+@media (min-width:1024px){
+  .cbt-exam-root .body.nav-is-collapsed .right-nav{display:none}
+  .cbt-exam-root .body.nav-is-collapsed .right-submit-strip{right:0;width:250px}
+  .cbt-exam-root .body.nav-is-collapsed .collapse{right:0}
+}
+
+/* The instruction popup uses the exact same status symbols as the live palette. */
+.cbt-exam-root .instruction-legend{
+  display:flex!important;
+  flex-direction:column;
+  gap:5px;
+  text-align:left!important;
+  margin:8px 0 14px;
+  padding:8px 10px;
+  border:1px solid #c3c3c1;
+  background:#fff;
+}
+.cbt-exam-root .instruction-legend>div{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  text-align:left!important;
+}
+.cbt-exam-root .instruction-legend .wide{grid-column:auto}
+.cbt-exam-root .instruction-legend small{font-size:12px;line-height:1.35}
+.cbt-exam-root .instruction-legend .badge{flex:0 0 42px;width:42px;height:36px}
+
+/* v22 FINAL — fixes for the currently active Examination stylesheet path. */
+@media (min-width:1024px){
+  /* Only the current subject is blue and owns the downward funnel. */
+  .cbt-exam-root .subject-row .subject-button:not(.selected){
+    background:#fff !important;
+    color:#147eb3 !important;
+    border:1px solid #c3c3c1 !important;
+  }
+  .cbt-exam-root .subject-row .subject-button:not(.selected) .subject-funnel{display:none !important}
+  .cbt-exam-root .subject-row .subject-button.selected{
+    position:relative !important;
+    overflow:visible !important;
+    z-index:100 !important;
+    background:#4e85c5 !important;
+    color:#fff !important;
+    border-color:#4e85c5 !important;
+  }
+  .cbt-exam-root .subject-row .subject-button.selected .subject-funnel{
+    display:block !important;
+    position:absolute !important;
+    left:50% !important;
+    bottom:-7px !important;
+    width:14px !important;
+    height:7px !important;
+    transform:translateX(-50%) !important;
+    background:#4e85c5 !important;
+    clip-path:polygon(0 0,100% 0,50% 100%) !important;
+    z-index:1000 !important;
+    pointer-events:none !important;
+  }
+
+  /* Make the collapse handle unconditionally visible above the palette. */
+  .cbt-exam-root .body > .collapse{
+    display:flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    position:absolute !important;
+    left:calc(100% - 274px) !important;
+    right:auto !important;
+    top:50% !important;
+    transform:translateY(-50%) !important;
+    width:24px !important;
+    height:52px !important;
+    margin:0 !important;
+    padding:0 !important;
+    background:#050505 !important;
+    color:#fff !important;
+    border:0 !important;
+    border-radius:5px 0 0 5px !important;
+    z-index:100000 !important;
+    pointer-events:auto !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+  .cbt-exam-root .body > .collapse.is-collapsed{
+    left:calc(100% - 24px) !important;
+    right:auto !important;
+  }
+  .cbt-exam-root .body > .collapse span{
+    display:block !important;
+    visibility:visible !important;
+    color:#fff !important;
+    font-size:23px !important;
+    line-height:1 !important;
+  }
+}
+
+/* Document-level info popup. The React popup is portaled to <body>, so it
+   needs its own complete styling instead of inheriting .cbt-exam-root rules. */
+.info-popup-portal{
+  position:fixed !important;
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  z-index:2147483647 !important;
+  box-sizing:border-box !important;
+  width:340px !important;
+  max-width:calc(100vw - 16px) !important;
+  padding:10px 14px 9px !important;
+  margin:0 !important;
+  background:#fff !important;
+  color:#222 !important;
+  border:1px solid #8d8d8d !important;
+  border-radius:4px !important;
+  box-shadow:0 2px 8px rgba(0,0,0,.28) !important;
+  text-align:left !important;
+  font-family:Arial,Verdana,sans-serif !important;
+  font-size:12px !important;
+  font-style:normal !important;
+  line-height:1.2 !important;
+  white-space:normal !important;
+  pointer-events:auto !important;
+}
+.info-popup-portal::before{
+  content:"" !important;
+  position:absolute !important;
+  top:-6px !important;
+  left:13px !important;
+  width:10px !important;
+  height:10px !important;
+  box-sizing:border-box !important;
+  background:#fff !important;
+  border-left:1px solid #8d8d8d !important;
+  border-top:1px solid #8d8d8d !important;
+  transform:rotate(45deg) !important;
+}
+.info-popup-portal > strong{
+  display:block !important;
+  margin:0 0 6px !important;
+  padding:0 0 7px !important;
+  border-bottom:1px solid #ddd !important;
+  font-size:13px !important;
+  font-weight:700 !important;
+  line-height:1.15 !important;
+}
+.info-popup-portal > span{
+  display:flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  min-height:27px !important;
+  margin:0 !important;
+  padding:0 !important;
+  font-size:12px !important;
+  line-height:1.15 !important;
+  white-space:nowrap !important;
+}
+.info-popup-portal .badge{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  position:relative !important;
+  flex:0 0 22px !important;
+  width:22px !important;
+  height:22px !important;
+  margin:0 !important;
+  padding:0 !important;
+  color:#fff !important;
+  font-size:11px !important;
+  line-height:1 !important;
+  transform:none !important;
+  transform-origin:center !important;
+  isolation:isolate !important;
+}
+.info-popup-portal .badge::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:2px 3px !important;
+  z-index:0 !important;
+  background:#4da15e !important;
+}
+.info-popup-portal .badge.a::before{background:#4da15e !important;clip-path:polygon(20% 0,80% 0,100% 100%,0 100%) !important}
+.info-popup-portal .badge.na::before{background:#c74343 !important;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%) !important}
+.info-popup-portal .badge.nv{color:#474747 !important}
+.info-popup-portal .badge.nv::before{background:#fff !important;border:1px solid #8a8a8a !important;clip-path:none !important}
+.info-popup-portal .badge.r::before,.info-popup-portal .badge.ar::before{background:#8d59ad !important;border-radius:50% !important;clip-path:none !important}
+.info-popup-portal .badge.ar::after{
+  content:"" !important;
+  position:absolute !important;
+  right:2px !important;
+  bottom:2px !important;
+  width:6px !important;
+  height:6px !important;
+  background:#4da15e !important;
+  border:1px solid #fff !important;
+  border-radius:50% !important;
+  z-index:3 !important;
+}
+.info-popup-portal .badge-value{
+  position:relative !important;
+  z-index:2 !important;
+}
+
+
+/* v31 — final reliable UI controls. */
+@media (min-width:1024px){
+  .cbt-exam-root .subject-row .subject-button.selected{overflow:visible !important;}
+  .cbt-exam-root .subject-row .subject-button.selected::after{content:none !important;}
+  .cbt-exam-root .subject-row .subject-button.selected .subject-funnel{display:block !important;position:absolute !important;left:50% !important;bottom:-7px !important;width:14px !important;height:7px !important;transform:translateX(-50%) !important;background:#4e85c5 !important;clip-path:polygon(0 0,100% 0,50% 100%) !important;z-index:999 !important;pointer-events:none !important;}
+  .cbt-exam-root .subject-row .subject-button:not(.selected) .subject-funnel{display:none !important;}
+}
+@media (min-width:1024px){
+  .cbt-exam-root .collapse{position:fixed !important;right:250px !important;top:calc(50% + 95px) !important;transform:translateY(-50%) !important;width:24px !important;height:52px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#050505 !important;color:#fff !important;border:0 !important;border-radius:5px 0 0 5px !important;z-index:99999 !important;visibility:visible !important;opacity:1 !important;}
+  .cbt-exam-root .collapse.is-collapsed{right:0 !important;}
+}
+.info-popup-portal{display:block !important;position:fixed !important;z-index:2147483647 !important;pointer-events:auto !important;cursor:default !important;}
+
+
+/* v34 — final candidate/right-panel alignment */
+@media (min-width:1024px){
+  .cbt-exam-root .pre-question{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) 250px !important;
+    grid-template-rows:auto !important;
+    align-items:stretch !important;
+    height:auto !important;
+    min-height:0 !important;
+    flex:0 0 auto !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  .cbt-exam-root .pre-left{
+    grid-column:1 !important;
+    grid-row:1 !important;
+    height:auto !important;
+    min-height:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  .cbt-exam-root .candidate-panel{
+    grid-column:2 !important;
+    grid-row:1 !important;
+    width:250px !important;
+    min-width:250px !important;
+    height:auto !important;
+    min-height:0 !important;
+    align-self:stretch !important;
+    margin:0 !important;
+  }
+
+  .cbt-exam-root .body{
+    margin:0 !important;
+    padding:0 !important;
+    min-height:0 !important;
+  }
+
+  .cbt-exam-root .right-nav{
+    margin:0 !important;
+    padding-top:0 !important;
+    border-top:0 !important;
+  }
+
+  .cbt-exam-root .legend{
+    margin:0 !important;
+    border-top:0 !important;
+  }
+}
+
+/* v34 — full-name hover tooltip for truncated, non-selected navigation
+   buttons. This is intentionally black with white text, separate from the
+   blue-info attempt-details popup on the small i icon. */
+@media (min-width:1024px){
+  .cbt-exam-root .subject-button:not(.selected)[data-tooltip],
+  .cbt-exam-root .section-tab:not(.selected)[data-tooltip]{
+    position:relative !important;
+    overflow:visible !important;
+  }
+  .cbt-exam-root .subject-button:not(.selected)[data-tooltip]::after,
+  .cbt-exam-root .section-tab:not(.selected)[data-tooltip]::after{
+    content:attr(data-tooltip) !important;
+    position:absolute !important;
+    left:50% !important;
+    top:calc(100% + 7px) !important;
+    transform:translateX(-50%) !important;
+    z-index:2147483646 !important;
+    display:block !important;
+    width:max-content !important;
+    max-width:420px !important;
+    padding:7px 10px !important;
+    background:#111 !important;
+    color:#fff !important;
+    border:1px solid #333 !important;
+    border-radius:3px !important;
+    box-shadow:0 3px 10px rgba(0,0,0,.35) !important;
+    font-size:12px !important;
+    font-weight:500 !important;
+    line-height:1.25 !important;
+    white-space:normal !important;
+    text-align:left !important;
+    pointer-events:none !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    transition:opacity .08s ease !important;
+  }
+  .cbt-exam-root .subject-button:not(.selected)[data-tooltip]:hover::after,
+  .cbt-exam-root .section-tab:not(.selected)[data-tooltip]:hover::after,
+  .cbt-exam-root .subject-button:not(.selected)[data-tooltip]:focus-visible::after,
+  .cbt-exam-root .section-tab:not(.selected)[data-tooltip]:focus-visible::after{
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+}
+
+
+/* v35 — authoritative desktop strip geometry.
+   Rows are calculated from content character width in Examination.jsx. The
+   CSS must NOT turn them into max-content rows, otherwise long labels can
+   escape the strip. Each calculated button keeps its natural width; the
+   row itself is constrained to the strip. */
+@media (min-width:1024px){
+  .cbt-exam-root .subject-row,
+  .cbt-exam-root .tabs{
+    width:100%;
+    min-width:0;
+    overflow:visible !important;
+  }
+
+  .cbt-exam-root .subject-row .subject-buttons,
+  .cbt-exam-root .tabs .section-buttons{
+    flex:1 1 auto;
+    min-width:0;
+    width:100%;
+    max-width:100%;
+    overflow:visible !important;
+  }
+
+  .cbt-exam-root .subject-row .funnel-rows,
+  .cbt-exam-root .tabs .funnel-rows{
+    width:100%;
+    max-width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    overflow:visible;
+  }
+
+  .cbt-exam-root .subject-row .button-row,
+  .cbt-exam-root .tabs .button-row{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    display:flex;
+    flex:0 0 auto;
+    flex-wrap:nowrap;
+    align-items:flex-start;
+    gap:5px;
+    overflow:visible;
+  }
+
+  .cbt-exam-root .subject-row .button-row > .subject-button,
+  .cbt-exam-root .tabs .button-row > .section-tab{
+    flex:0 1 auto !important;
+    min-width:85px;
+    max-width:100%;
+    box-sizing:border-box;
+    overflow:hidden;
+  }
+
+  .cbt-exam-root .subject-row .button-row > .subject-button > span:first-child,
+  .cbt-exam-root .tabs .button-row > .section-tab > span:first-child{
+    display:block;
+    min-width:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+
+  /* The selected funnel belongs to the selected button and must point into
+     the section below it. */
+  .cbt-exam-root .subject-row .subject-button.selected,
+  .cbt-exam-root .tabs .section-tab.selected{
+    position:relative !important;
+    overflow:visible !important;
+  }
+
+  /* A tooltip is only for the actual button hover, not the i icon. */
+  .cbt-exam-root .subject-button:not(.selected)[data-tooltip]::after,
+  .cbt-exam-root .section-tab:not(.selected)[data-tooltip]::after{
+    content:attr(data-tooltip) !important;
+    position:absolute !important;
+    left:50% !important;
+    top:calc(100% + 7px) !important;
+    transform:translateX(-50%) !important;
+    width:max-content !important;
+    max-width:420px !important;
+    padding:6px 9px !important;
+    background:#111 !important;
+    color:#fff !important;
+    border:1px solid #333 !important;
+    border-radius:3px !important;
+    box-shadow:0 3px 10px rgba(0,0,0,.3) !important;
+    font-size:12px !important;
+    font-weight:500 !important;
+    line-height:1.25 !important;
+    white-space:normal !important;
+    z-index:2147483646 !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+  }
+
+  .cbt-exam-root .subject-button:not(.selected)[data-tooltip]:hover::after,
+  .cbt-exam-root .section-tab:not(.selected)[data-tooltip]:hover::after{
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+}
+
+/* v36 — clean desktop strip geometry.
+   This is the final authority after the older v1-v35 overrides above. */
+@media (min-width:1024px){
+  .cbt-exam-root .pre-question{
+    height:auto !important;
+    min-height:125px;
+    flex:0 0 auto !important;
+    display:flex !important;
+    align-items:flex-start !important;
+  }
+
+  .cbt-exam-root .pre-left{
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    height:auto !important;
+  }
+
+  /* Subject strip is allowed to grow only when the subject row actually needs
+     another row. The candidate panel remains independent from section rows. */
+  .cbt-exam-root .subject-row{
+    height:auto !important;
+    min-height:53px !important;
+    flex:0 0 auto !important;
+    overflow:visible !important;
+    align-items:flex-start !important;
+  }
+
+  .cbt-exam-root .subject-row .subject-buttons{
+    height:auto !important;
+    min-height:30px !important;
+    overflow:visible !important;
+  }
+
+  .cbt-exam-root .tabs{
+    height:auto !important;
+    min-height:40px !important;
+    flex:0 0 auto !important;
+    overflow:visible !important;
+  }
+
+  .cbt-exam-root .section-buttons{
+    height:auto !important;
+    overflow:visible !important;
+  }
+
+  .cbt-exam-root .funnel-rows{
+    width:100% !important;
+    max-width:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    gap:5px !important;
+    overflow:visible !important;
+  }
+
+  .cbt-exam-root .button-row{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    display:flex !important;
+    flex:0 0 auto !important;
+    flex-wrap:nowrap !important;
+    align-items:flex-start !important;
+    gap:5px !important;
+    overflow:visible !important;
+  }
+
+  .cbt-exam-root .subject-row .subject-button,
+  .cbt-exam-root .tabs .section-tab{
+    flex:0 0 auto !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+    overflow:hidden !important;
+    white-space:nowrap !important;
+  }
+
+  .cbt-exam-root .subject-row .subject-button > span:first-child,
+  .cbt-exam-root .tabs .section-tab > span:first-child{
+    display:inline-block !important;
+    min-width:0 !important;
+    max-width:calc(100% - 25px) !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+    white-space:nowrap !important;
+    vertical-align:middle !important;
+  }
+
+  /* Selected funnel remains attached to the selected control. */
+  .cbt-exam-root .subject-row .subject-button.selected,
+  .cbt-exam-root .tabs .section-tab.selected{
+    position:relative !important;
+    overflow:visible !important;
+  }
+
+  /* Candidate box ends where the fixed Subject + Sections header ends.
+     The section-button rows below it belong only to the left strip, so the
+     right navigation can start immediately after this candidate box with no
+     blank gap. */
+  .cbt-exam-root .candidate-panel{
+    flex:0 0 250px !important;
+    width:250px !important;
+    height:85px !important;
+    min-height:85px !important;
+    align-self:flex-start !important;
+    overflow:hidden !important;
+  }
+
+  .cbt-exam-root .candidate-panel .avatar{
+    height:125px;
+    width:102px;
+    flex:0 0 102px;
+    transform-origin:top left;
+  }
+
+  /* The desktop candidate area remains independent of section-row count. */
+
+  .cbt-exam-root .candidate-panel .avatar{
+    width:62px;
+    height:80px;
+    flex-basis:62px;
+  }
+  .cbt-exam-root .candidate-panel strong{font-size:18px;padding-top:4px}
+  .cbt-exam-root .candidate-panel small{font-size:11px;margin-top:2px}
+
+  /* Full-name hover works on selected and non-selected buttons, but only the
+     black name bubble belongs to the button itself. */
+  .cbt-exam-root .subject-button[data-tooltip],
+  .cbt-exam-root .section-tab[data-tooltip]{
+    position:relative !important;
+    overflow:visible !important;
+  }
+  .cbt-exam-root .subject-button[data-tooltip]::after,
+  .cbt-exam-root .section-tab[data-tooltip]::after{
+    content:attr(data-tooltip) !important;
+    position:absolute !important;
+    left:50% !important;
+    top:calc(100% + 7px) !important;
+    transform:translateX(-50%) !important;
+    width:max-content !important;
+    max-width:420px !important;
+    padding:6px 9px !important;
+    background:#111 !important;
+    color:#fff !important;
+    border:1px solid #333 !important;
+    border-radius:3px !important;
+    box-shadow:0 3px 10px rgba(0,0,0,.3) !important;
+    font-size:12px !important;
+    font-weight:500 !important;
+    line-height:1.25 !important;
+    white-space:normal !important;
+    z-index:2147483646 !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+  }
+  .cbt-exam-root .subject-button[data-tooltip]:hover::after,
+  .cbt-exam-root .section-tab[data-tooltip]:hover::after,
+  .cbt-exam-root .subject-button[data-tooltip]:focus-visible::after,
+  .cbt-exam-root .section-tab[data-tooltip]:focus-visible::after{
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+}
+
+
+/* v38 — desktop GATE-style right navigation behavior.
+   The open question palette is a real flex column beside the question area:
+   the marking row and question workspace end exactly at its left border.
+   When collapsed, the palette is removed and the main workspace expands back
+   to the full width. The candidate panel above remains unchanged. */
+@media (min-width:1024px){
+  .cbt-exam-root .body{
+    display:flex !important;
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+
+  .cbt-exam-root .body:not(.nav-is-collapsed) .main{
+    flex:1 1 auto !important;
+    width:auto !important;
+    min-width:0 !important;
+    margin:0 !important;
+  }
+
+  .cbt-exam-root .body:not(.nav-is-collapsed) .right-nav{
+    position:relative !important;
+    top:auto !important;
+    right:auto !important;
+    bottom:auto !important;
+    flex:0 0 250px !important;
+    width:250px !important;
+    min-width:250px !important;
+    margin:0 !important;
+    border-left:1px solid #b7c6cc !important;
+    border-right:1px solid #b7c6cc !important;
+    border-top:0 !important;
+    box-shadow:none !important;
+  }
+
+  .cbt-exam-root .body.nav-is-collapsed .main{
+    flex:1 1 auto !important;
+    width:100% !important;
+    min-width:0 !important;
+    margin:0 !important;
+  }
+
+  .cbt-exam-root .body.nav-is-collapsed .right-nav{
+    display:none !important;
+  }
+
+  /* The marking strip is part of .main, so float:right naturally stops at
+     the palette boundary when the drawer is open. */
+  .cbt-exam-root .body:not(.nav-is-collapsed) .type-row{
+    width:100% !important;
+    overflow:hidden !important;
+  }
+
+  .cbt-exam-root .body:not(.nav-is-collapsed) .right-submit-strip{
+    right:0 !important;
+    width:250px !important;
+  }
+}
+
+
+/* v39 — exact reference geometry: candidate and question-palette are
+   independent vertical regions. The left pre-question strip may be taller
+   than the candidate card; the palette starts immediately below the
+   candidate card, not below the end of .pre-left. */
+@media (min-width:1024px){
+  .cbt-exam-root .frame{
+    --sidebar-width:250px;
+    position:relative !important;
+  }
+
+  /* .pre-question keeps its natural left-side height. Candidate remains the
+     short independent 250px card at the top-right. */
+  .cbt-exam-root .pre-question{
+    display:flex !important;
+    align-items:flex-start !important;
+    width:100% !important;
+    height:auto !important;
+    min-height:125px !important;
+    flex:0 0 auto !important;
+    overflow:visible !important;
+  }
+
+  .cbt-exam-root .pre-left{
+    flex:1 1 auto !important;
+    width:auto !important;
+    min-width:0 !important;
+    height:auto !important;
+    min-height:0 !important;
+    border-right:1px solid #c3c3c1 !important;
+  }
+
+  .cbt-exam-root .candidate-panel{
+    flex:0 0 var(--sidebar-width) !important;
+    width:var(--sidebar-width) !important;
+    min-width:var(--sidebar-width) !important;
+    height:85px !important;
+    min-height:85px !important;
+    max-height:85px !important;
+    align-self:flex-start !important;
+    margin:0 !important;
+    overflow:hidden !important;
+  }
+
+  /* .body starts after the full left pre-question strip, while the right
+     palette is pulled out of normal flow and anchored to the candidate's
+     bottom edge. This is the key separation visible in the reference. */
+  .cbt-exam-root .body{
+    position:static !important;
+    display:block !important;
+    width:100% !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:0 var(--sidebar-width) 0 0 !important;
+    overflow:visible !important;
+  }
+
+  .cbt-exam-root .body:not(.nav-is-collapsed) .main{
+    display:block !important;
+    width:100% !important;
+    min-width:0 !important;
+    margin:0 !important;
+    padding-bottom:45px !important;
+  }
+
+  .cbt-exam-root .body.nav-is-collapsed{
+    padding-right:0 !important;
+  }
+
+  .cbt-exam-root .body.nav-is-collapsed .main{
+    width:100% !important;
+    margin:0 !important;
+  }
+
+  /* Independent right palette: its top is exactly the candidate-card bottom. */
+  .cbt-exam-root .body:not(.nav-is-collapsed) .right-nav{
+    position:absolute !important;
+    top:150px !important; /* 45px header + 20px exam strip + 85px candidate */
+    right:0 !important;
+    bottom:14px !important; /* footer */
+    width:var(--sidebar-width) !important;
+    min-width:var(--sidebar-width) !important;
+    height:auto !important;
+    margin:0 !important;
+    padding-bottom:45px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    border-left:1px solid #b7c6cc !important;
+    border-right:1px solid #b7c6cc !important;
+    border-top:0 !important;
+    box-shadow:none !important;
+    z-index:30 !important;
+  }
+
+  .cbt-exam-root .body.nav-is-collapsed .right-nav{
+    display:none !important;
+  }
+
+  /* Submit stays attached to the independent palette, not to .main. */
+  .cbt-exam-root .right-submit-strip{
+    position:absolute !important;
+    right:0 !important;
+    bottom:14px !important;
+    width:var(--sidebar-width) !important;
+    height:45px !important;
+    z-index:35 !important;
+  }
+
+  /* When collapsed, Submit returns to the far-right edge exactly as before. */
+  .cbt-exam-root .body.nav-is-collapsed .right-submit-strip{
+    right:0 !important;
+    width:var(--sidebar-width) !important;
+  }
+
+  /* Keep the collapse handle on the palette boundary. */
+  .cbt-exam-root .collapse{
+    position:fixed !important;
+    right:var(--sidebar-width) !important;
+    z-index:99999 !important;
+  }
+
+  .cbt-exam-root .collapse.is-collapsed{
+    right:0 !important;
+  }
+}
+
+/* v40 — desktop bottom action row aligned with the right Submit strip.
+   The action controls are anchored to the exam frame itself, so they remain
+   on the same bottom level as Submit instead of following the question
+   content height. The 250px right strip remains reserved for Submit. */
+@media (min-width:1024px){
+  .cbt-exam-root .body .main{
+    position:static !important;
+  }
+
+  .cbt-exam-root .body .actions{
+    position:absolute !important;
+    left:0 !important;
+    right:var(--sidebar-width) !important;
+    bottom:14px !important;
+    width:auto !important;
+    height:45px !important;
+    z-index:40 !important;
+  }
+
+  /* The open and collapsed layouts use the same action-row boundary: the
+     independent 250px Submit strip always owns the right side. When the
+     palette collapses, do not carry the old 250px push-group reservation
+     into the action row a second time. */
+  .cbt-exam-root .body.nav-is-collapsed .actions .push{
+    margin-right:0 !important;
+  }
+}
+
+/* v41 — restore the desktop flex-height chain for the scrollable question area.
+   The right palette remains an independent frame-anchored region, while the
+   main question workspace regains a real flex viewport above the fixed actions. */
+@media (min-width:1024px){
+  .cbt-exam-root .body{
+    position:static !important;
+    display:flex !important;
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    height:auto !important;
+    padding-right:var(--sidebar-width) !important;
+    overflow:hidden !important;
+  }
+
+  .cbt-exam-root .body.nav-is-collapsed{
+    padding-right:0 !important;
+  }
+
+  .cbt-exam-root .body .main,
+  .cbt-exam-root .body:not(.nav-is-collapsed) .main,
+  .cbt-exam-root .body.nav-is-collapsed .main{
+    position:relative !important;
+    display:flex !important;
+    flex:1 1 auto !important;
+    flex-direction:column !important;
+    width:auto !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    height:auto !important;
+    margin:0 !important;
+    padding-bottom:0 !important;
+    overflow:hidden !important;
+  }
+
+  .cbt-exam-root .body .question{
+    flex:1 1 0% !important;
+    height:0 !important;
+    min-height:0 !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    overscroll-behavior:contain !important;
+    scrollbar-gutter:stable !important;
+    padding-bottom:70px !important;
+  }
+
+  .cbt-exam-root .body .actions{
+    position:absolute !important;
+    left:0 !important;
+    right:0 !important;
+    bottom:0 !important;
+    height:45px !important;
+    min-height:45px !important;
+    z-index:40 !important;
+  }
+
+  /* When the palette is collapsed, Submit remains a permanent 250px action
+     area on the far right. The lower question actions must stop before it,
+     otherwise their z-index/width covers the Submit strip. */
+  .cbt-exam-root .body.nav-is-collapsed .actions{
+    right:var(--sidebar-width) !important;
+  }
+}
+
+
+/* v42 — navigation-name hover and subjective response behavior.
+   The full-name tooltip is attached to every subject/section button, including
+   the currently selected item. The browser title is retained as a native
+   fallback. Hovering the button raises its stacking level so the tooltip is
+   not painted underneath the neighboring strip. SUBJECTIVE uses the same
+   resizable multiline response control as the other long-text types. */
+@media (min-width:1024px){
+  .cbt-exam-root .subject-button[data-tooltip],
+  .cbt-exam-root .section-tab[data-tooltip]{
+    position:relative !important;
+    overflow:visible !important;
+  }
+
+  .cbt-exam-root .subject-button[data-tooltip]:hover,
+  .cbt-exam-root .subject-button[data-tooltip]:focus-visible,
+  .cbt-exam-root .section-tab[data-tooltip]:hover,
+  .cbt-exam-root .section-tab[data-tooltip]:focus-visible{
+    z-index:100000 !important;
+  }
+
+  .cbt-exam-root .subject-button[data-tooltip]::after,
+  .cbt-exam-root .section-tab[data-tooltip]::after{
+    content:attr(data-tooltip) !important;
+    position:absolute !important;
+    left:50% !important;
+    top:calc(100% + 8px) !important;
+    transform:translateX(-50%) !important;
+    width:max-content !important;
+    max-width:min(420px, 70vw) !important;
+    padding:7px 10px !important;
+    background:#111 !important;
+    color:#fff !important;
+    border:1px solid #333 !important;
+    border-radius:3px !important;
+    box-shadow:0 3px 10px rgba(0,0,0,.35) !important;
+    font-size:12px !important;
+    font-weight:500 !important;
+    line-height:1.25 !important;
+    white-space:normal !important;
+    text-align:left !important;
+    z-index:2147483647 !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+  }
+
+  .cbt-exam-root .subject-button[data-tooltip]:hover::after,
+  .cbt-exam-root .subject-button[data-tooltip]:focus-visible::after,
+  .cbt-exam-root .section-tab[data-tooltip]:hover::after,
+  .cbt-exam-root .section-tab[data-tooltip]:focus-visible::after{
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+
+  /* Hovering the small information icon must remain dedicated to its own
+     attempt-details popup; do not show the full-name bubble at the same time. */
+  .cbt-exam-root .subject-button[data-tooltip]:has(.info-icon:hover)::after,
+  .cbt-exam-root .section-tab[data-tooltip]:has(.info-icon:hover)::after{
+    opacity:0 !important;
+    visibility:hidden !important;
+  }
+}
+
+.cbt-exam-root textarea.text-response{
+  resize:vertical;
+}
+
+
+/* v43 — navigation tooltip/funnel separation.
+   The previous tooltip implementation used ::after on the same buttons that
+   own the CBT funnel triangle. That necessarily replaced the triangle and
+   caused selected section/subject funnels to disappear. The full-name tooltip
+   is now a real child element, leaving ::after exclusively for the funnel. */
+@media (min-width:1024px){
+  /* Subject already has a dedicated .subject-funnel child. Disable only the
+     old ::after tooltip, so that child remains the sole subject funnel. */
+  .cbt-exam-root .subject-button[data-tooltip]::after{
+    content:none !important;
+    display:none !important;
+  }
+
+  /* Sections use their selected-button ::after as the funnel triangle. */
+  .cbt-exam-root .section-tab[data-tooltip]::after{
+    content:none !important;
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+
+  .cbt-exam-root .section-tab.selected::after{
+    content:"" !important;
+    display:block !important;
+    position:absolute !important;
+    left:50% !important;
+    bottom:-7px !important;
+    border-left:7px solid transparent !important;
+    border-right:7px solid transparent !important;
+    border-top:7px solid #4e85c5 !important;
+    width:0 !important;
+    height:0 !important;
+    padding:0 !important;
+    background:transparent !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    transform:translateX(-50%) !important;
+    z-index:20 !important;
+  }
+
+  .cbt-exam-root .subject-button[data-tooltip] > .nav-name-tooltip,
+  .cbt-exam-root .section-tab[data-tooltip] > .nav-name-tooltip{
+    position:absolute !important;
+    left:50% !important;
+    top:calc(100% + 8px) !important;
+    transform:translateX(-50%) !important;
+    width:max-content !important;
+    max-width:min(420px, 70vw) !important;
+    padding:7px 10px !important;
+    background:#111 !important;
+    color:#fff !important;
+    border:1px solid #333 !important;
+    border-radius:3px !important;
+    box-shadow:0 3px 10px rgba(0,0,0,.35) !important;
+    font-size:12px !important;
+    font-weight:500 !important;
+    line-height:1.25 !important;
+    white-space:normal !important;
+    text-align:left !important;
+    z-index:2147483647 !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+  }
+
+  .cbt-exam-root .subject-button[data-tooltip]:hover,
+  .cbt-exam-root .subject-button[data-tooltip]:focus-visible,
+  .cbt-exam-root .section-tab[data-tooltip]:hover,
+  .cbt-exam-root .section-tab[data-tooltip]:focus-visible{
+    z-index:100000 !important;
+  }
+
+  .cbt-exam-root .subject-button[data-tooltip]:hover > .nav-name-tooltip,
+  .cbt-exam-root .subject-button[data-tooltip]:focus-visible > .nav-name-tooltip,
+  .cbt-exam-root .section-tab[data-tooltip]:hover > .nav-name-tooltip,
+  .cbt-exam-root .section-tab[data-tooltip]:focus-visible > .nav-name-tooltip{
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+
+  .cbt-exam-root .subject-button[data-tooltip]:has(.info-icon:hover) > .nav-name-tooltip,
+  .cbt-exam-root .section-tab[data-tooltip]:has(.info-icon:hover) > .nav-name-tooltip{
+    opacity:0 !important;
+    visibility:hidden !important;
+  }
+}
+
+
+/* v44 — keep subject/section information badges below the top exam controls. */
+@media (min-width:1024px){
+  .cbt-exam-root .exam-tools{
+    position:relative !important;
+    z-index:50 !important;
+  }
+
+  .cbt-exam-root .subject-button .info-icon,
+  .cbt-exam-root .section-tab .info-icon{
+    position:relative !important;
+    z-index:1 !important;
+  }
+}
+
+/* v45 — exact subject/section funnel match + selected subject hover darkening only. */
+@media (min-width:1024px){
+  /* Section funnel: exactly the same geometry and color as the subject funnel. */
+  .cbt-exam-root .tabs .section-tab.selected::after{
+    content:"" !important;
+    display:block !important;
+    position:absolute !important;
+    left:50% !important;
+    bottom:-7px !important;
+    width:14px !important;
+    height:7px !important;
+    transform:translateX(-50%) !important;
+    background:#4e85c5 !important;
+    clip-path:polygon(0 0,100% 0,50% 100%) !important;
+    border:0 !important;
+    z-index:999 !important;
+    pointer-events:none !important;
+  }
+
+  /* Subjects use the same small darkening on hover as the section controls. */
+  .cbt-exam-root .subject-row .subject-button:not(.selected):hover,
+  .cbt-exam-root .subject-row .subject-button:not(.selected):focus-visible{
+    background:#eef5f9 !important;
+    border-color:#9fb8c7 !important;
+    color:#147eb3 !important;
+  }
+
+  /* The selected subject also darkens on hover, including its funnel. */
+  .cbt-exam-root .subject-row .subject-button.selected:hover,
+  .cbt-exam-root .subject-row .subject-button.selected:focus-visible{
+    background:#3f74b2 !important;
+    border-color:#3f74b2 !important;
+  }
+  .cbt-exam-root .subject-row .subject-button.selected:hover .subject-funnel,
+  .cbt-exam-root .subject-row .subject-button.selected:focus-visible .subject-funnel{
+    background:#3f74b2 !important;
+  }
+}
+
+/* v31 — exact section funnel geometry match.
+   Use the same real-child 14x7 clip-path funnel as the selected Subject.
+   No other section/subject geometry is changed. */
+@media (min-width:1024px){
+  .cbt-exam-root .tabs .section-tab.selected::after{
+    display:none !important;
+  }
+
+  .cbt-exam-root .tabs .section-tab.selected .section-funnel{
+    display:block !important;
+    position:absolute !important;
+    left:50% !important;
+    bottom:-7px !important;
+    width:14px !important;
+    height:7px !important;
+    transform:translateX(-50%) !important;
+    background:#147eb3 !important;
+    clip-path:polygon(0 0,100% 0,50% 100%) !important;
+    z-index:100 !important;
+    pointer-events:none !important;
+  }
+
+  .cbt-exam-root .tabs .section-tab.selected:hover .section-funnel{
+    background:#106f9f !important;
+  }
+}
+
+/* v45 — portrait/mobile upper-strip and collapse corrections only.
+   Desktop/laptop/tablet-landscape are intentionally untouched. */
+@media (max-width:1023px){
+  /* The duplicate full-name span is only a desktop hover implementation.
+     The button's normal label is the first span; never render the hidden
+     helper name as a second label on portrait/mobile. */
+  .cbt-exam-root .subject-button > .nav-name-tooltip,
+  .cbt-exam-root .section-tab > .nav-name-tooltip{
+    display:none !important;
+  }
+
+  /* Keep the collapse handle above the fixed/open navigation drawer.
+     Its horizontal position follows the same drawer width used by the
+     portrait palette, so it remains attached to the drawer boundary. */
+  .cbt-exam-root .body > .collapse{
+    position:fixed !important;
+    right:min(250px,78vw) !important;
+    top:50% !important;
+    transform:translateY(-50%) !important;
+    width:22px !important;
+    height:48px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    background:#050505 !important;
+    color:#fff !important;
+    border:0 !important;
+    border-radius:5px 0 0 5px !important;
+    z-index:2147483646 !important;
+    pointer-events:auto !important;
+  }
+
+  .cbt-exam-root .body > .collapse.is-collapsed{
+    right:0 !important;
+  }
+
+  .cbt-exam-root .body > .collapse span{
+    display:block !important;
+    visibility:visible !important;
+    color:#fff !important;
+    font-size:20px !important;
+    line-height:1 !important;
+  }
+}
+
+@media (max-width:380px){
+  .cbt-exam-root .body > .collapse{
+    right:250px !important;
+  }
+  .cbt-exam-root .body > .collapse.is-collapsed{
+    right:0 !important;
+  }
+}
+
+@media (min-width:768px) and (max-width:1023px){
+  .cbt-exam-root .body > .collapse{
+    right:min(300px,72vw) !important;
+  }
+  .cbt-exam-root .body > .collapse.is-collapsed{
+    right:0 !important;
+  }
+}
+
+/* Phase 20 portrait strip symbols — keep the desktop labels/icons unchanged.
+   Below 1024px the exam-strip keeps the paper name on the left and exposes
+   only compact I / QP controls on the right. Their hover colours intentionally
+   inherit the same cyan/lime states used by the desktop controls. */
+@media (max-width:1023px){
+  .cbt-exam-root .exam-strip{
+    justify-content:flex-start;
+    padding-right:3px;
+  }
+
+  .cbt-exam-root .exam-strip > span:first-child{
+    flex:1 1 auto;
+    min-width:0;
+    max-width:none;
+  }
+
+  .cbt-exam-root .exam-tools{
+    display:flex !important;
+    flex:0 0 auto;
+    height:100%;
+    margin-left:auto;
+    align-items:center;
+  }
+
+  .cbt-exam-root .info-action{
+    width:30px;
+    min-width:30px;
+    height:100%;
+    padding:0 4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:0;
+    text-decoration:none;
+  }
+
+  .cbt-exam-root .info-action .info-action-desktop-icon,
+  .cbt-exam-root .info-action .info-action-label{
+    display:none;
+  }
+
+  .cbt-exam-root .info-action .info-action-mobile-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin:0;
+    color:#ddd;
+    font-size:12px;
+    font-weight:700;
+    line-height:1;
+    transition:color .12s ease;
+  }
+
+  .cbt-exam-root .info-action:hover .info-action-mobile-icon,
+  .cbt-exam-root .info-action:focus-visible .info-action-mobile-icon{
+    color:inherit;
+  }
+}
+
+
+/* Pause Exam is intentionally placed in the fixed top header. */
+.cbt-exam-root .header-pause:active{background:#9f6000;border-color:#874f00;transform:translateY(-50%)}
+.cbt-exam-root .header-pause:disabled{opacity:.65;cursor:not-allowed;transform:translateY(-50%)}
+
+/* Correction 3 — keep the palette collapse handle below all exam overlays.
+   It must remain above the normal palette/drawer edge, but never cover the
+   Instructions / Question Paper modal or any other modal layer. */
+.cbt-exam-root .body > .collapse{
+  z-index:40 !important;
+}
+
+/* Universal rich-content blocks: source content stays readable on narrow screens. */
+.content-table-figure, .content-chart { max-width: 100%; margin: 1rem 0; }
+.content-table-figure figcaption, .content-chart figcaption { margin-bottom: .5rem; font-weight: 600; }
+.content-table-scroll, .content-chart-scroll { max-width: 100%; overflow-x: auto; }
+.content-table { border-collapse: collapse; width: 100%; min-width: max-content; }
+.content-table th, .content-table td { border: 1px solid var(--border-color, #cbd5e1); padding: .5rem .65rem; vertical-align: top; }
+.content-table th { font-weight: 600; background: var(--surface-muted, #f1f5f9); }
+.content-chart svg { display: block; width: 100%; min-width: 320px; max-height: 440px; }
+.content-chart-legend { display: flex; flex-wrap: wrap; gap: .5rem 1rem; margin-top: .5rem; font-size: .875rem; }
+.content-chart-legend span { display: inline-flex; align-items: center; gap: .35rem; }
+.content-chart-legend i { width: .7rem; height: .7rem; display: inline-block; border-radius: 2px; }
+.content-chart-fallback img, .content-image img { max-width: 100%; height: auto; object-fit: contain; }
+.content-image { margin: .75rem 0; }
+.content-image figcaption { font-size: .875rem; color: var(--text-muted, #64748b); margin-top: .35rem; }
+.content-code { max-width: 100%; overflow: auto; white-space: pre; padding: .8rem; border-radius: .4rem; background: var(--code-background, #f1f5f9); }
+.content-page-break { border-top: 1px dashed var(--border-color, #cbd5e1); margin: 1rem 0; }
+.content-callout { padding: .75rem 1rem; border-left: 3px solid currentColor; margin: .75rem 0; }
+.content-unknown { padding: .5rem; border: 1px dashed var(--border-color, #94a3b8); overflow-wrap: anywhere; }
+.content-unknown img { display: block; max-width: 100%; height: auto; margin-top: .5rem; }
+.content-heading { margin: .8rem 0 .4rem; }
+.content-group { display: flow-root; }
+.content-chart text { font-family: inherit; }
+
+/* CBTGen CG monogram branding */
+.exam-login-header .exam-brand-mark{width:30px;height:30px;object-fit:contain;flex:0 0 auto}
+.cbt-exam-root .header .exam-brand-title{display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.cbt-exam-root .header .exam-brand-mark{width:30px;height:30px;object-fit:contain;flex:0 0 auto}

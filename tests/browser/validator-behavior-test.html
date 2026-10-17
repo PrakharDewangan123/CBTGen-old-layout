@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CBTGen Validator Behavior Test</title>
+  <style>
+    body { font: 14px/1.5 monospace; padding: 24px; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <h1>CBTGen Validator Behavior Test</h1>
+  <p>Running actual validator with browser DOMParser…</p>
+  <pre id="results">Loading…</pre>
+
+  <script type="module">
+    import { validateCbtgenXml } from '/src/lib/cbtgen/semanticValidator.js'
+
+    const output = document.querySelector('#results')
+    const lines = []
+    const assert = (condition, message) => {
+      if (!condition) throw new Error(message)
+      lines.push(`PASS: ${message}`)
+    }
+
+    const makeXml = (answer) => `
+      <cbtgen version="1.0">
+        <exam>
+          <name>Validator Behavior Test</name>
+          <totalQuestions>1</totalQuestions>
+          <totalMarks>1</totalMarks>
+        </exam>
+        <sections>
+          <section id="sec1">
+            <name>General</name>
+            <questionCount>1</questionCount>
+          </section>
+        </sections>
+        <questions>
+          <question id="q1">
+            <originalNumber>1</originalNumber>
+            <sectionRef>sec1</sectionRef>
+            <type>MCQ</type>
+            <content><text>What is 2 + 2?</text></content>
+            <response>
+              <mode>single-choice</mode>
+              <options>
+                <option id="A"><content><text>3</text></content></option>
+                <option id="B"><content><text>4</text></content></option>
+              </options>
+              <answer>${answer}</answer>
+            </response>
+          </question>
+        </questions>
+      </cbtgen>`
+
+    try {
+      const parse = (answer) => {
+        const doc = new DOMParser().parseFromString(
+          makeXml(answer), 'application/xml'
+        )
+        assert(
+          doc.querySelector('parsererror') === null,
+          'Fixture XML parses successfully'
+        )
+        return validateCbtgenXml(doc)
+      }
+
+      const missing = parse('')
+      assert(
+        missing.errors.length === 0,
+        `Missing key has no structural errors; got: ${
+          missing.errors.map(e => e.code).join(', ') || 'none'
+        }`
+      )
+      assert(
+        missing.warnings.some(w => w.code === 'ANSWER_KEY_MISSING'),
+        'Missing key produces ANSWER_KEY_MISSING warning'
+      )
+      assert(
+        missing.summary.scoringReady === false,
+        'Missing key is not scoring-ready'
+      )
+
+      const valid = parse('<correctOptionRef>B</correctOptionRef>')
+      assert(
+        valid.valid === true,
+        `Valid key is accepted; errors: ${
+          valid.errors.map(e => e.code).join(', ') || 'none'
+        }`
+      )
+      assert(
+        valid.summary.scoringReady === true,
+        'Valid key is scoring-ready'
+      )
+
+      const malformed = parse('<correctOptionRef>DOES_NOT_EXIST</correctOptionRef>')
+      assert(
+        malformed.valid === false &&
+          malformed.errors.some(e => e.code === 'INVALID_OPTION_REFERENCE'),
+        `Unknown option reference is rejected; errors: ${
+          malformed.errors.map(e => e.code).join(', ') || 'none'
+        }`
+      )
+
+      lines.push('', 'ALL BEHAVIOR ASSERTIONS PASSED')
+      output.textContent = lines.join('\n')
+      document.title = 'PASS — CBTGen Validator Behavior Test'
+    } catch (error) {
+      lines.push('', `FAIL: ${error.message || error}`)
+      if (error.stack) lines.push(error.stack)
+      output.textContent = lines.join('\n')
+      document.title = 'FAIL — CBTGen Validator Behavior Test'
+      console.error(error)
+    }
+  </script>
+</body>
+</html>

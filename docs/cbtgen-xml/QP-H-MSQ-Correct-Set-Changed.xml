@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cbtgen version="1.0">
+
+  <exam>
+    <name><![CDATA[Sample Computer Science Test]]></name>
+    <qpId>SAMPLE-CS-2026-01</qpId>
+    <year>2026</year>
+    <paperNumber>1</paperNumber>
+    <duration unit="minutes">60</duration>
+    <totalQuestions>5</totalQuestions>
+    <totalMarks>7</totalMarks>
+  </exam>
+
+  <sections>
+    <section id="S1">
+      <name><![CDATA[Computer Science]]></name>
+      <questionCount>5</questionCount>
+      <totalMarks>7</totalMarks>
+    </section>
+  </sections>
+
+  <passages>
+    <passage id="passage-01">
+      <title>
+        <text><![CDATA[Short Passage]]></text>
+      </title>
+      <content>
+        <text><![CDATA[
+          A queue is a linear data structure in which elements are
+          generally processed in the order in which they arrive.
+        ]]></text>
+      </content>
+    </passage>
+  </passages>
+
+  <questions>
+
+    <!-- Q1: UNCHANGED -->
+    <question id="src-q-0001">
+      <originalNumber>1</originalNumber>
+      <sectionRef>S1</sectionRef>
+      <type>MCQ</type>
+
+      <content>
+        <text><![CDATA[Which data structure follows FIFO?]]></text>
+      </content>
+
+      <response>
+        <mode>single-choice</mode>
+
+        <options>
+          <option id="opt-001">
+            <content><text><![CDATA[Stack]]></text></content>
+          </option>
+
+          <option id="opt-002">
+            <content><text><![CDATA[Queue]]></text></content>
+          </option>
+
+          <option id="opt-003">
+            <content><text><![CDATA[Tree]]></text></content>
+          </option>
+
+          <option id="opt-004">
+            <content><text><![CDATA[Graph]]></text></content>
+          </option>
+        </options>
+
+        <answer>
+          <correctOptionRef>opt-002</correctOptionRef>
+        </answer>
+      </response>
+
+      <marking>
+        <correct>1</correct>
+        <incorrect>-0.33</incorrect>
+        <unattempted>0</unattempted>
+      </marking>
+    </question>
+
+
+    <!-- Q2: MSQ — CORRECT-ANSWER SET CHANGED -->
+    <question id="src-q-0002">
+      <originalNumber>2</originalNumber>
+      <sectionRef>S1</sectionRef>
+      <type>MSQ</type>
+
+      <content>
+        <text><![CDATA[Which are programming languages?]]></text>
+      </content>
+
+      <response>
+        <mode>multiple-choice</mode>
+
+        <options>
+          <option id="opt-005">
+            <content><text><![CDATA[Python]]></text></content>
+          </option>
+
+          <option id="opt-006">
+            <content><text><![CDATA[Java]]></text></content>
+          </option>
+
+          <option id="opt-007">
+            <content><text><![CDATA[HTML]]></text></content>
+          </option>
+
+          <option id="opt-008">
+            <content><text><![CDATA[C++]]></text></content>
+          </option>
+        </options>
+
+        <!--
+          Original correct set:
+          Python + Java + C++
+
+          NEW correct set:
+          Python + C++
+
+          Java is now INCORRECT.
+        -->
+
+        <answer>
+          <correctOptionRef>opt-005</correctOptionRef>
+          <correctOptionRef>opt-008</correctOptionRef>
+        </answer>
+      </response>
+
+      <marking>
+        <correct>2</correct>
+        <incorrect>0</incorrect>
+        <unattempted>0</unattempted>
+      </marking>
+    </question>
+
+
+    <!-- Q3: UNCHANGED -->
+    <question id="src-q-0003">
+      <originalNumber>3</originalNumber>
+      <sectionRef>S1</sectionRef>
+      <type>NAT</type>
+
+      <content>
+        <text><![CDATA[What is 6 × 7?]]></text>
+      </content>
+
+      <response>
+        <mode>numeric</mode>
+
+        <answer>
+          <value>42</value>
+          <tolerance>0.01</tolerance>
+        </answer>
+      </response>
+
+      <marking>
+        <correct>2</correct>
+        <incorrect>0</incorrect>
+        <unattempted>0</unattempted>
+      </marking>
+    </question>
+
+
+    <!-- Q4: UNCHANGED -->
+    <question id="src-q-0004">
+      <originalNumber>4</originalNumber>
+      <sectionRef>S1</sectionRef>
+      <type>MATCH</type>
+
+      <content>
+        <text><![CDATA[Match the following.]]></text>
+      </content>
+
+      <response>
+        <mode>mapping</mode>
+
+        <leftItems>
+          <item id="L1">
+            <content><text><![CDATA[Python]]></text></content>
+          </item>
+
+          <item id="L2">
+            <content><text><![CDATA[HTML]]></text></content>
+          </item>
+        </leftItems>
+
+        <rightItems>
+          <item id="R1">
+            <content><text><![CDATA[Markup language]]></text></content>
+          </item>
+
+          <item id="R2">
+            <content><text><![CDATA[Programming language]]></text></content>
+          </item>
+        </rightItems>
+
+        <answer>
+          <mapping>
+            <pair left="L1" right="R2"/>
+            <pair left="L2" right="R1"/>
+          </mapping>
+        </answer>
+      </response>
+
+      <marking>
+        <correct>1</correct>
+        <incorrect>0</incorrect>
+        <unattempted>0</unattempted>
+      </marking>
+    </question>
+
+
+    <!-- Q5: UNCHANGED -->
+    <question id="src-q-0005">
+      <originalNumber>5</originalNumber>
+      <sectionRef>S1</sectionRef>
+      <type>MCQ</type>
+      <passageRef>passage-01</passageRef>
+
+      <content>
+        <text><![CDATA[
+          Which statement best describes the queue in the passage?
+        ]]></text>
+      </content>
+
+      <response>
+        <mode>single-choice</mode>
+
+        <options>
+          <option id="opt-009">
+            <content><text><![CDATA[LIFO]]></text></content>
+          </option>
+
+          <option id="opt-010">
+            <content><text><![CDATA[FIFO]]></text></content>
+          </option>
+
+          <option id="opt-011">
+            <content><text><![CDATA[Random access only]]></text></content>
+          </option>
+
+          <option id="opt-012">
+            <content><text><![CDATA[Sorted access]]></text></content>
+          </option>
+        </options>
+
+        <answer>
+          <correctOptionRef>opt-010</correctOptionRef>
+        </answer>
+      </response>
+
+      <marking>
+        <correct>1</correct>
+        <incorrect>0</incorrect>
+        <unattempted>0</unattempted>
+      </marking>
+    </question>
+
+  </questions>
+
+  <extraction>
+    <sourceType>pdf</sourceType>
+    <method>ai-ocr</method>
+    <sourcePages>3</sourcePages>
+
+    <confidence>
+      <metadata>0.99</metadata>
+      <questions>0.98</questions>
+      <options>0.98</options>
+      <marking>0.95</marking>
+      <assets>0.99</assets>
+    </confidence>
+  </extraction>
+
+</cbtgen>

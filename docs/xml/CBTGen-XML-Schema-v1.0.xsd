@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+  <!-- ============================================================
+       CBTGen XML Schema v1.0
+       Structural contract only. Deep semantic/fingerprint rules
+       are enforced by the CBTGen application validator.
+       ============================================================ -->
+
+  <xs:simpleType name="NonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="IdType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z_][A-Za-z0-9_.-]*"/>
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="QuestionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MCQ"/>
+      <xs:enumeration value="MSQ"/>
+      <xs:enumeration value="NAT"/>
+      <xs:enumeration value="MATCH"/>
+      <xs:enumeration value="ASSERTION_REASON"/>
+      <xs:enumeration value="SUBJECTIVE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ResponseMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="single-choice"/>
+      <xs:enumeration value="multiple-choice"/>
+      <xs:enumeration value="numeric"/>
+      <xs:enumeration value="mapping"/>
+      <xs:enumeration value="text"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SourceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="pdf"/>
+      <xs:enumeration value="scanned-pdf"/>
+      <xs:enumeration value="doc"/>
+      <xs:enumeration value="docx"/>
+      <xs:enumeration value="image"/>
+      <xs:enumeration value="screenshot"/>
+      <xs:enumeration value="html"/>
+      <xs:enumeration value="other"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ExtractionMethod">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="manual"/>
+      <xs:enumeration value="ocr"/>
+      <xs:enumeration value="ai-ocr"/>
+      <xs:enumeration value="ai"/>
+      <xs:enumeration value="hybrid"/>
+      <xs:enumeration value="other"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NumericType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="integer"/>
+      <xs:enumeration value="decimal"/>
+      <xs:enumeration value="any"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="AssetType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="image"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Confidence">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NonNegativeInteger">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PositiveInteger">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="TextType" mixed="true">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MathType" mixed="true">
+    <xs:attribute name="format" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="latex"/>
+          <xs:enumeration value="mathml"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="CodeType" mixed="true">
+    <xs:attribute name="language" use="required" type="NonEmptyString"/>
+  </xs:complexType>
+
+  <xs:complexType name="TableCellType" mixed="true">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TableRowType">
+    <xs:sequence>
+      <xs:element name="cell" type="TableCellType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TableType">
+    <xs:sequence>
+      <xs:element name="row" type="TableRowType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ImageContentType" mixed="true">
+    <xs:sequence minOccurs="0">
+      <xs:element name="data" type="NonEmptyString" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="IdType" use="optional"/>
+    <xs:attribute name="assetRef" type="IdType" use="optional"/>
+    <xs:attribute name="encoding" use="optional">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="base64"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="mimeType" type="NonEmptyString" use="optional"/>
+    <xs:attribute name="alt" type="TextType" use="optional"/>
+    <xs:attribute name="scope" use="optional">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="question-visual"/>
+          <xs:enumeration value="option-visual"/>
+          <xs:enumeration value="source-page"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="allowFullPage" type="xs:boolean" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="ContentType" mixed="false">
+    <xs:choice minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="text" type="TextType"/>
+      <xs:element name="math" type="MathType"/>
+      <xs:element name="code" type="CodeType"/>
+      <xs:element name="image" type="ImageContentType"/>
+      <xs:element name="assetRef" type="IdType"/>
+      <xs:element name="table" type="TableType"/>
+      <xs:element name="assertion" type="ContentType"/>
+      <xs:element name="reason" type="ContentType"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="ExamType">
+    <xs:sequence>
+      <xs:element name="name" type="TextType"/>
+      <xs:element name="qpId" type="NonEmptyString" minOccurs="0"/>
+      <xs:element name="year" type="xs:integer" minOccurs="0"/>
+      <xs:element name="paperNumber" type="NonEmptyString" minOccurs="0"/>
+      <xs:element name="duration" minOccurs="0">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="PositiveInteger">
+              <xs:attribute name="unit" use="required" fixed="minutes"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="totalQuestions" type="PositiveInteger"/>
+      <xs:element name="totalMarks" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SectionType">
+    <xs:sequence>
+      <xs:element name="name" type="TextType"/>
+      <xs:element name="questionCount" type="NonNegativeInteger"/>
+      <xs:element name="totalMarks" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="IdType" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="SectionsType">
+    <xs:sequence>
+      <xs:element name="section" type="SectionType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PassageType">
+    <xs:sequence>
+      <xs:element name="title" type="ContentType" minOccurs="0"/>
+      <xs:element name="content" type="ContentType"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="IdType" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="PassagesType">
+    <xs:sequence>
+      <xs:element name="passage" type="PassageType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="OptionType">
+    <xs:sequence>
+      <xs:element name="content" type="ContentType"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="IdType" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="OptionsType">
+    <xs:sequence>
+      <xs:element name="option" type="OptionType" minOccurs="2" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SingleAnswerType">
+    <xs:sequence>
+      <xs:element name="correctOptionRef" type="IdType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MultipleAnswerType">
+    <xs:sequence>
+      <xs:element name="correctOptionRef" type="IdType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NumericAnswerType">
+    <xs:sequence>
+      <xs:element name="value" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="range" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="min" type="xs:decimal"/>
+            <xs:element name="max" type="xs:decimal"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="tolerance" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MatchItemType">
+    <xs:sequence>
+      <xs:element name="content" type="ContentType"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="IdType" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="MatchItemsType">
+    <xs:sequence>
+      <xs:element name="item" type="MatchItemType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MappingType">
+    <xs:sequence>
+      <xs:element name="pair" minOccurs="1" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="left" type="IdType" use="required"/>
+          <xs:attribute name="right" type="IdType" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TextAnswerType">
+    <xs:sequence>
+      <xs:element name="answer" type="ContentType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ResponseType">
+    <xs:sequence>
+      <xs:element name="mode" type="ResponseMode"/>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element name="options" type="OptionsType"/>
+          <xs:element name="answer">
+            <xs:complexType>
+              <xs:choice>
+                <xs:sequence>
+                  <xs:element name="correctOptionRef" type="IdType"/>
+                </xs:sequence>
+                <xs:sequence>
+                  <xs:element name="correctOptionRef" type="IdType" minOccurs="1" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:choice>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+
+        <xs:sequence>
+          <xs:element name="answer" type="NumericAnswerType"/>
+        </xs:sequence>
+
+        <xs:sequence>
+          <xs:element name="leftItems" type="MatchItemsType"/>
+          <xs:element name="rightItems" type="MatchItemsType"/>
+          <xs:element name="answer">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="mapping" type="MappingType"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+
+        <xs:sequence>
+          <xs:element name="answer" type="TextAnswerType"/>
+        </xs:sequence>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MarkingType">
+    <xs:sequence>
+      <xs:element name="correct" type="xs:decimal"/>
+      <xs:element name="incorrect" type="xs:decimal"/>
+      <xs:element name="unattempted" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PartialMarkingType">
+    <xs:choice>
+      <xs:sequence>
+        <xs:element name="enabled" fixed="true" type="xs:boolean"/>
+        <xs:element name="scheme" minOccurs="0">
+          <xs:complexType mixed="true">
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:element name="enabled" fixed="unknown" type="NonEmptyString"/>
+      <xs:element name="enabled" fixed="false" type="xs:boolean"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="QuestionContentType">
+    <xs:sequence>
+      <xs:element name="text" type="TextType" minOccurs="0"/>
+      <xs:element name="assertion" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence><xs:element name="text" type="TextType"/></xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="reason" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence><xs:element name="text" type="TextType"/></xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="math" type="MathType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="code" type="CodeType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="assetRef" type="IdType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="table" type="TableType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QuestionTypeDef">
+    <xs:sequence>
+      <xs:element name="originalNumber" type="PositiveInteger"/>
+      <xs:element name="sectionRef" type="IdType"/>
+      <xs:element name="type" type="QuestionType"/>
+      <xs:element name="passageRef" type="IdType" minOccurs="0"/>
+      <xs:element name="content" type="QuestionContentType"/>
+      <xs:element name="response" type="ResponseType"/>
+      <xs:element name="marking" type="MarkingType" minOccurs="0"/>
+      <xs:element name="partialMarking" type="PartialMarkingType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="IdType" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="QuestionsType">
+    <xs:sequence>
+      <xs:element name="question" type="QuestionTypeDef" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AssetTypeDef">
+    <xs:sequence>
+      <xs:element name="altText" type="TextType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="IdType" use="required"/>
+    <xs:attribute name="type" type="AssetType" use="required"/>
+    <xs:attribute name="src" type="NonEmptyString" use="required"/>
+    <xs:attribute name="mimeType" type="NonEmptyString" use="optional"/>
+    <xs:attribute name="scope" use="optional">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="question-visual"/>
+          <xs:enumeration value="option-visual"/>
+          <xs:enumeration value="source-page"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="AssetsType">
+    <xs:sequence>
+      <xs:element name="asset" type="AssetTypeDef" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ConfidenceType">
+    <xs:sequence>
+      <xs:element name="metadata" type="Confidence" minOccurs="0"/>
+      <xs:element name="questions" type="Confidence" minOccurs="0"/>
+      <xs:element name="options" type="Confidence" minOccurs="0"/>
+      <xs:element name="marking" type="Confidence" minOccurs="0"/>
+      <xs:element name="assets" type="Confidence" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ExtractionType">
+    <xs:sequence>
+      <xs:element name="sourceType" type="SourceType"/>
+      <xs:element name="method" type="ExtractionMethod"/>
+      <xs:element name="sourcePages" type="PositiveInteger" minOccurs="0"/>
+      <xs:element name="confidence" type="ConfidenceType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="cbtgen">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="exam" type="ExamType"/>
+        <xs:element name="sections" type="SectionsType"/>
+        <xs:element name="passages" type="PassagesType" minOccurs="0"/>
+        <xs:element name="questions" type="QuestionsType"/>
+        <xs:element name="assets" type="AssetsType" minOccurs="0"/>
+        <xs:element name="extraction" type="ExtractionType" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="version" use="required" fixed="1.0"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

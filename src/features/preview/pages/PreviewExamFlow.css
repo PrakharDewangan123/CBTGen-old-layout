@@ -1,0 +1,24 @@
+/* Preview-only safety styles. The actual CBTGen exam styles remain authoritative. */
+.preview-mode-note{font:12px Arial,Verdana,sans-serif;color:#666}
+.preview-exit-button{position:absolute;left:8px;top:50%;transform:translateY(-50%);height:30px;padding:0 13px;border:1px solid #b86f00;border-radius:3px;background:#d98b00;color:#fff;font:700 13px/28px Arial,Verdana,sans-serif;white-space:nowrap;cursor:pointer;z-index:2}
+.preview-exit-button:hover{background:#b86f00;border-color:#9f6000}
+.preview-exit-link{display:block;margin:8px auto 0;border:0;background:transparent;color:#666;text-decoration:underline;font:12px Arial,Verdana,sans-serif;cursor:pointer}
+.instruction-legend-table{border:1px solid #aaa;margin:12px 0 16px}
+.instruction-legend-table>div{display:flex;align-items:center;gap:14px;min-height:45px;padding:5px 14px;border-bottom:1px solid #aaa;font-size:16px}
+.instruction-legend-table>div:last-child{border-bottom:0}
+.legend-demo{display:inline-flex;align-items:center;justify-content:center;flex:0 0 38px;height:34px;color:#fff;font-weight:700}
+.legend-demo.nv{border:1px solid #888;color:#444;background:#fff}
+.legend-demo.na{background:#c74343;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)}
+.legend-demo.a{background:#4da15e;clip-path:polygon(20% 0,80% 0,100% 100%,0 100%)}
+.legend-demo.r,.legend-demo.ar{background:#8d59ad;border-radius:50%}
+.legend-demo.ar{position:relative}
+.legend-demo.ar:after{content:"";position:absolute;right:0;bottom:0;width:9px;height:9px;background:#4da15e;border:1px solid white;border-radius:50%}
+.preview-overview-note{margin:12px 0 18px;padding:12px;background:#f2f2f2;border-left:3px solid #39a9d6}
+.preview-match-rows{display:flex;flex-direction:column;gap:8px}
+.preview-match-row{display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:8px;border:1px solid #d7e2e8;border-radius:3px;background:#fafdff;font-size:16px}
+.preview-match-row span{display:flex;justify-content:space-between;align-items:center;width:min(34%,330px);min-width:150px;padding:10px;border:1px solid #c3cdd5;border-radius:3px;background:#fff;color:#555}
+.preview-selectable-option{display:block;width:100%;text-align:left;cursor:pointer;border:1px solid #d7e2e8;background:#fff;color:inherit;padding:12px 14px;margin:7px 0;border-radius:3px;font:inherit}
+.preview-selectable-option:hover{background:#f0f8fc;border-color:#8bbbd1}
+.preview-selectable-option.is-selected{background:#dff2fb;border:2px solid #168bc0;padding:11px 13px}
+.preview-match-row select{width:min(34%,330px);min-width:150px;padding:10px;border:1px solid #c3cdd5;border-radius:3px;background:#fff;color:#333;font:inherit}
+@media(max-width:760px){.instruction-legend-table>div{font-size:13px}.preview-match-row{font-size:13px}.preview-match-row span{min-width:100px;width:42%}}

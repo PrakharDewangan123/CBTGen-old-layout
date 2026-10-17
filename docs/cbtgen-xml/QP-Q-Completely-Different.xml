@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cbtgen version="1.0">
+
+  <exam>
+    <name><![CDATA[Completely Different Computer Science Test]]></name>
+    <qpId>DIFFERENT-CS-2026-Q</qpId>
+    <year>2026</year>
+    <paperNumber>99</paperNumber>
+    <duration unit="minutes">60</duration>
+    <totalQuestions>5</totalQuestions>
+    <totalMarks>7</totalMarks>
+  </exam>
+
+  <sections>
+    <section id="S1">
+      <name><![CDATA[Computer Science]]></name>
+      <questionCount>5</questionCount>
+      <totalMarks>7</totalMarks>
+    </section>
+  </sections>
+
+  <questions>
+
+    <question id="src-q-q001">
+      <originalNumber>1</originalNumber>
+      <sectionRef>S1</sectionRef>
+      <type>MCQ</type>
+      <content>
+        <text><![CDATA[Which traversal of a binary search tree visits nodes in nondecreasing order of their keys?]]></text>
+      </content>
+      <response>
+        <mode>single-choice</mode>
+        <options>
+          <option id="q-opt-001"><content><text><![CDATA[Preorder]]></text></content></option>
+          <option id="q-opt-002"><content><text><![CDATA[Inorder]]></text></content></option>
+          <option id="q-opt-003"><content><text><![CDATA[Postorder]]></text></content></option>
+          <option id="q-opt-004"><content><text><![CDATA[Level order]]></text></content></option>
+        </options>
+        <answer>
+          <correctOptionRef>q-opt-002</correctOptionRef>
+        </answer>
+      </response>
+      <marking>
+        <correct>1</correct>
+        <incorrect>-0.33</incorrect>
+        <unattempted>0</unattempted>
+      </marking>
+    </question>
+
+    <question id="src-q-q002">
+      <originalNumber>2</originalNumber>
+      <sectionRef>S1</sectionRef>
+      <type>MSQ</type>
+      <content>
+        <text><![CDATA[Which of the following are properties of a relation that is an equivalence relation?]]></text>
+      </content>
+      <response>
+        <mode>multiple-choice</mode>
+        <options>
+          <option id="q-opt-005"><content><text><![CDATA[Reflexive]]></text></content></option>
+          <option id="q-opt-006"><content><text><![CDATA[Symmetric]]></text></content></option>
+          <option id="q-opt-007"><content><text><![CDATA[Antisymmetric only]]></text></content></option>
+          <option id="q-opt-008"><content><text><![CDATA[Transitive]]></text></content></option>
+        </options>
+        <answer>
+          <correctOptionRef>q-opt-005</correctOptionRef>
+          <correctOptionRef>q-opt-006</correctOptionRef>
+          <correctOptionRef>q-opt-008</correctOptionRef>
+        </answer>
+      </response>
+      <marking>
+        <correct>2</correct>
+        <incorrect>0</incorrect>
+        <unattempted>0</unattempted>
+      </marking>
+    </question>
+
+    <question id="src-q-q003">
+      <originalNumber>3</originalNumber>
+      <sectionRef>S1</sectionRef>
+      <type>NAT</type>
+      <content>
+        <text><![CDATA[What is the value of 2^5?]]></text>
+      </content>
+      <response>
+        <mode>numeric</mode>
+        <answer>
+          <value>32</value>
+          <tolerance>0.01</tolerance>
+        </answer>
+      </response>
+      <marking>
+        <correct>2</correct>
+        <incorrect>0</incorrect>
+        <unattempted>0</unattempted>
+      </marking>
+    </question>
+
+    <question id="src-q-q004">
+      <originalNumber>4</originalNumber>
+      <sectionRef>S1</sectionRef>
+      <type>MATCH</type>
+      <content>
+        <text><![CDATA[Match each algorithm with its standard time complexity for the indicated operation.]]></text>
+      </content>
+      <response>
+        <mode>mapping</mode>
+        <leftItems>
+          <item id="QL1"><content><text><![CDATA[Binary search]]></text></content></item>
+          <item id="QL2"><content><text><![CDATA[Linear search]]></text></content></item>
+        </leftItems>
+        <rightItems>
+          <item id="QR1"><content><text><![CDATA[O(n)]]></text></content></item>
+          <item id="QR2"><content><text><![CDATA[O(log n)]]></text></content></item>
+        </rightItems>
+        <answer>
+          <mapping>
+            <pair left="QL1" right="QR2"/>
+            <pair left="QL2" right="QR1"/>
+          </mapping>
+        </answer>
+      </response>
+      <marking>
+        <correct>1</correct>
+        <incorrect>0</incorrect>
+        <unattempted>0</unattempted>
+      </marking>
+    </question>
+
+    <question id="src-q-q005">
+      <originalNumber>5</originalNumber>
+      <sectionRef>S1</sectionRef>
+      <type>MCQ</type>
+      <content>
+        <text><![CDATA[Which layer of the OSI model is responsible for end-to-end reliable delivery and flow control?]]></text>
+      </content>
+      <response>
+        <mode>single-choice</mode>
+        <options>
+          <option id="q-opt-009"><content><text><![CDATA[Network layer]]></text></content></option>
+          <option id="q-opt-010"><content><text><![CDATA[Transport layer]]></text></content></option>
+          <option id="q-opt-011"><content><text><![CDATA[Session layer]]></text></content></option>
+          <option id="q-opt-012"><content><text><![CDATA[Physical layer]]></text></content></option>
+        </options>
+        <answer>
+          <correctOptionRef>q-opt-010</correctOptionRef>
+        </answer>
+      </response>
+      <marking>
+        <correct>1</correct>
+        <incorrect>0</incorrect>
+        <unattempted>0</unattempted>
+      </marking>
+    </question>
+
+  </questions>
+
+  <extraction>
+    <sourceType>pdf</sourceType>
+    <method>ai-ocr</method>
+    <sourcePages>3</sourcePages>
+    <confidence>
+      <metadata>0.99</metadata>
+      <questions>0.98</questions>
+      <options>0.98</options>
+      <marking>0.95</marking>
+      <assets>0.99</assets>
+    </confidence>
+  </extraction>
+
+</cbtgen>

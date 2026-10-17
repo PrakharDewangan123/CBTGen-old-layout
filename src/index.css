@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/* =========================================================
+   CBTGen — Global Interaction Rules
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Interactive elements
+   --------------------------------------------------------- */
+
+button,
+a,
+[role="button"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------------
+   Disabled controls
+   --------------------------------------------------------- */
+
+button:disabled,
+a[aria-disabled="true"],
+[role="button"][aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+/* ---------------------------------------------------------
+   Global transitions
+   --------------------------------------------------------- */
+
+button,
+a,
+[role="button"] {
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease,
+    opacity 150ms ease,
+    transform 150ms ease;
+}
+
+/* ---------------------------------------------------------
+   Keyboard accessibility
+   --------------------------------------------------------- */
+
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------
+   Disabled buttons should not animate
+   --------------------------------------------------------- */
+
+button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ---------------------------------------------------------
+   Explicit CBTGen clickable utility
+   --------------------------------------------------------- */
+
+.cbtgen-clickable {
+  cursor: pointer;
+}
+
+.cbtgen-clickable:disabled {
+  cursor: not-allowed;
+}
+
+/* ---------------------------------------------------------
+   Prevent accidental text selection while clicking controls
+   --------------------------------------------------------- */
+
+button {
+  -webkit-user-select: none;
+  user-select: none;
+}
+.cbtgen-exam-isolation{position:fixed;inset:0;width:100vw;height:100dvh;z-index:2147483000;background:#fff;overflow:hidden}
+.cbtgen-exam-isolation *{user-select:auto}
+
+
+/* =========================================================
+   Responsive safety net — UI Trial
+   Prevent mobile layouts from expanding beyond the viewport.
+   ========================================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+html, body, #root {
+  min-width: 0;
+  max-width: 100%;
+}
+body {
+  overflow-x: hidden;
+}
+img, video, canvas, svg {
+  max-width: 100%;
+}
+input, select, textarea, button {
+  max-width: 100%;
+}
+@media (max-width: 640px) {
+  main, section, article, form {
+    min-width: 0;
+  }
+  table {
+    max-width: 100%;
+  }
+  /* Keep long paper titles and metadata from forcing wide cards. */
+  h1, h2, h3, p, label {
+    overflow-wrap: anywhere;
+  }
+}

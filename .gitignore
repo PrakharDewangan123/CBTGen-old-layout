@@ -1,0 +1,71 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# CBTGen Python and environment exclusions
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+ENV/
+
+# Local environment secrets; keep example templates trackable
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Private keys and certificates
+*.pem
+*.key
+
+# CBTGen local history and generated artifacts
+checkpoints/
+artifacts/
+.pytest_cache/
+coverage/
+htmlcov/
+
+# Historical source snapshots and local editor/OS files
+*.before-*
+*.backup
+*.bak
+.DS_Store
+
+# Local runtime output
+*.log
+
+# Regression exam packages: review redistribution rights before publishing
+/docs/project-context/regression/
+
+# Historical experimental snapshots; retain locally, exclude from Git
+*.pre-*
+
+# Local document-processing outputs; never publish user crops
+services/document_processing/data/
+# Private project handoff documents
+docs/project-context/master-docs/

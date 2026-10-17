@@ -1,0 +1,517 @@
+* {
+  box-sizing: border-box;
+}
+
+.reference-instructions-page {
+  width: 100%;
+  height: 100vh;
+  min-width: 760px;
+  overflow: hidden;
+  background: #fff;
+  color: #222;
+  font-family: Arial, Verdana, sans-serif;
+  border: 1px solid #c3c3c1;
+  display: flex;
+  flex-direction: column;
+}
+
+.reference-instructions-header {
+  height: 45px;
+  min-height: 45px;
+  flex: 0 0 45px;
+  background: #3b5998;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  font-size: 14px;
+}
+
+.reference-instructions-header strong {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.reference-instructions-header span {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.reference-instructions-layout {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  overflow: hidden;
+  background: #fff;
+}
+
+.reference-instructions-main {
+  position: relative;
+  width: 80%;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #c3c3c1;
+  background: #fff;
+  transition: width .12s ease;
+}
+
+.reference-instructions-main.is-collapsed {
+  width: 100%;
+  border-right: 0;
+}
+
+.reference-instructions-title {
+  height: 40px;
+  min-height: 40px;
+  flex: 0 0 40px;
+  background: #b8e9f3;
+  color: #666;
+  padding: 9px 10px;
+  font-size: 20px;
+  font-weight: 700;
+  border-bottom: 1px solid #b1dfe8;
+}
+
+.reference-instructions-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 24px 25px;
+  scrollbar-width: auto;
+}
+
+.instruction-section {
+  max-width: 100%;
+  padding-top: 10px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.instruction-section h2 {
+  margin: 0 0 26px;
+  text-align: center;
+  font-size: 19px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.instruction-section h3 {
+  margin: 25px 0 10px;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.instruction-section p {
+  margin: 8px 0;
+}
+
+.instruction-section strong {
+  font-weight: 700;
+}
+
+.instruction-numbered-list {
+  margin: 7px 0 0;
+  padding-left: 29px;
+}
+
+.instruction-numbered-list > li {
+  padding-left: 2px;
+  margin: 9px 0;
+}
+
+.instruction-legend-table {
+  width: calc(100% - 40px);
+  margin: 12px auto 15px;
+  border: 1px solid #777;
+}
+
+.instruction-legend-table > div {
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 5px 12px;
+  border-bottom: 1px solid #777;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+.instruction-legend-table > div:last-child {
+  border-bottom: 0;
+}
+
+.instruction-legend-table > div > span:last-child {
+  min-width: 0;
+}
+
+.reference-inline-arrow {
+  display: inline-flex;
+  width: 24px;
+  height: 26px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3px;
+  background: #050505;
+  color: #fff;
+  font-size: 23px;
+  line-height: 24px;
+  vertical-align: -5px;
+}
+
+.reference-paper-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 10px 0 12px;
+  font-size: 13px;
+}
+
+.reference-paper-table th,
+.reference-paper-table td {
+  border: 1px solid #d0d0d0;
+  padding: 7px 10px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.reference-paper-table th {
+  background: #dcdcdc;
+  font-weight: 700;
+}
+
+.reference-paper-table th:nth-child(1),
+.reference-paper-table td:nth-child(1) {
+  width: 31%;
+}
+
+.reference-paper-table th:nth-child(2),
+.reference-paper-table td:nth-child(2) {
+  width: 26%;
+}
+
+.reference-paper-table th:nth-child(3),
+.reference-paper-table td:nth-child(3) {
+  width: 43%;
+}
+
+.reference-paper-table.compact {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.reference-note {
+  margin: 10px 0 15px;
+  padding: 10px 12px;
+  border-left: 3px solid #39a9d7;
+  background: #f2f2f2;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.reference-section-card {
+  margin: 12px 0;
+  border: 1px solid #d2d2d2;
+}
+
+.reference-section-heading {
+  min-height: 37px;
+  display: flex;
+  align-items: center;
+  padding: 7px 10px;
+  background: #dedede;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.reference-additional {
+  margin: 9px 0 14px;
+  padding: 10px 12px;
+  background: #f2f2f2;
+  border-left: 3px solid #39a9d7;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.reference-bottom-actions {
+  height: 73px;
+  min-height: 73px;
+  flex: 0 0 73px;
+  border-top: 1px solid #d0d0d0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 12px;
+}
+
+.reference-bottom-actions button {
+  height: 42px;
+  min-width: 135px;
+  padding: 0 18px;
+  border: 1px solid #d0d0d0;
+  border-radius: 2px;
+  background: #fff;
+  color: #555;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.reference-bottom-actions button:last-child {
+  min-width: 173px;
+  background: #168bc0;
+  border-color: #1682bb;
+  color: #fff;
+  font-weight: 700;
+}
+
+.reference-bottom-actions button:hover {
+  background: #f1f1f1;
+}
+
+.reference-bottom-actions button:last-child:hover {
+  background: #1177a6;
+}
+
+.reference-summary {
+  width: 20%;
+  min-width: 205px;
+  height: 100%;
+  overflow-y: auto;
+  background: #fff;
+  padding: 13px 14px 80px;
+}
+
+.reference-instructions-main.is-collapsed + .reference-summary {
+  display: none;
+}
+
+.reference-summary h2 {
+  margin: 0 0 12px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #d2d2d2;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.reference-summary-row {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #d8d8d8;
+  padding: 7px 0;
+  font-size: 13px;
+}
+
+.reference-summary-row span {
+  flex: 0 0 auto;
+}
+
+.reference-summary-row strong {
+  max-width: 65%;
+  text-align: right;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.reference-error,
+.reference-loading {
+  margin: auto;
+  padding: 30px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.reference-error-button {
+  margin: 0 auto 40px;
+  height: 40px;
+  padding: 0 20px;
+  border: 1px solid #1682bb;
+  background: #1682bb;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Same outer footer geometry/color as Examination.css. */
+.reference-instructions-footer {
+  height: 14px;
+  min-height: 14px;
+  flex: 0 0 14px;
+  background: #0759b4;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 700;
+}
+
+@media (max-width: 1023px) {
+  .reference-instructions-page {
+    min-width: 0;
+  }
+
+  .reference-instructions-layout {
+    display: block;
+    overflow: hidden;
+  }
+
+  .reference-instructions-main {
+    width: 100%;
+    border-right: 0;
+  }
+
+  .reference-summary {
+    display: none;
+  }
+
+  .instruction-legend-table {
+    width: 100%;
+  }
+
+  .instruction-legend-table > div {
+    font-size: 14px;
+  }
+
+  /*
+   * The desktop action buttons have fixed minimum widths. Those widths are
+   * intentionally preserved on desktop, but they do not fit together on a
+   * narrow phone such as 320px. Keep the two actions permanently visible
+   * while allowing them to share the available width on portrait devices.
+   */
+  .reference-bottom-actions {
+    height: 62px;
+    min-height: 62px;
+    flex: 0 0 62px;
+    padding: 6px 8px;
+    gap: 8px;
+  }
+
+  .reference-bottom-actions button,
+  .reference-bottom-actions button:last-child {
+    flex: 1 1 0;
+    min-width: 0;
+    width: 0;
+    height: 44px;
+    padding: 0 8px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .reference-bottom-actions button:last-child {
+    flex-grow: 1.15;
+  }
+}
+
+/* Question-paper overview: five columns must stay inside the 80% content pane. */
+.reference-overview-table {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+}
+
+.reference-overview-table .overview-col-subject { width: 21%; }
+.reference-overview-table .overview-col-sections { width: 13%; }
+.reference-overview-table .overview-col-questions { width: 13%; }
+.reference-overview-table .overview-col-section-names { width: 37%; }
+.reference-overview-table .overview-col-marks { width: 16%; }
+
+.reference-overview-table th,
+.reference-overview-table td {
+  min-width: 0;
+  max-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+
+.overview-section-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.overview-section-list span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Override the three-column marking-table widths for this five-column table. */
+.reference-overview-table th:nth-child(1),
+.reference-overview-table td:nth-child(1) { width: 21% !important; }
+.reference-overview-table th:nth-child(2),
+.reference-overview-table td:nth-child(2) { width: 13% !important; }
+.reference-overview-table th:nth-child(3),
+.reference-overview-table td:nth-child(3) { width: 13% !important; }
+.reference-overview-table th:nth-child(4),
+.reference-overview-table td:nth-child(4) { width: 37% !important; }
+.reference-overview-table th:nth-child(5),
+.reference-overview-table td:nth-child(5) { width: 16% !important; }
+
+
+/* CBTGen final instruction legend symbols. These are self-contained so the
+   instruction page does not depend on the examination-page badge stylesheet. */
+.instruction-legend-table .instruction-status-badge{
+  position:relative;
+  display:inline-flex;
+  flex:0 0 42px;
+  width:42px;
+  height:36px;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:13px;
+  font-weight:400;
+  line-height:1;
+  isolation:isolate;
+}
+.instruction-legend-table .instruction-status-badge::before{
+  content:"";
+  position:absolute;
+  inset:2px 3px;
+  z-index:0;
+}
+.instruction-legend-table .instruction-status-badge > span{
+  position:relative;
+  z-index:2;
+}
+.instruction-legend-table .instruction-status-a::before{
+  background:#4da15e;
+  clip-path:polygon(20% 0,80% 0,100% 100%,0 100%);
+}
+.instruction-legend-table .instruction-status-na::before{
+  background:#c74343;
+  clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);
+}
+.instruction-legend-table .instruction-status-nv{color:#474747}
+.instruction-legend-table .instruction-status-nv::before{
+  background:#fff;
+  border:1px solid #8a8a8a;
+}
+.instruction-legend-table .instruction-status-r::before,
+.instruction-legend-table .instruction-status-ar::before{
+  background:#8d59ad;
+  border-radius:50%;
+}
+.instruction-legend-table .instruction-status-ar::after{
+  content:"";
+  position:absolute;
+  right:4px;
+  bottom:4px;
+  width:9px;
+  height:9px;
+  background:#4da15e;
+  border:1px solid #fff;
+  border-radius:50%;
+  z-index:3;
+}
