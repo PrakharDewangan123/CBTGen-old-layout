@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { loadOwnedPaperContent } from '../../src/lib/cbtgen/examContentLoader.js'
+import { loadOwnedPaperContent } from '../../apps/web/src/lib/cbtgen/examContentLoader.js'
 
 const ownerRecord = { userId: 'owner-a', storageEncoding: 'plain-json-v1', xmlText: '<cbtgen/>', paper: { questions: [{ id: 'q1' }] } }
 assert.deepEqual(await loadOwnedPaperContent(ownerRecord, 'owner-a'), ownerRecord)

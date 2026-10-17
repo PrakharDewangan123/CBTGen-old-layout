@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const projectRoot = path.resolve(__dirname, '../..')
-const examinationPath = path.join(projectRoot, 'src/features/exam/pages/Examination.jsx')
+const examinationPath = path.join(projectRoot, 'apps/web/src/features/exam/pages/Examination.jsx')
 const source = fs.readFileSync(examinationPath, 'utf8')
 
 function assert(condition, message) {

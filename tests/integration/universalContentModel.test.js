@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
-import { normalizeContentBlock, normalizeRichContent, CONTENT_BLOCK_TYPES } from '../../src/lib/cbtgen/contentModel.js'
+import { normalizeContentBlock, normalizeRichContent, CONTENT_BLOCK_TYPES } from '../../apps/web/src/lib/cbtgen/contentModel.js'
 
 const normalized = normalizeRichContent({
   text: 'Question intro',
@@ -23,9 +23,9 @@ assert.equal(future.originalType, 'future-special-object')
 assert.equal(future.value, 'do not drop me')
 assert.ok(CONTENT_BLOCK_TYPES.includes('chart'))
 
-const renderer = fs.readFileSync('src/features/exam/components/ContentRenderer.jsx', 'utf8')
+const renderer = fs.readFileSync('apps/web/src/features/exam/components/ContentRenderer.jsx', 'utf8')
 for (const token of ['function RichTable', 'function DataChart', "block.type === 'diagram'", "block.type === 'audio'", "block.type === 'video'"]) assert.ok(renderer.includes(token), `renderer should support ${token}`)
-const css = fs.readFileSync('src/features/exam/styles/Examination.css', 'utf8')
+const css = fs.readFileSync('apps/web/src/features/exam/styles/Examination.css', 'utf8')
 assert.match(css, /content-table-scroll/)
 assert.match(css, /content-chart-scroll/)
 console.log('Universal content model regression tests passed.')

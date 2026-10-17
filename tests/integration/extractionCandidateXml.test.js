@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { convertReviewedCandidatesToCbtgenXml } from '../../src/lib/cbtgen/extractionCandidateConverter.js'
+import { convertReviewedCandidatesToCbtgenXml } from '../../apps/web/src/lib/cbtgen/extractionCandidateConverter.js'
 
 const assets = [
   { id: 'qimg-1', src: 'assets/qimg-1.png', mimeType: 'image/png', scope: 'question-visual' },

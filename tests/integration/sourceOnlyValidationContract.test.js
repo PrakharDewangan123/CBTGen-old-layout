@@ -1,8 +1,8 @@
 import fs from 'node:fs'
 import assert from 'node:assert/strict'
 
-const validator = fs.readFileSync('src/lib/cbtgen/semanticValidator.js', 'utf8')
-const importService = fs.readFileSync('src/features/questionPapers/services/questionPaperImportService.js', 'utf8')
+const validator = fs.readFileSync('apps/web/src/lib/cbtgen/semanticValidator.js', 'utf8')
+const importService = fs.readFileSync('apps/web/src/features/questionPapers/services/questionPaperImportService.js', 'utf8')
 
 assert.match(
   validator,

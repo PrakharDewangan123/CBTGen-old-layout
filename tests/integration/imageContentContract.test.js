@@ -2,11 +2,11 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 
 const root = new URL('../../', import.meta.url)
-const paperModel = await readFile(new URL('src/lib/cbtgen/paperModel.js', root), 'utf8')
-const normalizer = await readFile(new URL('src/lib/cbtgen/questionNormalizer.js', root), 'utf8')
-const packageFormat = await readFile(new URL('src/lib/cbtgen/packageFormat.js', root), 'utf8')
-const storage = await readFile(new URL('src/lib/cbtgen/paperStorage.js', root), 'utf8')
-const renderer = await readFile(new URL('src/features/exam/components/ContentRenderer.jsx', root), 'utf8')
+const paperModel = await readFile(new URL('apps/web/src/lib/cbtgen/paperModel.js', root), 'utf8')
+const normalizer = await readFile(new URL('apps/web/src/lib/cbtgen/questionNormalizer.js', root), 'utf8')
+const packageFormat = await readFile(new URL('apps/web/src/lib/cbtgen/packageFormat.js', root), 'utf8')
+const storage = await readFile(new URL('apps/web/src/lib/cbtgen/paperStorage.js', root), 'utf8')
+const renderer = await readFile(new URL('apps/web/src/features/exam/components/ContentRenderer.jsx', root), 'utf8')
 
 assert.match(paperModel, /blocks: \[\]/)
 assert.match(paperModel, /content\.blocks\.push\(\{ type: 'image'/)

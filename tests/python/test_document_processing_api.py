@@ -6,7 +6,7 @@ from unittest.mock import patch
 
 from fastapi.testclient import TestClient
 
-SERVICE_DIR = Path(__file__).resolve().parents[2] / "services" / "document_processing"
+SERVICE_DIR = Path(__file__).resolve().parents[2] / "apps" / "api"
 sys.path.insert(0, str(SERVICE_DIR))
 
 from api import app, LOCAL_DEV_OWNER  # noqa: E402

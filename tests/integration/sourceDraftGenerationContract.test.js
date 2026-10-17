@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises'
 
 const component = await readFile(
   new URL(
-    '../../src/features/questionPapers/components/ImportQuestionPaper.jsx',
+    '../../apps/web/src/features/questionPapers/components/ImportQuestionPaper.jsx',
     import.meta.url
   ),
   'utf8'
@@ -11,7 +11,7 @@ const component = await readFile(
 
 const reviewPanel = await readFile(
   new URL(
-    '../../src/features/questionPapers/components/ExtractionReviewPanel.jsx',
+    '../../apps/web/src/features/questionPapers/components/ExtractionReviewPanel.jsx',
     import.meta.url
   ),
   'utf8'
@@ -19,7 +19,7 @@ const reviewPanel = await readFile(
 
 const converter = await readFile(
   new URL(
-    '../../src/lib/cbtgen/extractionCandidateConverter.js',
+    '../../apps/web/src/lib/cbtgen/extractionCandidateConverter.js',
     import.meta.url
   ),
   'utf8'
@@ -27,7 +27,7 @@ const converter = await readFile(
 
 const validator = await readFile(
   new URL(
-    '../../src/lib/cbtgen/semanticValidator.js',
+    '../../apps/web/src/lib/cbtgen/semanticValidator.js',
     import.meta.url
   ),
   'utf8'

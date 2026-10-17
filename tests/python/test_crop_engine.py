@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pymupdf
 
-from services.document_processing.crop_engine import CropError, crop_pdf_region
+from packages.document_processing.crop_engine import CropError, crop_pdf_region
 
 
 def make_pdf():

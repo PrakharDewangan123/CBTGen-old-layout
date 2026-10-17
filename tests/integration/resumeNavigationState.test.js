@@ -2,8 +2,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const root = process.cwd()
-const viewModel = fs.readFileSync(path.join(root, 'src/features/exam/hooks/useExamViewModel.js'), 'utf8')
-const examination = fs.readFileSync(path.join(root, 'src/features/exam/pages/Examination.jsx'), 'utf8')
+const viewModel = fs.readFileSync(path.join(root, 'apps/web/src/features/exam/hooks/useExamViewModel.js'), 'utf8')
+const examination = fs.readFileSync(path.join(root, 'apps/web/src/features/exam/pages/Examination.jsx'), 'utf8')
 
 function assert(condition, message) {
   if (!condition) throw new Error(message)

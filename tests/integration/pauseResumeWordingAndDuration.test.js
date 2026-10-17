@@ -1,10 +1,10 @@
 import fs from 'node:fs'
 import assert from 'node:assert/strict'
 
-const resumePage = fs.readFileSync('src/features/questionPapers/pages/QuestionPapers.jsx', 'utf8')
-const examPage = fs.readFileSync('src/features/exam/pages/Examination.jsx', 'utf8')
-const importService = fs.readFileSync('src/features/questionPapers/services/questionPaperImportService.js', 'utf8')
-const api = fs.readFileSync('src/lib/api/cbtgenApi.js', 'utf8')
+const resumePage = fs.readFileSync('apps/web/src/features/questionPapers/pages/QuestionPapers.jsx', 'utf8')
+const examPage = fs.readFileSync('apps/web/src/features/exam/pages/Examination.jsx', 'utf8')
+const importService = fs.readFileSync('apps/web/src/features/questionPapers/services/questionPaperImportService.js', 'utf8')
+const api = fs.readFileSync('apps/web/src/lib/api/cbtgenApi.js', 'utf8')
 
 assert.match(resumePage, /pause opportunities/)
 assert.doesNotMatch(resumePage, /of 5 resumes/)

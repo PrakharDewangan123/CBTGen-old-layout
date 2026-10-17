@@ -2,15 +2,15 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 
 const renderer = fs.readFileSync(
-  'src/features/exam/components/ContentRenderer.jsx',
+  'apps/web/src/features/exam/components/ContentRenderer.jsx',
   'utf8'
 )
 const paperModel = fs.readFileSync(
-  'src/lib/cbtgen/paperModel.js',
+  'apps/web/src/lib/cbtgen/paperModel.js',
   'utf8'
 )
 const css = fs.readFileSync(
-  'src/features/exam/styles/Examination.css',
+  'apps/web/src/features/exam/styles/Examination.css',
   'utf8'
 )
 const prompt = fs.readFileSync(

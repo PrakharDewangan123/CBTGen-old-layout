@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 
-const source = fs.readFileSync('src/features/exam/questionTypes/Match.jsx', 'utf8')
-const css = fs.readFileSync('src/features/exam/styles/Examination.css', 'utf8')
+const source = fs.readFileSync('apps/web/src/features/exam/questionTypes/Match.jsx', 'utf8')
+const css = fs.readFileSync('apps/web/src/features/exam/styles/Examination.css', 'utf8')
 
 assert.match(source, /ContentBlocks/)
 assert.match(source, /match-reference-panel/)

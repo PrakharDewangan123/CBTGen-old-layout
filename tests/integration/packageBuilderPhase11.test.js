@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { buildCbtgenPackage } from '../../src/lib/cbtgen/packageBuilder.js'
+import { buildCbtgenPackage } from '../../apps/web/src/lib/cbtgen/packageBuilder.js'
 
 const xml = '<cbtgen version="1.0"><assets><asset id="diagram-1" src="assets/diagram-1.png" mimeType="image/png"/></assets><question assetRef="diagram-1">What is shown?</question></cbtgen>'
 const blob = await buildCbtgenPackage({ xmlText: xml, assets: [{ id: 'diagram-1', packagePath: 'assets/diagram-1.png', bytes: new Uint8Array([137, 80, 78, 71, 1, 2, 3]) }] })

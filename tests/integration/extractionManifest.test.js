@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { createExtractionManifest, sha256Hex, validateExtractionManifest } from '../../src/lib/cbtgen/extractionManifest.js'
+import { createExtractionManifest, sha256Hex, validateExtractionManifest } from '../../apps/web/src/lib/cbtgen/extractionManifest.js'
 
 const manifest = createExtractionManifest({
   ownerId: 'user-a',

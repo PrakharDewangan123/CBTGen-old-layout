@@ -78,7 +78,7 @@ globalThis.localStorage.setItem('cbtgen_mock_db', JSON.stringify(db))
 globalThis.localStorage.setItem('cbtgen_user_email', 'resume@example.com')
 globalThis.localStorage.setItem('cbtgen_logged_in', 'true')
 
-const { cbtgenApi } = await import('../../src/lib/api/cbtgenApi.js')
+const { cbtgenApi } = await import('../../apps/web/src/lib/api/cbtgenApi.js')
 
 const authorized = await cbtgenApi.questionPapers.authorizePractice(
   'resume-qp',

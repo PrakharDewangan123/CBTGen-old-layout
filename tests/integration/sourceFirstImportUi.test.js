@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 
-const importUi = readFileSync(new URL('../../src/features/questionPapers/components/ImportQuestionPaper.jsx', import.meta.url), 'utf8')
-const questionPapersPage = readFileSync(new URL('../../src/features/questionPapers/pages/QuestionPapers.jsx', import.meta.url), 'utf8')
-const faq = readFileSync(new URL('../../src/features/faq/pages/FAQ.jsx', import.meta.url), 'utf8')
+const importUi = readFileSync(new URL('../../apps/web/src/features/questionPapers/components/ImportQuestionPaper.jsx', import.meta.url), 'utf8')
+const questionPapersPage = readFileSync(new URL('../../apps/web/src/features/questionPapers/pages/QuestionPapers.jsx', import.meta.url), 'utf8')
+const faq = readFileSync(new URL('../../apps/web/src/features/faq/pages/FAQ.jsx', import.meta.url), 'utf8')
 
 assert.match(importUi, /\.pdf,\.docx,application\/pdf/)
 assert.match(importUi, /Extract document/)

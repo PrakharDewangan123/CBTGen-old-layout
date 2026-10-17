@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 
-const examination = fs.readFileSync('src/features/exam/pages/Examination.jsx', 'utf8')
-const css = fs.readFileSync('src/features/exam/styles/Examination.css', 'utf8')
+const examination = fs.readFileSync('apps/web/src/features/exam/pages/Examination.jsx', 'utf8')
+const css = fs.readFileSync('apps/web/src/features/exam/styles/Examination.css', 'utf8')
 
 if (examination.includes('className="pause-counter"')) {
   throw new Error('Pause counter must not be rendered in the examination header.')

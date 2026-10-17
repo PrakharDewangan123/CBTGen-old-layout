@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { buildPausedSession, buildResumedSession, getPauseState, MAX_PAUSES_PER_ATTEMPT } from '../../src/features/exam/examEngine/examRuntime.js'
+import { buildPausedSession, buildResumedSession, getPauseState, MAX_PAUSES_PER_ATTEMPT } from '../../apps/web/src/features/exam/examEngine/examRuntime.js'
 
 const base = {
   id: 'pause-limit-session',

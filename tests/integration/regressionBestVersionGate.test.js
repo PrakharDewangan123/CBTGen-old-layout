@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 
-const comparator = fs.readFileSync('src/lib/cbtgen/regressionComparator.js', 'utf8')
+const comparator = fs.readFileSync('apps/web/src/lib/cbtgen/regressionComparator.js', 'utf8')
 
 for (const contract of [
   'compareCbtgenRegression',

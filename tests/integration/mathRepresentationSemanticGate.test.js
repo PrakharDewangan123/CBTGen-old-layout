@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 
 const validator = fs.readFileSync(
-  'src/lib/cbtgen/semanticValidator.js',
+  'apps/web/src/lib/cbtgen/semanticValidator.js',
   'utf8'
 )
 const prompt = fs.readFileSync(

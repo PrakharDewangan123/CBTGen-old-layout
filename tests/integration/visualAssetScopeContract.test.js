@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 
 const prompt = fs.readFileSync('docs/xml/CBTGen-AI-Conversion-Prompt-v1.0.md', 'utf8')
 const schema = fs.readFileSync('docs/xml/CBTGen-XML-Schema-v1.0.xsd', 'utf8')
-const validator = fs.readFileSync('src/lib/cbtgen/semanticValidator.js', 'utf8')
+const validator = fs.readFileSync('apps/web/src/lib/cbtgen/semanticValidator.js', 'utf8')
 
 assert.match(prompt, /Every image asset MUST declare one allowed visual scope:/)
 assert.match(prompt, /question-visual\n- option-visual\n- source-page/)

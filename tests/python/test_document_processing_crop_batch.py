@@ -11,8 +11,8 @@ from fastapi.testclient import TestClient
 
 SERVICE_DIR = (
     Path(__file__).resolve().parents[2]
-    / "services"
-    / "document_processing"
+    / "apps"
+    / "api"
 )
 sys.path.insert(0, str(SERVICE_DIR))
 

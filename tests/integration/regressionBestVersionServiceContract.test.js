@@ -1,10 +1,10 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 
-const service = fs.readFileSync('src/features/questionPapers/services/questionPaperImportService.js', 'utf8')
+const service = fs.readFileSync('apps/web/src/features/questionPapers/services/questionPaperImportService.js', 'utf8')
 
 assert.match(service, /selectBestCbtgenVersion/)
-const comparator = fs.readFileSync('src/lib/cbtgen/regressionComparator.js', 'utf8')
+const comparator = fs.readFileSync('apps/web/src/lib/cbtgen/regressionComparator.js', 'utf8')
 assert.match(comparator, /export function compareCbtgenRegression/)
 assert.match(comparator, /const comparison = compareCbtgenRegression\(baselineDocument, candidateDocument\)/)
 assert.match(service, /selectBestCbtgenVersion/)

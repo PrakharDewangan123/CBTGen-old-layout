@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { validatePaperFinalization } from '../../src/lib/cbtgen/finalizationGate.js'
+import { validatePaperFinalization } from '../../apps/web/src/lib/cbtgen/finalizationGate.js'
 
 const manifest = {
   manifestVersion: '1.0', jobId: 'job-1', createdAt: '2026-10-12T00:00:00.000Z',

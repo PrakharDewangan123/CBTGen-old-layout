@@ -3,7 +3,7 @@ import {
   findConfiguredSection,
   findConfiguredType,
   resolveInstructionMarking,
-} from '../../src/features/exam/services/instructionMarking.js'
+} from '../../apps/web/src/features/exam/services/instructionMarking.js'
 
 const configSections = [
   {

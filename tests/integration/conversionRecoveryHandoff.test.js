@@ -5,7 +5,7 @@ import {
   formatConversionCorrectionHandoff,
   loadConversionRecoveryRecord,
   saveConversionRecoveryRecord,
-} from '../../src/features/questionPapers/services/conversionRecovery.js'
+} from '../../apps/web/src/features/questionPapers/services/conversionRecovery.js'
 
 function memoryStorage() {
   const values = new Map()

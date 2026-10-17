@@ -2,8 +2,8 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 
 const root = new URL('../../', import.meta.url)
-const packageFormat = await readFile(new URL('src/lib/cbtgen/packageFormat.js', root), 'utf8')
-const validator = await readFile(new URL('src/lib/cbtgen/semanticValidator.js', root), 'utf8')
+const packageFormat = await readFile(new URL('apps/web/src/lib/cbtgen/packageFormat.js', root), 'utf8')
+const validator = await readFile(new URL('apps/web/src/lib/cbtgen/semanticValidator.js', root), 'utf8')
 
 // Legacy/AI conversion output may incorrectly serialize MSQ as multiple-choice.
 // The import boundary canonicalizes this semantically equivalent legacy value to

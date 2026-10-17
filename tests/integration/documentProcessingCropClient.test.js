@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 
 const client = readFileSync(
-  new URL('../../src/features/questionPapers/services/documentProcessingApi.js', import.meta.url),
+  new URL('../../apps/web/src/features/questionPapers/services/documentProcessingApi.js', import.meta.url),
   'utf8',
 )
 const existingRegression = readFileSync(

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
-const client = readFileSync(new URL('../../src/features/questionPapers/services/documentProcessingApi.js', import.meta.url), 'utf8')
-const api = readFileSync(new URL('../../services/document_processing/api.py', import.meta.url), 'utf8')
+const client = readFileSync(new URL('../../apps/web/src/features/questionPapers/services/documentProcessingApi.js', import.meta.url), 'utf8')
+const api = readFileSync(new URL('../../apps/api/api.py', import.meta.url), 'utf8')
 assert.match(client, /credentials:\s*'include'/)
 assert.match(client, /10_000_000/)
 assert.match(client, /body\.append\('file', file, file\.name\)/)

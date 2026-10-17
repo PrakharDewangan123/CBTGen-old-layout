@@ -69,3 +69,7 @@ htmlcov/
 services/document_processing/data/
 # Private project handoff documents
 docs/project-context/master-docs/
+
+# Generated document-processing crop assets
+/apps/api/data/crops/
+/packages/document_processing/data/crops/

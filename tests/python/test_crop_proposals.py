@@ -1,6 +1,6 @@
 import unittest
 
-from services.document_processing.crop_proposals import propose_pdf_crops
+from packages.document_processing.crop_proposals import propose_pdf_crops
 
 
 HASH = "a" * 64

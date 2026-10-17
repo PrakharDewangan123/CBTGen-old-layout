@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
 const projectRoot = path.resolve(here, '../..')
-const sourcePath = path.join(projectRoot, 'src/features/questionPapers/pages/QuestionPapers.jsx')
+const sourcePath = path.join(projectRoot, 'apps/web/src/features/questionPapers/pages/QuestionPapers.jsx')
 const source = fs.readFileSync(sourcePath, 'utf8')
 
 assert.match(source, /useRef\s*\(\s*null\s*\)/)

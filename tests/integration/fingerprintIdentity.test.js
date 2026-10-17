@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
-import { fingerprintQuestion, fingerprintPaper } from '../../src/lib/cbtgen/fingerprint.js'
-import { compareQuestionPapers } from '../../src/lib/cbtgen/qpComparison.js'
+import { fingerprintQuestion, fingerprintPaper } from '../../apps/web/src/lib/cbtgen/fingerprint.js'
+import { compareQuestionPapers } from '../../apps/web/src/lib/cbtgen/qpComparison.js'
 
 function element(tagName, children = [], textContent = '', attributes = {}) {
   return {

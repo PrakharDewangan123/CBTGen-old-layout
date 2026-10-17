@@ -101,7 +101,7 @@ globalThis.window = {
   },
 }
 
-const storage = await import('../../src/lib/cbtgen/paperStorage.js')
+const storage = await import('../../apps/web/src/lib/cbtgen/paperStorage.js')
 
 function record(userId, sourceFileName) {
   return {

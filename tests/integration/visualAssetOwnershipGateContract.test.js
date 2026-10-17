@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 
 const prompt = fs.readFileSync('docs/xml/CBTGen-AI-Conversion-Prompt-v1.0.md', 'utf8')
-const validator = fs.readFileSync('src/lib/cbtgen/semanticValidator.js', 'utf8')
+const validator = fs.readFileSync('apps/web/src/lib/cbtgen/semanticValidator.js', 'utf8')
 
 assert.match(prompt, /21A\. MACHINE-CHECKABLE VISUAL OWNERSHIP GATE — HARD REQUIREMENT/)
 assert.match(prompt, /One normal visual asset MUST have exactly one semantic owner/)

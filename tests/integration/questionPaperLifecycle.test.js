@@ -4,7 +4,7 @@ import {
   deriveQuestionPaperLifecycle,
   QUESTION_PAPER_LIFECYCLE,
   PRACTICE_SESSION_STATUS,
-} from '../../src/features/questionPapers/services/questionPaperLifecycle.js'
+} from '../../apps/web/src/features/questionPapers/services/questionPaperLifecycle.js'
 
 const questionPaper = {
   id: 'qp-test-001',

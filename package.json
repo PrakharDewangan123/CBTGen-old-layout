@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite --config apps/web/vite.config.js",
+    "build": "vite build --config apps/web/vite.config.js",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "vite preview --config apps/web/vite.config.js",
     "test:isolation": "node tests/integration/multiUserIsolation.test.js",
     "test:fingerprint": "node tests/integration/fingerprintIdentity.test.js",
     "test:question-types": "node tests/integration/questionTypeRegistry.test.js",

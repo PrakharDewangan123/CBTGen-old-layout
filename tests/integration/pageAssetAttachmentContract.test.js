@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 
-const validator = fs.readFileSync('src/lib/cbtgen/semanticValidator.js', 'utf8')
+const validator = fs.readFileSync('apps/web/src/lib/cbtgen/semanticValidator.js', 'utf8')
 const prompt = fs.readFileSync('docs/xml/CBTGen-AI-Conversion-Prompt-v1.0.md', 'utf8')
 
 assert.match(validator, /PAGE_IMAGE_AS_QUESTION_ASSET/)

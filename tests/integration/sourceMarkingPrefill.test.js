@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { parseSectionMarkingComment } from '../../src/features/exam/services/sourceMarkingParser.js'
+import { parseSectionMarkingComment } from '../../apps/web/src/features/exam/services/sourceMarkingParser.js'
 
 const numerical = parseSectionMarkingComment(
   'SOURCE MARKING SCHEME (Section 1 — numerical value): +3 only if correct numerical value is entered; 0 in all other cases.',

@@ -1,5 +1,5 @@
 import unittest
-from services.document_processing.question_segmenter import detect_question_structure
+from packages.document_processing.question_segmenter import detect_question_structure
 
 
 def report(text, source_type="docx"):

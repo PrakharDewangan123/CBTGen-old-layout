@@ -148,7 +148,7 @@ const db = {
 
 localStorage.setItem('cbtgen_mock_db', JSON.stringify(db))
 
-const { cbtgenApi } = await import('../../src/lib/api/cbtgenApi.js')
+const { cbtgenApi } = await import('../../apps/web/src/lib/api/cbtgenApi.js')
 
 function selectUser(email) {
   localStorage.setItem('cbtgen_user_email', email)

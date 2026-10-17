@@ -16,10 +16,10 @@ from urllib.parse import urlsplit
 from fastapi import Depends, FastAPI, File, Form, Header, HTTPException, Request, UploadFile
 from fastapi.responses import JSONResponse
 
-from extractor import extract_document, ExtractionError, MAX_SOURCE_BYTES
-from question_segmenter import detect_question_structure
-from crop_proposals import propose_pdf_crops
-from crop_engine import CropError, crop_pdf_region
+from packages.document_processing.extractor import extract_document, ExtractionError, MAX_SOURCE_BYTES
+from packages.document_processing.question_segmenter import detect_question_structure
+from packages.document_processing.crop_proposals import propose_pdf_crops
+from packages.document_processing.crop_engine import CropError, crop_pdf_region
 
 app = FastAPI(title="CBTGen Document Processing", version="0.1.0")
 
@@ -201,7 +201,7 @@ async def create_crop(
 
         configured_root = os.environ.get("CBTGEN_CROP_OUTPUT_ROOT", "").strip()
         output_root = Path(configured_root).expanduser() if configured_root else (
-            Path(__file__).resolve().parent / "data" / "crops"
+            Path(__file__).resolve().parents[2] / "packages" / "document_processing" / "data" / "crops"
         )
         result = crop_pdf_region(
             filename, data, owner_id=owner_id, source_sha256=source_sha256,
@@ -261,7 +261,7 @@ async def create_crops_batch(
 
         configured_root = os.environ.get("CBTGEN_CROP_OUTPUT_ROOT", "").strip()
         output_root = Path(configured_root).expanduser() if configured_root else (
-            Path(__file__).resolve().parent / "data" / "crops"
+            Path(__file__).resolve().parents[2] / "packages" / "document_processing" / "data" / "crops"
         )
         root_resolved = output_root.resolve()
         results = []

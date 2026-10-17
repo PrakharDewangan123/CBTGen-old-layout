@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises'
 
-const source = await readFile(new URL('../../src/lib/cbtgen/paperModel.js', import.meta.url), 'utf8')
+const source = await readFile(new URL('../../apps/web/src/lib/cbtgen/paperModel.js', import.meta.url), 'utf8')
 
 if (!source.includes("case 'assertion':")) {
   throw new Error('CBTGen paper parser must preserve <assertion> content.')

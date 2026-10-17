@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 
-const component = await readFile(new URL('../../src/features/questionPapers/components/ImportQuestionPaper.jsx', import.meta.url), 'utf8')
-const apiClient = await readFile(new URL('../../src/features/questionPapers/services/documentProcessingApi.js', import.meta.url), 'utf8')
-const viteConfig = await readFile(new URL('../../vite.config.js', import.meta.url), 'utf8')
+const component = await readFile(new URL('../../apps/web/src/features/questionPapers/components/ImportQuestionPaper.jsx', import.meta.url), 'utf8')
+const apiClient = await readFile(new URL('../../apps/web/src/features/questionPapers/services/documentProcessingApi.js', import.meta.url), 'utf8')
+const viteConfig = await readFile(new URL('../../apps/web/vite.config.js', import.meta.url), 'utf8')
 
 assert.match(component, /extractSourceDocument\(file/)
 assert.match(component, /Extract document/)

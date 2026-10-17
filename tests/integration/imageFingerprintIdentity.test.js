@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { fingerprintQuestion } from '../../src/lib/cbtgen/fingerprint.js'
+import { fingerprintQuestion } from '../../apps/web/src/lib/cbtgen/fingerprint.js'
 
 function element(tagName, children = [], textContent = '', attributes = {}) {
   return {

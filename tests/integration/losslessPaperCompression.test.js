@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { decodePaperContent, encodePaperContent } from '../../src/lib/cbtgen/storage/losslessRecordCompression.js'
+import { decodePaperContent, encodePaperContent } from '../../apps/web/src/lib/cbtgen/storage/losslessRecordCompression.js'
 
 const longText = 'Question text with exact symbols: α β γ ∑ ∫ √ ≤ ≥ → and preserved whitespace. '.repeat(500)
 const original = {

@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises'
-import { QUESTION_TYPES } from '../../src/lib/cbtgen/questionTypes.js'
+import { QUESTION_TYPES } from '../../apps/web/src/lib/cbtgen/questionTypes.js'
 
-const registrySource = await readFile(new URL('../../src/features/exam/questionTypes/questionTypeRegistry.js', import.meta.url), 'utf8')
+const registrySource = await readFile(new URL('../../apps/web/src/features/exam/questionTypes/questionTypeRegistry.js', import.meta.url), 'utf8')
 
 const expectedImplemented = [
   'MCQ',

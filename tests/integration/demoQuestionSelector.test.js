@@ -1,7 +1,7 @@
 import {
   getDemoRendererSignature,
   selectDiverseDemoQuestions,
-} from '../../src/lib/cbtgen/demoQuestionSelector.js'
+} from '../../apps/web/src/lib/cbtgen/demoQuestionSelector.js'
 
 function question(id, subjectRef, sectionRef, type, extra = {}) {
   return {

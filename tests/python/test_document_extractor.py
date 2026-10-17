@@ -6,7 +6,7 @@ from unittest.mock import patch
 import pymupdf
 from docx import Document
 
-from services.document_processing.extractor import (
+from packages.document_processing.extractor import (
     MAX_SOURCE_BYTES, ExtractionError, _validate_input, extract_document, extract_docx, extract_pdf
 )
 

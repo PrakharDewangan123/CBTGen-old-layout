@@ -61,7 +61,7 @@ npm run build
 npm run preview
 ```
 
-Check `vite.config.js` for the document-processing proxy configuration.
+Check `apps/web/vite.config.js` for the document-processing proxy configuration.
 
 ## Local mock account
 
@@ -76,22 +76,22 @@ A dedicated mock student account is available for local testing of the no-pack s
 
 This is a local development account, not a production identity. Mock authentication is not secure server-side authentication. Browser-local data is not automatically shared between browsers or devices.
 
-Other development accounts and their behavior are maintained in `src/lib/api/cbtgenApi.js`. Review that file before changing account initialization or local data.
+Other development accounts and their behavior are maintained in `apps/web/src/lib/api/cbtgenApi.js`. Review that file before changing account initialization or local data.
 
 ## Python document-processing service
 
-The service is located at `services/document_processing/`.
+The service is located at `packages/document_processing/`.
 
 Create and activate its virtual environment:
 
 ```bash
-python3 -m venv services/document_processing/.venv
-source services/document_processing/.venv/bin/activate
-python -m pip install -r services/document_processing/requirements.txt
-python -m pip install -r services/document_processing/requirements-api.txt
+python3 -m venv packages/document_processing/.venv
+source packages/document_processing/.venv/bin/activate
+python -m pip install -r packages/document_processing/requirements.txt
+python -m pip install -r apps/api/requirements-api.txt
 ```
 
-Before starting the API, follow the supported launch instructions in `services/document_processing/README.md`. Verify the import path and local authentication configuration; do not relocate service files without updating and testing their imports.
+The API entry point is `apps/api/api.py`. From the repository root, start it with `uvicorn apps.api.api:app --host 127.0.0.1 --port 8000` after installing both requirements files. Keep it bound to loopback for local development, and review `packages/document_processing/README.md` for processing limitations and OCR prerequisites.
 
 The service is not yet a complete end-to-end conversion pipeline for every source format. Review its README for current capabilities and limitations. Do not expose a development server publicly.
 
@@ -128,7 +128,7 @@ npm run
 Run Python tests using the project virtual environment:
 
 ```bash
-services/document_processing/.venv/bin/python -m unittest discover -s tests/python -v
+packages/document_processing/.venv/bin/python -m unittest discover -s tests/python -v
 ```
 
 Install Python dependencies first. A passing test suite does not by itself prove production security or perfect extraction fidelity.
@@ -137,33 +137,36 @@ Install Python dependencies first. A passing test suite does not by itself prove
 
 - `docs/xml/` contains XML schema, semantic-validation, and conversion-prompt documentation.
 - `docs/cbtgen-xml/` contains XML examples and fixtures.
-- `src/lib/cbtgen/` contains content models, normalization, validation, fingerprinting, and package utilities.
+- `apps/web/src/lib/cbtgen/` contains content models, normalization, validation, fingerprinting, and package utilities.
 - `tests/` contains automated regression and integration checks.
 
 Preserve source content faithfully and flag uncertain extraction results for review rather than silently inventing missing information. Distribute source papers and extracted assets only when you have the necessary rights or permission.
 
 ## Project structure
 
-This is the target local organization. It documents the intended layout; it does not mean a migration has already occurred.
+The repository is organized by application, API, reusable processing
+code, tests, documentation, and development scripts.
 
 ```text
-CBTGen_Finalization_Integration_Phase12/
-├── public/                         # Frontend public assets
-├── src/                            # Existing React frontend; keep initially
-├── services/
-│   └── document_processing/        # Python API and processing engine
-├── tests/                          # Browser, integration, and Python tests
-├── docs/                            # Product, architecture, history, setup
-├── scripts/                         # Maintenance, development, test utilities
-├── archive/                         # Planned; classify files before moving
-├── package.json
+CBTGen/
+├── apps/
+│   ├── web/                    # React frontend and Vite configuration
+│   └── api/                    # FastAPI entry point and API requirements
+├── packages/
+│   └── document_processing/    # PDF/DOCX extraction, OCR and crop engine
+├── tests/                      # Browser, integration and Python tests
+├── docs/                       # Product, architecture and project notes
+├── scripts/                    # Maintenance and test utilities
+├── package.json                # Frontend commands and test orchestration
 ├── package-lock.json
-├── vite.config.js
-├── .gitignore
+├── eslint.config.js
 └── README.md
 ```
 
-Keep the existing working frontend and service paths initially. Preserve essential root configuration unless dependency analysis justifies a change. Historical files must be classified before moving them into `archive/`.
+Keep historical notes, backups, generated assets, and local processing data
+intact during restructuring. Review their purpose and Git tracking status
+before deciding whether to archive or publish them.
+
 
 ## Security and data handling
 

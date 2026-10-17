@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 
-const panel = readFileSync(new URL('../../src/features/questionPapers/components/ExtractionReviewPanel.jsx', import.meta.url), 'utf8')
+const panel = readFileSync(new URL('../../apps/web/src/features/questionPapers/components/ExtractionReviewPanel.jsx', import.meta.url), 'utf8')
 assert.match(panel, /Review extracted questions/)
 assert.match(panel, /checked this question against the original source/i)
 assert.match(panel, /checked this option against the source/i)

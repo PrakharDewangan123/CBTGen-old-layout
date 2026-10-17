@@ -2,8 +2,8 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 
 const root = new URL('../../', import.meta.url)
-const packageFormat = await readFile(new URL('src/lib/cbtgen/packageFormat.js', root), 'utf8')
-const importUi = await readFile(new URL('src/features/questionPapers/components/ImportQuestionPaper.jsx', root), 'utf8')
+const packageFormat = await readFile(new URL('apps/web/src/lib/cbtgen/packageFormat.js', root), 'utf8')
+const importUi = await readFile(new URL('apps/web/src/features/questionPapers/components/ImportQuestionPaper.jsx', root), 'utf8')
 
 // The internal canonical package contract remains unchanged behind the UI.
 assert.match(packageFormat, /new Set\(\['\.xml', '\.zip', '\.cbtgen'\]\)/)

@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import assert from 'node:assert/strict'
 
-const clientPath = 'src/features/questionPapers/services/documentProcessingApi.js'
+const clientPath = 'apps/web/src/features/questionPapers/services/documentProcessingApi.js'
 const source = fs.readFileSync(clientPath, 'utf8')
 
 assert.match(source, /export async function cropPdfRegions\s*\(/)

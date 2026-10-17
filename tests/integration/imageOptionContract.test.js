@@ -4,9 +4,9 @@ import { readFile } from 'node:fs/promises'
 const root = new URL('../../', import.meta.url)
 const prompt = await readFile(new URL('docs/xml/CBTGen-AI-Conversion-Prompt-v1.0.md', root), 'utf8')
 const schema = await readFile(new URL('docs/xml/CBTGen-XML-Schema-v1.0.xsd', root), 'utf8')
-const validator = await readFile(new URL('src/lib/cbtgen/semanticValidator.js', root), 'utf8')
-const packageFormat = await readFile(new URL('src/lib/cbtgen/packageFormat.js', root), 'utf8')
-const paperModel = await readFile(new URL('src/lib/cbtgen/paperModel.js', root), 'utf8')
+const validator = await readFile(new URL('apps/web/src/lib/cbtgen/semanticValidator.js', root), 'utf8')
+const packageFormat = await readFile(new URL('apps/web/src/lib/cbtgen/packageFormat.js', root), 'utf8')
+const paperModel = await readFile(new URL('apps/web/src/lib/cbtgen/paperModel.js', root), 'utf8')
 
 assert.match(prompt, /IMAGE-BASED OPTIONS/)
 assert.match(prompt, /Every selectable image option MUST be:/)

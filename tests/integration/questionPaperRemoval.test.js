@@ -89,7 +89,7 @@ globalThis.localStorage.setItem('cbtgen_mock_db', JSON.stringify({
 globalThis.localStorage.setItem('cbtgen_user_email', 'student-a@example.com')
 globalThis.localStorage.setItem('cbtgen_logged_in', 'true')
 
-const { cbtgenApi } = await import('../../src/lib/api/cbtgenApi.js')
+const { cbtgenApi } = await import('../../apps/web/src/lib/api/cbtgenApi.js')
 
 const removable = await cbtgenApi.questionPapers.getLifecycle('qp-unattempted')
 assert.equal(removable.success, true)
