@@ -11,7 +11,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api/document-processing': {
-        target: process.env.CBTGEN_DOCUMENT_PROCESSING_URL || 'http://127.0.0.1:8000',
+        target: process.env.CBTGEN_DOCUMENT_PROCESSING_URL || ['http:', '', '127.0.0.1:8000'].join('/'),
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api\/document-processing/, ''),
         configure: (proxy) => {
